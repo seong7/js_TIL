@@ -95,3 +95,68 @@ console.log(typeof x);  /* undefined 출력  */
 var x, y;
 x = y = (3 + 5) *4 -6;
 console.log(x, y); /* 26 26   출력함  */
+
+
+/************************
+* if / else statements
+*/
+
+var firstName = 'John';
+var civilStatus = 'single';
+
+if (civilStatus === 'married'){
+    console.log(firstNmae + ' is married!');
+}else{
+
+}
+
+/*  && and    || or   ! not  */
+
+
+
+/*********************
+ * The Ternary Operator and Switch Statements
+ */
+
+ var firstNmae = 'john';
+ var age = 16;
+
+ age>=18 ? console.log(firstName + ' drinks beer.')
+ : console.log(firstName + ' drinks juice.');
+
+ var drink = age >= 18 ? 'beer' : 'juice';
+ //  오른쪽의 ternary operator 가 먼저 도록 drink 결과 return
+
+ /*** switch statement */
+
+  // String 이용
+ var job = 'teacher';
+ switch(job){
+    case 'teacher':
+        console.log(firstNmae + ' teaches kids how to code.');
+        break;
+    case 'driver':
+        console.log(2);
+        break;
+
+    default:
+        console.log('default Message');
+        /* break 필요 없음 */
+ }
+
+
+  // condition statement 이용
+  age = 56;
+  switch (true) {
+      case age < 13:
+          console.log(firstName + ' is a boy.');
+          break;
+      case age >= 13 && age < 20:
+          console.log(firstName + ' is a teenager.');
+          break;
+      case age >= 20 && age < 30:
+          console.log(firstName + ' is a young man.');
+          break;
+      default:
+          console.log(firstName + ' is a man.');
+  }
