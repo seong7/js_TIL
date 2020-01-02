@@ -160,3 +160,39 @@ if (civilStatus === 'married'){
       default:
           console.log(firstName + ' is a man.');
   }
+
+
+
+  /*****************************************
+   *  Truthy and Falsy values and equality operators
+   * */
+
+   // falsy values : undefined, null, 0, '', NaN 
+   // Truthy values : NOT falsy values
+
+   var height;
+
+   if(height){
+       console.log('Variable is defined');   // height 가 undefined || null || '' || 0 || NaN  일 때 출력됨
+   } else {
+       console.log('Variable is NOT defined  :  falsy value');
+    }
+
+    // 0 또는 '' 을 구분하는 방법 :
+
+    if(height || height ===0 || height === ''){
+        console.log('Variable is defined');
+    } else {
+
+    }
+
+
+    // Equality operators
+    /* 
+        중요 !!
+        == operator does type coercion!
+        === operator does NOT do type coercion! 
+    */
+    
+    console.log(23 == '23');  // true (type coercion)
+    console.log(23 === '23'); // false (type coercion X)
