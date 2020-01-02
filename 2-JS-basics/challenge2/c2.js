@@ -18,32 +18,72 @@ var teamJohnScores = [89, 120, 103];
 var teamMikeScores = [116, 94, 123];
 var teamMaryScores = [97, 134, 105];
 var avgListToCompare = [];
+var teamNameList = [];
 var num = 0;
 
-function getAvg(scoreListOfaTeam){
+function getAvg(teamName, scoreListOfaTeam){
+    teamNameList.push(teamName);
 
     var sum = 0;  /* 꼭 initiate 해야함  */
-    
     for(var i=0; i<scoreListOfaTeam.length; i++){
         sum += scoreListOfaTeam[i];
-        //console.log(scoreListOfaTeam[i]);
     }
-    //console.log(sum);
-    //console.log(scoreListOfaTeam.length);
     var avg = sum/scoreListOfaTeam.length;
-    //console.log(avg);
     storeAvg(avg);
 }
 
 function storeAvg(avg){
-        num = avgListToCompare.length;
-        avgListToCompare[num];
-        console.log(avgListToCompare[num] + ' ' + avgListToCompare.length);
-        console.log(avgListToCompare.length);
+    num = avgListToCompare.length;
+    avgListToCompare[num] = avg;
+    if(avgListToCompare.length > 2){
+        var promptTxt = prompt('end?');
+        if(promptTxt == 'yes'){
+            compareAvg(avgListToCompare);
+        } else{
+            return;
+        }
+    }
 }
 
 function compareAvg(avgListToCompare){
-    for(var i=0; i<avgListToCompere.length; i++){
+    // avg 비교하여 순서대로 출력하기
+    for(var i=0; i<avgListToCompare.length; i++){
+        var minValue = avgListToCompare[i];
+        var minValue_num = 0;
+        var current = avgListToCompare[i];
 
+        var minValue_teamName = teamNameList[i];
+        var current_teamName = teamNameList[i];
+
+        for(var j=i+1; j<avgListToCompare.length; j++){
+            if(minValue > avgListToCompare[j]){
+                minValue = avgListToCompare[j];
+                minValue_num = j;
+
+                minValue_teamName = teamNameList[j];
+            }
+        }
+        if(minValue_num!=0){
+            avgListToCompare[i] = minValue;
+            avgListToCompare[minValue_num] = current;
+
+            teamNameList[i] = minValue_teamName;
+            teamNameList[minValue_num] = current_teamName;
+        }
+    }
+
+    printComponents(avgListToCompare, teamNameList);
+}
+
+function printComponents(avgArray, nameArray){
+    for(var i=0; i<nameArray.length; i++){
+        console.log(nameArray[i]);
+        for(var j=0; j<avgArray.length; j++){
+            console.log(avgArray[i]);
+        }
     }
 }
+
+getAvg('John', teamJohnScores);
+getAvg('Mary', teamMaryScores);
+getAvg('Mike', teamMikeScores);
