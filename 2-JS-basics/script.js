@@ -233,13 +233,15 @@ if (civilStatus === 'married'){
     * Function Statements and Expressions
     * 
     *          Statement 는 expression 과 다르게 return 값이 없으므로 console에 ' undefined ' 출력됨 
-    *          즉, return 값이 있으면 expression 임
+    *          즉, return 값이 있는 모든 식은 expression 임
+    *              ( console.log() 는 값을 출력하는 statement 일 뿐 return값이 없어 undefined 출력된다. )
     */
     
-    // Function declaration
-    // function whatDoYouDo(job, firstName) {}
-    // Function expression
-    var whatDoYouDo = function(job, firstName) {
+    // Function declaration  (기본적인 문법)
+    /* => */ function whatDoYouDo(job, firstName) {}
+
+    // Function expression  ()
+    /* => */ var whatDoYouDo = function(job, firstName) {
         switch(job) {
             case 'teacher':
                 return firstName + ' teaches kids how to code';   // expression
@@ -325,7 +327,7 @@ if (civilStatus === 'married'){
 
     
     /*****************************
-    * Objects and methods
+    * Objects and methods      ( this 사용  /  method를 통해 object에 property, value 추가 )
     */
 
     var john = {
@@ -335,10 +337,47 @@ if (civilStatus === 'married'){
         family: ['Jane', 'Mark', 'Bob', 'Emily'],
         job: 'teacher',
         isMarried: false,
-        calcAge: function() {
-            this.age = 2018 - this.birthYear;
+        calcAge: function(){   // object 안에 function 을 선언할 때는 property  :  function() {} 의 형태를 사용한다.
+            this.age =  2018-this.birthYear;  /* this.(property) 는 항상 현재 해당 property 의 value 를 return 한다. */
         }
     };
-    john.calcAge();
-    console.log(john);
+
+    //console.log(john.calcAge());
+    john.calcAge();  // function 을 통해 age 라는 property 가 object 에 추가된다 !!
+
+
     
+/*****************************
+* Loops and iteration
+*/
+
+// for loop
+var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
+for(var i=0; i<john.length; i++){
+    console.log(john[i]);
+}
+
+// while loop
+var i = 0;
+while(i<john.length){
+    console.log(john[i]);
+    i++;
+}
+
+// continue and break statements
+var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
+
+for(var i = 0; i<john.length; i++){
+    if(typeof john[i] !== 'string') continue;
+    console.log(john[i]);
+}
+
+for(var i=0; i<john.length; i++){
+    if(typeof john[i] !== 'string') break;
+    console.log(john[i]);
+}
+
+//// Looping backwards   (거꾸로 loop) 
+for (var i = john.length - 1; i >= 0; i--) {
+    console.log(john[i]);
+}
