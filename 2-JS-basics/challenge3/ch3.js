@@ -75,7 +75,7 @@ function getTipRate(bill){
 
     if(bill < 50){
         tipRate = 0.2;
-    } else if(bill >= 50 && bill <= 200){
+    } else if(bill >= 50 && bill < 200){     //between : 적은수 포함 큰 수 미포함 !!!
         tipRate = 0.15;
     } else {
         tipRate = 0.1;
