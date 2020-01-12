@@ -1,5 +1,6 @@
 # js_TIL
 javascript Today I Learned
+<hr/>
 
 <h3>Code Link List</h3>
 <ol>
@@ -139,7 +140,7 @@ javascript Today I Learned
         </ol>
     </li><br/>
 </ol>
-
+<hr/>
 
 
 <h3>Reference Link List</h3>
