@@ -2,7 +2,7 @@
 javascript Today I Learned
 <hr/>
 
-<h3>Code Link List</h3>
+<h3>Language Basics</h3>
 <ol>
     <li>
         Variables and Data Types
