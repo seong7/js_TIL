@@ -2,7 +2,7 @@
 javascript Today I Learned
 <hr/>
 
-<h3>Language Basics</h3>
+<h2>Language Basics</h2>
 <ol>
     <li>
         Variables and Data Types
@@ -155,7 +155,7 @@ javascript Today I Learned
 </ol>
 <hr/>
 
-<h3>How JavaScript Works</h3>
+<h2>How JavaScript Works</h2>
 <ol>
     <li>
         Hoisting
@@ -192,10 +192,10 @@ javascript Today I Learned
         </ul>
     </li>
 </ol>
-    
+<hr/>    
 
 
-<h3>Reference Link List</h3>
+<h2>Reference Link List</h2>
 <ul>
     <li>
         js 연산 처리 순서표 : 
