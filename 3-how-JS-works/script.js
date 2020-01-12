@@ -74,7 +74,7 @@ console.log(age);  //_ 23
 
 // First scoping example
 
-/*
+
 var a = 'Hello!';
 first();
 function first() {
@@ -85,13 +85,13 @@ function first() {
         console.log(a + b + c);
     }
 }
-*/
+
 
 
 
 // Example to show the differece between execution stack and scope chain
 
-/*
+
 var a = 'Hello!';
 first();
 function first() {
@@ -104,11 +104,17 @@ function first() {
 }
 function third() {
     var d = 'John';
-    console.log(a + b + c + d);
+    //console.log(a + b + c + d);  __ error :  b 와 c 호출 불가
+
+    /*second();  __ error : 'third()' execution context object 의 scope chain 에는
+     *                      'function second()' 가 존재 하지 않으므로 (호출 불가)*/
+
 }
-*/
+
 
 
 
 ///////////////////////////////////////
 // Lecture: The this keyword
+
+console.log(this);
