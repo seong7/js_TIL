@@ -117,4 +117,54 @@ function third() {
 ///////////////////////////////////////
 // Lecture: The this keyword
 
-console.log(this);
+console.log(this);  // __ global execution context object 의 'this' : Window object 출력됨
+                    // Window object : default object 라는 점 기억하기
+
+
+calculateAge(1985); // 35 __ 2020-1985 출력됨
+
+function calculateAge(year){
+    console.log(2020 - year);
+    console.log(this); // Window object 출력 
+    /* 
+        !!!!!!!!! 중요 !!!!!!!!!!
+        method (object 내의 fucntion) 가 아닌 function 의 
+        'this' 는 항상 Window object 를 가리킨다.
+
+          이유 : method 가 아닌 function 은 'Global object' 의 function 임 
+    */
+}
+
+
+var john = {
+    name: 'John',
+    yearOfBirth: 1990,
+    calculateAge: function(){
+        console.log(this);  // __ john object 출력
+        console.log(2020 - this.yearOfBirth);
+
+
+        // function innerFunction(){
+        //     console.log(this);  // __ Window object 출력 
+        //     /*
+        //         function declaration 내의 'this' 는
+        //         항상 global object 'Window' 를 나타냄
+        //          : js community 에서도 논란이 많은 부분임 
+        //             _ but, at least broswer  에서는 이렇게 작동된다는 점 기억하기
+        //     */
+        // }
+
+        // innerFunction();
+    }
+}
+
+john.calculateAge();   // __ function 을 호출할 때는 '변수명 + ()' 사용 
+
+
+var mike = {
+    name: 'Mike',
+    yearOfBirth: 1984
+}
+    //method browing !!!!
+mike.calculateAge = john.calculateAge;  // __ function 을 호출이 아니므로 '()' 필요 없음 
+mike.calculateAge();
