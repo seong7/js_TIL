@@ -9,14 +9,9 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, gamePlaying;
 
-reset();
-function reset(){
-    scores = [0, 0];
-    roundScore = 0;
-    activePlayer = 0;
-};
+init();
 
 
 /* 
@@ -40,14 +35,14 @@ document.querySelector('#current-0').textContent = dice;
                                                                 // <em> : emphasize _ intalic 처리 함
 
 /* getter */                                                                
-var x = document.querySelector('#score-0').textContent;
+//var x = document.querySelector('#score-0').textContent;
 
-/* setter */
-document.querySelector('.dice').style.display = 'none';
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
+/* setter   ( init()에 포함되었음 )*/
+// document.querySelector('.dice').style.display = 'none';
+// document.getElementById('score-0').textContent = '0';
+// document.getElementById('score-1').textContent = '0';
+// document.getElementById('current-0').textContent = '0';
+// document.getElementById('current-1').textContent = '0';
 
 
 /* event */
@@ -65,55 +60,65 @@ document.getElementById('current-1').textContent = '0';
 
 // 'ROLL' 버튼 Event Listener
 document.querySelector('.btn-roll').addEventListener('click', function(){    // anonymouse function 이용
-    
-    // Anonymouse function 실행문  : 해당 eventListerner function 내에서만 사용 가능
+    // Anonymouse function 실행문  : 해당 eventListerner function 내에서만 실행 가능한 구역
 
-
-    // 1. Random Number
-    var dice = Math.floor(Math.random()*6) +1;
-
-    // 2. Display the result
-    var diceDOM = document.querySelector('.dice'); 
-    diceDOM.style.display = 'block';
-    diceDOM.src = 'dice-'+ dice + '.png'; // src 로 쓰면 <img> 의 src 를 조작 가능
-
-    // 3. Update the round score IF the rolled number was NOT a 1 
-    if(dice !== 1){
-        // Add Score
-        roundScore += dice;
-        document.querySelector('#current-' + activePlayer).textContent =  roundScore; 
-    }else{
-        nextPlayer();        
+    // Is game is playing now ?
+    if(gamePlaying){
+        
+        // 1. Random Number
+        var dice = Math.floor(Math.random()*6) +1;
+        
+        // 2. Display the result
+        var diceDOM = document.querySelector('.dice'); 
+        diceDOM.style.display = 'block';
+        diceDOM.src = 'dice-'+ dice + '.png'; // src 로 쓰면 <img> 의 src 를 조작 가능
+        
+        // 3. Update the round score IF the rolled number was NOT a 1 
+        if(dice !== 1){
+            // Add Score
+            roundScore += dice;
+            document.querySelector('#current-' + activePlayer).textContent =  roundScore; 
+        }else{
+            nextPlayer();        
+        }
+        
     }
-
 });
 
 
 // 'HOLD' 버튼 Event Listener
 document.querySelector('.btn-hold').addEventListener('click', function(){
-    // 1. Add CURRENT Score to GLOBAL Score 
-    scores[activePlayer] += roundScore;  // activePlayer 번호가 scores 배열의 자리수 나타냄
-
-    // 2. Update the UI
-    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
-
-
-    // 3. Check If a Player Won The Game
-    if(scores[activePlayer] >= 20){
-        // Change player name 
-        document.querySelector('#name-' + activePlayer).textContent = 'WINNER!'; 
-
-        // Dice Display 'none'
-        document.querySelector('.dice').style.display = 'none';
-
-        // Class 조작하여 CSS 변경
+    // Is game is playing now ?
+    if(gamePlaying){
+        
+        // 1. Add CURRENT Score to GLOBAL Score 
+        scores[activePlayer] += roundScore;  // activePlayer 번호가 scores 배열의 자리수 나타냄
+        
+        // 2. Update the UI
+        document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+        
+        
+        // 3. Check If a Player Won The Game
+        if(scores[activePlayer] >= 20){
+            
+            // game stops
+            gamePlaying = false;
+            
+            // Change player name 
+            document.querySelector('#name-' + activePlayer).textContent = 'WINNER!'; 
+            
+            // Dice Display 'none'
+            document.querySelector('.dice').style.display = 'none';
+            
+            // Class 조작하여 CSS 변경
             // CSS property 를 하나하나 먹이는 것보다 아래처럼 class 를 조작해주는 것이 효율적임
-        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-    } else{
-        // 4. Next Player
-        nextPlayer();
-    };
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        } else{
+            // 4. Next Player
+            nextPlayer();
+        };
+    }
 });
 
 
@@ -137,13 +142,30 @@ function nextPlayer(){
         document.querySelector('.dice').style.display='none';
 };
 
-document.querySelector('.btn-new').addEventListener('click', function(){
-    reset();
+// new Game 버튼  Event Listener
+// document.querySelector('.btn-new').addEventListener('click', function(){
+//     init();
+// });              // 위보다 아래가 더 효율적임
+document.querySelector('.btn-new').addEventListener('click', init); //  function 호출에 () 가 붙지 않는 것 주의
+
+
+function init(){
+    scores = [0, 0];
+    roundScore = 0;
+    activePlayer = 0;
+    gamePlaying = true;
+
     document.querySelector('.dice').style.display = 'none';
     document.getElementById('score-0').textContent = '0';
     document.getElementById('score-1').textContent = '0';
     document.getElementById('current-0').textContent = '0';
     document.getElementById('current-1').textContent = '0';
-});
-
-
+    document.querySelector('#name-0').textContent = 'Player 1';
+    document.querySelector('#name-1').textContent = 'Player 2';
+    document.querySelector('.player-0-panel').classList.remove('winner');
+    document.querySelector('.player-1-panel').classList.remove('winner');
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
+    document.querySelector('.player-0-panel').classList.add('active');  // 최초에 player 0 이 active 임
+                                                                        // remove 를 먼저해줘야 class가 중복 추가 되는 것을 막을 수 있음
+};
