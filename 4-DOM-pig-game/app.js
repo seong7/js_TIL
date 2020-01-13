@@ -41,11 +41,9 @@ document.querySelector('#current-0').textContent = dice;
 
 /* getter */                                                                
 var x = document.querySelector('#score-0').textContent;
-console.log(x);
 
-
+/* setter */
 document.querySelector('.dice').style.display = 'none';
-
 document.getElementById('score-0').textContent = '0';
 document.getElementById('score-1').textContent = '0';
 document.getElementById('current-0').textContent = '0';
@@ -64,8 +62,9 @@ document.getElementById('current-1').textContent = '0';
                                             // callback function : 직접 function 을 call 하지 않고 
                                             //                     function 에 매개변수로 다른 fucntion 을 주는 것 
 
-    // anonymouse function 이용
-document.querySelector('.btn-roll').addEventListener('click', function(){
+
+// 'ROLL' 버튼 Event Listener
+document.querySelector('.btn-roll').addEventListener('click', function(){    // anonymouse function 이용
     
     // Anonymouse function 실행문  : 해당 eventListerner function 내에서만 사용 가능
 
@@ -90,7 +89,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 });
 
 
-
+// 'HOLD' 버튼 Event Listener
 document.querySelector('.btn-hold').addEventListener('click', function(){
     // 1. Add CURRENT Score to GLOBAL Score 
     scores[activePlayer] += roundScore;  // activePlayer 번호가 scores 배열의 자리수 나타냄
@@ -111,7 +110,6 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
             // CSS property 를 하나하나 먹이는 것보다 아래처럼 class 를 조작해주는 것이 효율적임
         document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
         document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-        
     } else{
         // 4. Next Player
         nextPlayer();
@@ -119,6 +117,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 });
 
 
+// player 바꾸는 function
 function nextPlayer(){
         // Next Player
         activePlayer === 0 ? activePlayer=1 : activePlayer=0;
@@ -137,3 +136,14 @@ function nextPlayer(){
 
         document.querySelector('.dice').style.display='none';
 };
+
+document.querySelector('.btn-new').addEventListener('click', function(){
+    reset();
+    document.querySelector('.dice').style.display = 'none';
+    document.getElementById('score-0').textContent = '0';
+    document.getElementById('score-1').textContent = '0';
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+});
+
+
