@@ -465,4 +465,6 @@ jasonFriendly('dinner');
 
 
 var emilyFormal = jason.presentation.bind(emily, 'formal');
-emilyFormal('afternoon'); 
+emilyFormal('afternoon');
+
+
