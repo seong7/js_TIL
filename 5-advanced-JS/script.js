@@ -419,7 +419,7 @@ closureInterviewQuestion('teacher')('John');
 ////////////////////////////////////////////////////////////
 
 
-/***  Bind, Call and Apply  ***/
+/***  Bind, Call and Apply  이용해 method borrowing ***/
 
 var jason = {
     name : 'Jason',
@@ -463,8 +463,31 @@ var jasonFriendly = jason.presentation.bind(jason, 'friendly');
 jasonFriendly('evening'); // 남은 매개변수 넣어주기
 jasonFriendly('dinner');
 
-
 var emilyFormal = jason.presentation.bind(emily, 'formal');
 emilyFormal('afternoon');
 
 
+/*  예시  */
+var years2 = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc2(arr, fn){
+    var arrRed = [];
+    for(var i=0; i<arr.length; i++ ){
+        arrRed.push(fn(arr[i]));  // 매개변수 하나만 받음
+    }
+    return arrRed;
+}
+function calculateAge3(el){  //el  :  element
+    return 2020 - el;
+}
+
+// arrayCalc2 에 매개변수로 보내려면 매개변수 한개를 preset 해야함
+function isFullAge2(limit, el){
+    return el >= limit;
+}
+
+var ages2 = arrayCalc2(years, calculateAge3); // calculateAge3 : call back function 
+var fullKorea = arrayCalc2(ages, isFullAge2.bind(this, 19));  // method 아니므로 this 는 그냥 써줌 (안 중요)
+                                                              // 먼저 순서인 parameter 'limit' 에 19 로 preset
+console.log(ages2);
+console.log(fullKorea);
