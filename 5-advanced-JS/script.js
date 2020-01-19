@@ -292,7 +292,7 @@ interviewQuestion('teacher')('Seongjin');
 /***  IIFE  ***/
 
 /***  [이피] (Immegiately Invoked Function Expression) ***/
-/***  선언과 동시에 호출되는 function expression  ***/
+/***  선언과 동시에 호출되는 function expression (한번만 호출 가능) ***/
 /** data privacy 목적으로 사용 **/
 
 //** 일반적인 방식
@@ -308,16 +308,161 @@ interviewQuestion('teacher')('Seongjin');
     console.log(score >= 5);
 }) ();
 
-//console.log(score);  __ error
+//console.log(score);  __ error (scope가 다름)
 
 
 
 (function (goodLuck) {
     var score = Math.random() * 10;
     console.log(score >= 5 - goodLuck);
-}) (5);
+}) (5);  //_ parameter  gooLuck 을 넣는 방법
 
 /*
     외부 scope 에서 접근할 수 없는 scope 이므로 data privacy 확보
     그리고, global execution context 의 다른 변수들을 방해하지 않음 (안전함)
+    한번만 호출가능함  
+    (challenge 에서 실제 사용 예시 _필요성_ 다룸)
  */
+
+ 
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+
+/******************/
+/***  Closures  ***/
+/*** (매우 중요) ***/
+
+/*
+*   inner function 은 항상 outer function 에 선언된 
+*   variable과 parameter에 접근 가능하다.
+*   심지어, outer function 이 return을 한 후에도 가능하다
+*   즉, outer function 의 execution context 가 excution stack에서 pop off 된 후에도
+*   접근 가능하다
+*
+*
+*   <*** 중요 **>
+*   이유 : VO(Variable Object) 는 각 Function 의 EC (Execution context) 가
+*   pop off 된 후에도 intact(온전) 하게 유지된다.
+*   
+*     ==>
+*   
+*   outer function 의 EC 가 pop off 된 후에도 VO 는 여전히 유지되므로
+*   그 다음 생성된 inner function 의 EC 는 scope 에 해당 VO 를 포함시킨다.
+*    --> 접근 가능
+*/
+
+function retirement(retirementAge){
+    var a = ' years left until retirement.';
+    return function(yearOfBirth){
+        var age = 2020 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+// 비교적 포괄적인 (generic) 기능의 retirement function 을 "closure" 를 사용해
+// 더 specific 한 function 으로 사용할 수 있게됨 
+
+var retirementUS = retirement(66);  // __ 위에 선언한 익명 function 의 retirementAge 의 값이 정해진 채로 function return 됨
+retirementUS(1992); // __ return 된 익명클래스에 yearOfBirth 를 대입
+retirement(66)(1992); //__ 이와 같은 방법으로도 사용 가능
+
+var retirementGermany = retirement(65);
+var retirementKorea = retirement(60);
+retirementGermany(1992);  //__ 출력문 : "37 years left until retirement."
+retirementKorea(1992);   //__ 출력문 : "32 years left until retirement."
+
+
+
+// 'closure' challenge
+// interviewQuestion function => closure 이용하여 재구성하기
+        // 핵심은 outer function 의 VO 를 inner function 에서 접근하는 것 !
+        // job 변수에 접근할 수 있으므로 바로 return 익명 function 안에 결과 도출 코드 작성 가능
+function closureInterviewQuestion(job){
+    return function(name){
+        if(job === 'designer'){
+            console.log(name + ', can you please explain what UX design is?');
+        }else if(job === 'teacher'){
+            console.log('What subject do you teach, ' + name + '?');
+        }else {
+            console.log('Hello ' + name + ', what do you do?');
+        }
+    }
+}
+closureInterviewQuestion('teacher')('John');
+
+// closure 사용 전 원래 function :
+    // job 변수의 케이스마다 function 각각 선언했음
+
+// function interviewQuestion(job){
+//     if(job === 'designer'){
+//         return function(name){  // anonymous function 
+//             console.log(name + ', can you please explain what UX design is?');
+//         }
+//     } else if(job === 'teacher'){
+//         return function(name){
+//             console.log('What subject do you teach, ' + name + '?');
+//         }
+//     }   else{
+//         return function(name){
+//             console.log('Hello ' + name + ', what do you do?');
+//         }
+//     }
+// }
+
+
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+
+/***  Bind, Call and Apply  ***/
+
+var jason = {
+    name : 'Jason',
+    age : 29,
+    job : 'teacher',
+    presentation : function(style, timeOfDay){
+        if(style === 'formal'){
+            console.log('Good ' + timeOfDay + ', ' +
+            'ladies and gentlemen! I\'m ' + this.name + '. ' + 
+            'I\'m a ' + this.job + '. ' + 
+            'I\'m ' + this.age + ' years old.');
+        }else if(style === 'friendly'){
+            console.log('Hey! What\'s up? ' + 
+            'I\'m ' + this.name + '. ' + 
+            'I\'m a ' + this.job + 
+            ' and I\'m ' + this.age + ' years old. ' + 
+            'Have a nice ' + timeOfDay + '.');
+        }
+    }
+};
+
+var emily = {
+    name : 'Emily',
+    age : 35,
+    job : 'designer'
+};
+
+jason.presentation('formal', 'morning');
+
+
+/*  call , apply 이용해 method borrowing */
+jason.presentation.call(emily, 'friendly', 'afternoon');
+        // 매개변수 : (this 값 , 매개변수 list)
+jason.presentation.apply(emily, ['formal', 'afternoon']); 
+        // 매개변수 : (this 값 , 매개변수 array)
+
+
+/* bind 이용해 method 의 parameter 중 일부를 preset 해주기  */
+var jasonFriendly = jason.presentation.bind(jason, 'friendly');
+                            // 매개변수 : (this 값 , 매개변수 list)
+jasonFriendly('evening'); // 남은 매개변수 넣어주기
+jasonFriendly('dinner');
+
+
+var emilyFormal = jason.presentation.bind(emily, 'formal');
+emilyFormal('afternoon'); 
