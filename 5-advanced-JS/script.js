@@ -4,13 +4,13 @@
 모든 JS 객체는 prototype property 를 가지고 있다. 
 
 prototype property 내에 다른 객체들이 상속받을 수 있는 method 와 property 를 정의할 수 있다.
-    - inheritance (상속) 는 해당 객체의 상위 객체 또는 constructor 의 prototype 에 접속할 수 있음을 의미함
-    - 즉, prototype 의 method 와 property 는 하위 객체에 실제로 작성되는 것이 아니라 하위 객체가 접속하여 호출할 수 있음  
+    - inheritance (상속) 는 해당 객체의 상위 객체 또는 constructor 의 prototype 에 접근할 수 있음을 의미함
+    - 즉, prototype 의 method 와 property 는 하위 객체에 실제로 작성되는 것이 아니라 하위 객체가 접근하여 호출할 수 있는 것임  
 
 Constructor (다른 언어의 class) 의 prototype property 는 해당 Constructor 의 instance 들 (생성된 객체) 의 prototype가 된다.
     - Constructor 자체의 prototype 이 아닌 점 주의 !
 
-method 가 호출되면 해당 객체에서 search 가 시작되어 객체의 prototype으로 올라간다. 
+method 가 호출되면 해당 method를 찾기 위해 method 의 객체에서부터 search 가 시작되어 객체의 prototype으로 올라간다. 
     - 이 것이 prototype chain 
     - 최상위 객체인 Object 객체에서도 해당 method를 찾지 못하면 return undefined
 */
@@ -19,20 +19,20 @@ method 가 호출되면 해당 객체에서 search 가 시작되어 객체의 pr
 
 // 객체 (instance / object) 를 생성하는 두가지 방법을 통해 Prototype 에 대해 알아봄 : 
 
-/*** Function constructor ***/
+/*** Function constructor 으로 객체를 생성하는 방법 ***/
     
     // function constructor 의 variable naming 은 첫 글자 대문자로
 var Person = function(name, yearOfBirth, job){
     this.name = name;
     this.yearOfBirth = yearOfBirth;
     this.job = job;
-    // this.calculateAge = function(){     // prototype 에 작성됨
+    // this.calculateAge = function(){     // prototype 에 작성됨 : 55 line
     //     console.log(2020 - this.yearOfBirth)
     // }
     
-    //return 'ss';         -- function constructor 도 return 값을 가져도 됨
-    //console.log(this);   -- 이 또한 method 가 아니므로 this 는 Window object 가리킴 
-    //return this;              -- 위와 동일
+    //return 'ss';         -- function constructor 도 return 값을 가질 수 있다.
+    //console.log(this);   -- 이 또한 method 가 아니므로 this 는 Window object 가리킴  (method 내의 this 만 해당 객체를 가리킨다.)
+    //return this;              -- 위와 동일 (this --> Window object)
 }
 
     // constructor "Person" 이용해 john 객체 생성
@@ -65,7 +65,7 @@ var mark = new Person('Mark', 1948, 'retired');
 john.calculateAge();
 jane.calculateAge();
 mark.calculateAge();
-                                // calculateAge() 와 lastName 은 jane, mark 의
+                                // calculateAge() 와 lastName 은 john, jane, mark 객체의 prototype 에 있음
 console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
@@ -74,14 +74,16 @@ console.log(mark.lastName);
 console.log(john.__proto__ === Person.prototype); // __true 출력
                                     // __proto__ : prototype
                                     // .prototype : prototype property
+                                    // === : type coercion X
 
-// john 객체의 prototype 에 있는 function 사용 (Object 의 prototype property 에 존재함)
+// john 객체의 prototype 에 있는 내장 function 들 사용하기 (Object 의 prototype property 에 자동 선언됨)
 console.log(john.hasOwnProperty('job')); // __ true
-console.log(john.hasOwnProperty('lastName')); // __ false  ( 직접 가지고 있지 않음 )
+console.log(john.hasOwnProperty('lastName')); // __ false  ( 직접 가지고 있지 않음 __proto__ 에 있음)
 console.log(john instanceof Person); // __ true
 console.log(john instanceof Object); // __ true
 
 
+                    // *** 중요 ***
 var x = [2, 4, 6];  // x 는 Array constructor 의 instance 임
                     // 즉, Array constructor 의 prototype property 에 있는
                     // push, pop 등의 function 을 prototype 에 가지고 있음 (접근할 수 있음)
@@ -94,6 +96,7 @@ console.info(x);    // browser console 에서 확인가능
 
 /***  Object.create()  ****/
 //    : 매개변수로 prototype 을 넣어 객체를 생성해주는 방법
+//    : 객체의 property 는 객체 생성 시 직접 선언해주어야함
 
 var personProto = {
     calculateAge: function(){
@@ -101,14 +104,14 @@ var personProto = {
     }
 };
 
-var jack  = Object.create(personProto);
-jack.name = 'Jack';
+var jack  = Object.create(personProto);  // personProto 객체를 prototype 으로 받음 
+jack.name = 'Jack';                     // property 는 직접 선언해야함
 jack.yearOfBirth = 1990;
 jack.job = 'teacher';
 
 
-var maria = Object.create(personProto, {
-    name: {value: 'Maria'},
+var maria = Object.create(personProto, {  // prototype 받고 property 는 직접 선언
+    name: {value: 'Maria'},                 // property 는 객체형태로 선언되어야함.
     yearOfBirth: {value: 1969},
     job: {value: 'designer' }
 });
@@ -127,7 +130,7 @@ var maria = Object.create(personProto, {
  
     둘의 가장 큰 차이점 :
 
-    primitives : 변수가 해당 data 를 가지고 있음
+    primitives : 변수가 해당 data 의 값을 직접 가지고 있음
     object : 변수가 해당 object 를 가리키고 있을 뿐 가지고 있지는 않음
  */
 
@@ -217,11 +220,11 @@ function calculateAge2(el){  //el  :  element
 
 var ages = arrayCalc(years, calculateAge2);
 // callback function 으로 입력 _ () 가 없는 호출  // arrayCalc 에서는 () 사용됨
-// : function 을 호출하는 것이 아니므로
+// : function 을 호출하는 것이 아니고 매개 변수로 삽입하는 것이므로.
 console.log(ages);  // __ 나이가 계산된 arrRed 가 출력됨
 
 
-/* 다른 function 을 arrayCalc() 에 사용할 수 있음 */
+/* 위에서 값이 변한 ages 를 다시 arrayCalc() 에 매개변수로 사용할 수 있음 */
 
 // full age (성인) 인지 확인하는 function
 function isFullAge(el){
@@ -246,6 +249,7 @@ console.log(rates);
 ///////////////////////////////////////////
 
 // function 을 return 하는 function
+    // 익명 function 을 return 하여 해당 function 이 동일한 변수명을 가진채로 대체됨
 
 function interviewQuestion(job){
     if(job === 'designer'){
@@ -291,14 +295,14 @@ interviewQuestion('teacher')('Seongjin');
 /***  선언과 동시에 호출되는 function expression  ***/
 /** data privacy 목적으로 사용 **/
 
-// 일반적인 방식
+//** 일반적인 방식
 // function game(){
-//     var score = Math.random() * 10;
+//     var score = Math.random() * 10;  // 0과 1 사이의 소수에 10을 곱하여 랜덤한 integer 로 만듬
 //     console.log(score >= 5);
 // }
 // game();
 
-// IIFE 방식
+//**  IIFE 방식
 (function () {
     var score = Math.random() * 10;
     console.log(score >= 5);
