@@ -456,6 +456,11 @@ jason.presentation.call(emily, 'friendly', 'afternoon');
 jason.presentation.apply(emily, ['formal', 'afternoon']); 
         // 매개변수 : (this 값 , 매개변수 array)
 
+// Test 
+//var bindingTest = function(timeOfDay){
+//     jason.presentation.bind(emily, 'friendly')
+// }
+
 
 /* bind 이용해 method 의 parameter 중 일부를 preset 해주기  */
 var jasonFriendly = jason.presentation.bind(jason, 'friendly');
@@ -487,7 +492,9 @@ function isFullAge2(limit, el){
 }
 
 var ages2 = arrayCalc2(years, calculateAge3); // calculateAge3 : call back function 
-var fullKorea = arrayCalc2(ages, isFullAge2.bind(this, 19));  // method 아니므로 this 는 그냥 써줌 (안 중요)
-                                                              // 먼저 순서인 parameter 'limit' 에 19 로 preset
+var fullKorea = arrayCalc2(ages2, isFullAge2.bind(this, 19));  // method 아니므로 this 는 그냥 써줌 (안 중요)
+// function isFullAge2 의 먼저 순서인 parameter 'limit' 을 19 로 preset
+// arrayCalc2 에서 나머지 parameter 'el' 에 값이 들어감
+
 console.log(ages2);
 console.log(fullKorea);
