@@ -18,17 +18,108 @@
 
 // closure 사용하기 !
 
-function Question(question, answers, correctAnswer){  // descrie a question ( function constructor )
+var contents = document.querySelectorAll('.content');
+var mainBtns = document.querySelectorAll('.mainBtn');
+var quizzes = [];
+var activeBtn;
+var storage = window.localStorage;
+
+init();
+
+function Question(question, answers, correctAnswer){  // describe a question ( function constructor )
+    this.quizNum = quizzes.length+1;
     this.question = question,
     this.answers = answers,
-    this.correctAnswer = correctAnswer
+    this.correctAnswer = correctAnswer;
 };
-
 var questions = [];
-
-Question.prototype.pickARandomQ = function(questions, number){
-    
+Question.prototype.showQuiz = function(){
+    setTextContext('#quizNumShow', this.quizNum);
+    setTextContext('#questionShow', this.question);
+    setTextContext('#answer1Show', '1번 :' + this.answers[0]);
+    setTextContext('#answer2Show', '2번 :' + this.answers[1]);
 }
 Question.prototype.checkTheAnswer = function(number){
-
+    
 }
+
+// closure 사용
+function getARandomQuiz(){
+    var quizNum = Math.floor(Math.random()*quizzes.length)+1;
+    return function(){
+        if(!document.querySelector('#btn-2').classList.contains('activeBtn') && quizzes.length != 0){
+            quizzes[quizNum-1].showQuiz();
+        }
+    }
+}
+
+function createQuiz(){
+    var question = getValue('#question');
+    var answers = [];
+    answers.push(getValue('#answer-1'));
+    answers.push(getValue('#answer-2'));
+    var correctAnswer = getValue('#correctAnswer');
+    var quiz = new Question(question, answers, correctAnswer);
+
+    quizzes.push(quiz);
+    var jsonString = JSON.stringify(quiz);
+
+   
+    let storageSize = storage.length;
+
+    storage.setItem(storageSize+1, jsonString);
+    // storage.getItem();
+
+
+    clearNewQuiz();
+    toggleDisplayNone(document.querySelector('#con-1'));
+    toggleActiveBtn(document.querySelector('#btn-1'));
+};
+
+function clearNewQuiz(){
+    setValue('#question', '');
+    setValue('#answer-1', '');
+    setValue('#answer-2', '');
+    setValue('#correctAnswer', '');
+};
+
+function getValue(selector){
+    return document.querySelector(selector).value;
+};
+
+function setValue(selector, value){
+    document.querySelector(selector).value = value;
+};
+
+function setTextContext(selector, value){
+    document.querySelector(selector).textContent = value;
+}
+
+function setDisplayNone(el){
+    el.classList.add('displayNone');
+};
+
+function toggleDisplayNone(el){
+    el.classList.toggle('displayNone');
+};
+
+function toggleActiveBtn(el){
+    el.classList.toggle('activeBtn');
+}
+
+
+function init(){
+
+   contents.forEach(el => setDisplayNone(el));
+   mainBtns.forEach(el => el.addEventListener('click', function(){
+        toggleActiveBtn(el);
+        if(el.id === 'btn-1'){
+            activeBtn = 1;
+        }else if(el.id === 'btn-2'){
+            activeBtn = 2;
+        }else{
+            activeBtn = 3;
+        }
+        toggleDisplayNone(document.querySelector('#con-'+activeBtn));
+   }));
+};

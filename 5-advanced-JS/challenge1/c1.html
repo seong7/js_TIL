@@ -1,8 +1,97 @@
 <!DOCTYPE html>
 <head>
-    <script src="c1.js">
-    </script>
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="c1.css"/>
+        <html>
+    </head>
+    <body>
+        <div id="allWrapper">
+            <header>
+                <h1>Quiz Game</h1>
+            </header>
+            <div id="quizeWrapper">
+                <ul>
+                    <li>
+                        <input id="btn-1" class="mainBtn" type="button" value="문제 등록"/>
+                        <div id="con-1" class="content">
+                            <div>
+                                <span>문제</span>
+                                <input id="question" type="text" placeholder="문제를 입력하세요."/>
+                            </div>
+                            <div>
+                                <div>
+                                    <span>보기</span>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            1 : <input id="answer-1" type="text" placeholder="보기 1번"/>
+                                        </li>
+                                        <li>
+                                            2 : <input id="answer-2" type="text" placeholder="보기 2번"/>
+                                        </li>
+                                        <li>
+                                            정답 : <input id="correctAnswer" type="text" placeholder="정답"/>
+                                        </li>
+                                        <li>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <input class="submit" type="button" value="등록" onclick="createQuiz()"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <input id="btn-2" class="mainBtn" type="button" value="랜덤 문제 풀기" onclick="getARandomQuiz()()"/>
+                        <div id="con-2" class="content">
+                            <ul>
+                                <li>
+                                    <div>문제번호 : <span id="quizNumShow"></span></div>
+                                    <div>문제 : <span id="questionShow"></span></div>
+                                </li>
+                                <li>
+                                    보기
+                                    <ul>
+                                        <li><input type="radio" name="answers" value="1"><span id="answer1Show"></span></li>
+                                        <li><input type="radio" name="answers" value="2"><span id="answer2Show"></span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div>
+                                <input class="submit" type="button" value="제출"/>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <input class="mainBtn" type="button" value="등록된 문제 보기" onclick=""/>
+                        <div id="con-3" class="content">
+                            <ul>
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <div>문제번호 : <span></span></div>
+                                            <div>문제 : <span></span></div>
+                                        </li>
+                                        <li>
+                                            보기
+                                            <ul>
+                                                <li> 1: <span></span></li>
+                                                <li> 2: <span></span></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     
-</body>
+
+        
+        <script src="c1.js"></script>
+    </body>
+</html>
