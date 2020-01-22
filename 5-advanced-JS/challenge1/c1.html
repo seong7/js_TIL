@@ -20,23 +20,19 @@
                             </div>
                             <div>
                                 <div>
-                                    <span>보기</span>
-                                </div>
-                                <div>
                                     <ul>
-                                        <li>
-                                            1 : <input id="answer-1" type="text" placeholder="보기 1번"/>
+                                        <li class="answers">
+                                            <span>1 :</span>
+                                            <input id="answer-1" type="text" placeholder="보기 1번"/>
                                         </li>
-                                        <li>
-                                            2 : <input id="answer-2" type="text" placeholder="보기 2번"/>
-                                        </li>
-                                        <li>
-                                            정답 : <input id="correctAnswer" type="text" placeholder="정답"/>
-                                        </li>
-                                        <li>
-                                        </li>
+                                        <li class="answers">
+                                            <span>2 :</span>
+                                            <input id="answer-2" type="text" placeholder="보기 2번"/>
+                                        </li class="answers">
                                     </ul>
                                 </div>
+                                <span>정답</span>
+                                <input id="correctAnswer" type="text" placeholder="정답"/>
                                 <div>
                                     <input class="submit" type="button" value="등록" onclick="createQuiz()"/>
                                 </div>
@@ -48,19 +44,24 @@
                         <div id="con-2" class="content">
                             <ul>
                                 <li>
-                                    <div>문제번호 : <span id="quizNumShow"></span></div>
-                                    <div>문제 : <span id="questionShow"></span></div>
+                                    <div><span>번호 :</span><span id="quizNumShow"></span></div>
+                                    <div><span>문제 :</span><span id="questionShow"></span></div>
                                 </li>
                                 <li>
-                                    보기
                                     <ul>
-                                        <li><input type="radio" name="answers" value="1"><span id="answer1Show"></span></li>
-                                        <li><input type="radio" name="answers" value="2"><span id="answer2Show"></span></li>
+                                        <li class="answers">
+                                            <span>1 :</span>
+                                            <span id="answer1Show"></span>
+                                        </li class="answers">
+                                        <li class="answers">
+                                            <span>2 :</span>
+                                            <span id="answer2Show"></span>
+                                        </li class="answers">
                                     </ul>
                                 </li>
                             </ul>
                             <div>
-                                <input class="submit" type="button" value="제출"/>
+                                <input class="submit" type="button" value="정답 입력" onclick="openPrompt()"/>
                             </div>
                         </div>
                     </li>
@@ -71,14 +72,13 @@
                                 <li>
                                     <ul>
                                         <li>
-                                            <div>문제번호 : <span></span></div>
-                                            <div>문제 : <span></span></div>
+                                            <div><span>문제번호 : </span><span></span></div>
+                                            <div><span>문제 : </span><span></span></div>
                                         </li>
                                         <li>
-                                            보기
                                             <ul>
-                                                <li> 1: <span></span></li>
-                                                <li> 2: <span></span></li>
+                                                <li class="answers"><span>1: </span><span></span></li class="answers">
+                                                <li class="answers"><span>2: </span><span></span></li class="answers">
                                             </ul>
                                         </li>
                                     </ul>

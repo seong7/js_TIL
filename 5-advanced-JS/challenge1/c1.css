@@ -1,5 +1,5 @@
 body {
-  color: coral;
+  color: #fa561a;
   width: 100%;
   height: 100%;
   font-family: 'Nanum Gothic', sans-serif;
@@ -30,12 +30,12 @@ body {
   width: 900px;
   height: 900px;
   background-color: rgba(252, 252, 242, 0.5);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   border-radius: 10px;
 }
 
-#allWrapper #quizWrapper {
+#allWrapper #quizeWrapper {
   width: 700px;
 }
 
@@ -52,28 +52,60 @@ body {
   border-radius: 5px;
   color: grey;
   background-color: #eeeeee;
-  cursor: pointer;
   margin: 5px;
 }
 
 #allWrapper .content {
   margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  padding-left: 50px;
 }
 
 #allWrapper .content input {
   border: 0.5px solid #cccccc;
   border-radius: 5px;
+  display: inline-block;
+  width: 300px;
+  height: 30px;
+  padding-left: 20px;
+}
+
+#allWrapper .content span {
+  margin-right: 25px;
 }
 
 #allWrapper .content .submit {
   border: 0px;
-  size: 16px;
+  size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
   font-family: inherit;
-  height: 20px;
+  height: 40px;
+  display: block;
+  width: 200px;
+  padding: 0px;
+  margin-top: 10px;
 }
 
 #allWrapper .content ul li {
   margin: 5px;
+}
+
+#allWrapper .content ul li input {
+  margin-left: -7px;
+}
+
+#allWrapper .content .answers {
+  margin-left: 20px;
 }
 
 #allWrapper .displayNone {
@@ -83,5 +115,13 @@ body {
 #allWrapper .activeBtn {
   color: #333;
   background-color: #FFED90;
+}
+
+#allWrapper input[type="button"] {
+  cursor: pointer;
+}
+
+#allWrapper input:hover {
+  border: 1px solid #FAE960;
 }
 /*# sourceMappingURL=c1.css.map */

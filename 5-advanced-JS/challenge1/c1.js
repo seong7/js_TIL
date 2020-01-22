@@ -34,10 +34,10 @@ function Question(question, answers, correctAnswer){  // describe a question ( f
 };
 var questions = [];
 Question.prototype.showQuiz = function(){
-    setTextContext('#quizNumShow', this.quizNum);
-    setTextContext('#questionShow', this.question);
-    setTextContext('#answer1Show', '1번 :' + this.answers[0]);
-    setTextContext('#answer2Show', '2번 :' + this.answers[1]);
+    setTextContext('#quizNumShow', ' '+this.quizNum);
+    setTextContext('#questionShow', ''+this.question);
+    setTextContext('#answer1Show', this.answers[0]);
+    setTextContext('#answer2Show', this.answers[1]);
 }
 Question.prototype.checkTheAnswer = function(number){
     
@@ -76,6 +76,20 @@ function createQuiz(){
     toggleActiveBtn(document.querySelector('#btn-1'));
 };
 
+function checkPattern(userAnswer){
+    return /[1|2]/.exec(userAnswer);
+}
+
+function openPrompt(){
+    var userAnswer = prompt('정답을 입력하세요', '');
+    
+    if(!checkPattern(userAnswer)){
+        alert('숫자 1 또는 2 를 입력하세요.')
+    }else{
+        
+    }
+}
+
 function clearNewQuiz(){
     setValue('#question', '');
     setValue('#answer-1', '');
@@ -93,6 +107,8 @@ function setValue(selector, value){
 
 function setTextContext(selector, value){
     document.querySelector(selector).textContent = value;
+    document.querySelector(selector).style.color = '#555555';
+
 }
 
 function setDisplayNone(el){
