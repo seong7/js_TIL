@@ -83,7 +83,6 @@ function getAQuiz(sequence){
             if((!document.querySelector('#btn-2').classList.contains('activeBtn')
                 || quizNum === 'nextQuiz')
                 && quizzes.length != 0){
-                console.log('33');
                 var randomNum = Math.floor(Math.random()*quizzes.length)+1;
                 quizzes[randomNum-1].showQuiz();
             }
@@ -119,13 +118,13 @@ function setAnswerBtn(flag){
 var answerBtn = document.querySelector('#answerBtn');
 var continueBtn = document.querySelector('#continueBtn');
 var stopBtn = document.querySelector('#stopBtn');
+
 (function(){
     answerBtn.addEventListener('click', openPrompt);
     continueBtn.addEventListener('click', function(){
         getARandomQuiz('nextQuiz');
     });
     stopBtn.addEventListener('click', function(){
-        addDisplayNone('#optionBtnWrapper');
         addDisplayNone('#con-2');
         removeActiveBtn('#btn-2');
         resetRandomQuiz();
@@ -139,17 +138,17 @@ function checkArrows(){
         오른쪽 x : 마지막일때
     */
     if(quizzes.length === 1){
-        addDisplayNone(forwardArrow);
-        addDisplayNone(backArrow);
+        addDisplayNone('#forwardArrow');
+        addDisplayNone('#backArrow');
     }else if(currentQuiz.quizNum === quizzes.length){
-        addDisplayNone(forwardArrow);
-        removeDisplayNone(backArrow);
+        addDisplayNone('#forwardArrow');
+        removeDisplayNone('#backArrow');
     }else if(currentQuiz.quizNum === 1){
-        addDisplayNone(backArrow);
-        removeDisplayNone(forwardArrow);
+        addDisplayNone('#backArrow');
+        removeDisplayNone('#forwardArrow');
     }else{
-        removeDisplayNone(forwardArrow);
-        removeDisplayNone(backArrow);
+        removeDisplayNone('#forwardArrow');
+        removeDisplayNone('#backArrow');
     }
 }
 
