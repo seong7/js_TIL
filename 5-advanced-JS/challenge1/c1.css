@@ -35,7 +35,7 @@ body {
   border-radius: 10px;
 }
 
-#allWrapper #quizeWrapper {
+#allWrapper #quizWrapper {
   width: 700px;
 }
 
@@ -94,6 +94,18 @@ body {
   width: 200px;
   padding: 0px;
   margin-top: 10px;
+  position: relative;
+  left: 190px;
+}
+
+#allWrapper .content .greenBtn {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#bce0b4), to(#32a852)) !important;
+  background-image: linear-gradient(to bottom, #bce0b4, #32a852) !important;
+}
+
+#allWrapper .content .redBtn {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7706e), to(#ff2123)) !important;
+  background-image: linear-gradient(to bottom, #f7706e, #ff2123) !important;
 }
 
 #allWrapper .content ul li {
@@ -106,6 +118,38 @@ body {
 
 #allWrapper .content .answers {
   margin-left: 20px;
+}
+
+#allWrapper .content #con-3Wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#allWrapper .content #con-3Wrapper .icon_wrapper {
+  width: 10%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#allWrapper .content #con-3Wrapper .icon_wrapper .material-icons {
+  font-size: 40px !important;
+  cursor: pointer;
+  color: #f18158;
+}
+
+#allWrapper .content #con-3Wrapper .icon_wrapper .material-icons:hover {
+  color: #ebe379;
+  font-size: 50px !important;
+}
+
+#allWrapper .content #con-3Wrapper #quizUlWrapper {
+  width: 80%;
 }
 
 #allWrapper .displayNone {

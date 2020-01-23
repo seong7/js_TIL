@@ -2,14 +2,15 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="c1.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <html>
     </head>
-    <body>
+    <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
         <div id="allWrapper">
             <header>
                 <h1>Quiz Game</h1>
             </header>
-            <div id="quizeWrapper">
+            <div id="quizWrapper">
                 <ul>
                     <li>
                         <input id="btn-1" class="mainBtn" type="button" value="문제 등록"/>
@@ -40,50 +41,69 @@
                         </div>
                     </li>
                     <li>
-                        <input id="btn-2" class="mainBtn" type="button" value="랜덤 문제 풀기" onclick="getARandomQuiz()()"/>
+                        <input id="btn-2" class="mainBtn" type="button" value="랜덤 문제 풀기" onclick="getARandomQuiz()"/>
                         <div id="con-2" class="content">
                             <ul>
                                 <li>
-                                    <div><span>번호 :</span><span id="quizNumShow"></span></div>
-                                    <div><span>문제 :</span><span id="questionShow"></span></div>
+                                    <div><span>번호 :</span><span class="quizNumShow"></span></div>
+                                    <div><span>문제 :</span><span class="questionShow"></span></div>
                                 </li>
                                 <li>
                                     <ul>
                                         <li class="answers">
                                             <span>1 :</span>
-                                            <span id="answer1Show"></span>
+                                            <span class="answer1Show"></span>
                                         </li class="answers">
                                         <li class="answers">
                                             <span>2 :</span>
-                                            <span id="answer2Show"></span>
+                                            <span class="answer2Show"></span>
                                         </li class="answers">
                                     </ul>
                                 </li>
                             </ul>
                             <div>
-                                <input class="submit" type="button" value="정답 입력" onclick="openPrompt()"/>
+                                <input id="answerBtn" class="submit" type="button" value="정답 입력" onclick="openPrompt()"/>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <input class="mainBtn" type="button" value="등록된 문제 보기" onclick=""/>
+                        <input id="btn-3" class="mainBtn" type="button" value="등록된 문제 보기" onclick="getTheNumOfQuiz(1)"/>
                         <div id="con-3" class="content">
-                            <ul>
-                                <li>
+                            <div id="con-3Wrapper">
+                                <div class="icon_wrapper">
+                                    <i id="backArrow" class="material-icons">
+                                        arrow_back_ios
+                                    </i>
+                                </div>
+                                <div id="quizUlWrapper">
                                     <ul>
                                         <li>
-                                            <div><span>문제번호 : </span><span></span></div>
-                                            <div><span>문제 : </span><span></span></div>
+                                            <div><span>번호 :</span><span class="quizNumShow"></span></div>
+                                            <div><span>문제 :</span><span class="questionShow"></span></div>
                                         </li>
                                         <li>
                                             <ul>
-                                                <li class="answers"><span>1: </span><span></span></li class="answers">
-                                                <li class="answers"><span>2: </span><span></span></li class="answers">
+                                                <li class="answers">
+                                                    <span>1 :</span>
+                                                    <span class="answer1Show"></span>
+                                                </li class="answers">
+                                                <li class="answers">
+                                                    <span>2 :</span>
+                                                    <span class="answer2Show"></span>
+                                                </li class="answers">
                                             </ul>
                                         </li>
+                                        <li>
+                                            <span>(정답 :</span><span class="correctAnswerShow"></span><span>)</span>
+                                        </li>
                                     </ul>
-                                </li>
-                            </ul>
+                                 </div>      
+                                <div class="icon_wrapper">
+                                    <i id="forwardArrow" class="material-icons">
+                                        arrow_forward_ios
+                                    </i>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>
