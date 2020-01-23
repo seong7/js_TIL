@@ -291,7 +291,7 @@ interviewQuestion('teacher')('Seongjin');
 
 /***  IIFE  ***/
 
-/***  [이피] (Immegiately Invoked Function Expression) ***/
+/***  [이피] (Immediately Invoked Function Expression) ***/
 /***  선언과 동시에 호출되는 function expression (한번만 호출 가능) ***/
 /** data privacy 목적으로 사용 **/
 

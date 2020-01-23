@@ -118,7 +118,7 @@ function setAnswerBtn(flag){
 var answerBtn = document.querySelector('#answerBtn');
 var continueBtn = document.querySelector('#continueBtn');
 var stopBtn = document.querySelector('#stopBtn');
-
+// IIFE (Immediately Invoked Function Expression) 사용
 (function(){
     answerBtn.addEventListener('click', openPrompt);
     continueBtn.addEventListener('click', function(){
