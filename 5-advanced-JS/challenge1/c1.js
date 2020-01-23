@@ -24,6 +24,8 @@
 9. Be careful: after Task 8, the game literally never ends.
    So include the option to quit the game if the user writes 'exit' instead of the answer. 
    In this case, DON'T call the function from task 8.
+
+
 10. Track the user's score to make the game more fun! So each time an answer is correct, add 1 point to the score 
    (Hint: I'm going to use the power of closures for this, but you don't have to, just do this with the tools you feel more comfortable at this point).
 11. Display the score in the console. Use yet another method for this.
@@ -59,13 +61,15 @@ Question.prototype.showQuiz = function(){
 }
 Question.prototype.checkTheAnswer = function(userAnswer){
     if(this.correctAnswer === userAnswer){
-        addGreenBtn(document.querySelector('#answerBtn'));
-        removeRedBtn(document.querySelector('#answerBtn'));
+        addGreenBtn('#answerBtn');
+        removeRedBtn('#answerBtn');
+        removeDisplayNone('#optionBtnWrapper');
         setAnswerBtn('green')();
         setValue('#answerBtn', '정답');
     }else{
-        addRedBtn(document.querySelector('#answerBtn'));
-        removeGreenBtn(document.querySelector('#answerBtn'));
+        addRedBtn('#answerBtn');
+        removeGreenBtn('#answerBtn');
+        addDisplayNone('#optionBtnWrapper');
         setAnswerBtn('red')();
         setValue('#answerBtn', '오답');
     }
@@ -76,7 +80,10 @@ function getAQuiz(sequence){
     return function(quizNum){
         if(sequence === 'random'){
             resetRandomQuiz();
-            if(!document.querySelector('#btn-2').classList.contains('activeBtn') && quizzes.length != 0){
+            if((!document.querySelector('#btn-2').classList.contains('activeBtn')
+                || quizNum === 'nextQuiz')
+                && quizzes.length != 0){
+                console.log('33');
                 var randomNum = Math.floor(Math.random()*quizzes.length)+1;
                 quizzes[randomNum-1].showQuiz();
             }
@@ -97,17 +104,33 @@ function setAnswerBtn(flag){
     var answerBtn = document.querySelector('#answerBtn');
     return function(){
         if(flag === 'red'){
-            answerBtn.onclick = openPrompt;
             answerBtn.style.cursor='pointer';
+            answerBtn.disabled = false;
         }else if(flag === 'green'){
-            answerBtn.onclick = '';
             answerBtn.style.cursor='default';
+            answerBtn.disabled = true;
         }else if(flag === 'reset'){
-            answerBtn.onclick = openPrompt;
             answerBtn.style.cursor='pointer';
+            answerBtn.disabled = false;
         }
     }
 }
+
+var answerBtn = document.querySelector('#answerBtn');
+var continueBtn = document.querySelector('#continueBtn');
+var stopBtn = document.querySelector('#stopBtn');
+(function(){
+    answerBtn.addEventListener('click', openPrompt);
+    continueBtn.addEventListener('click', function(){
+        getARandomQuiz('nextQuiz');
+    });
+    stopBtn.addEventListener('click', function(){
+        addDisplayNone('#optionBtnWrapper');
+        addDisplayNone('#con-2');
+        removeActiveBtn('#btn-2');
+        resetRandomQuiz();
+    });
+})();
 
 function checkArrows(){
     /*
@@ -192,8 +215,9 @@ function resetRandomQuiz(){
     setTextContext('.answer1Show', '');
     setTextContext('.answer2Show', '');
     setValue('#answerBtn', '정답 입력');
-    removeGreenBtn(document.querySelector('#answerBtn'));
-    removeRedBtn(document.querySelector('#answerBtn'));
+    removeGreenBtn('#answerBtn');
+    removeRedBtn('#answerBtn');
+    addDisplayNone('#optionBtnWrapper');
     setAnswerBtn('reset')();
 }
 
@@ -221,54 +245,55 @@ function setTextContext(selector, value){
     });
 }
 
-function addDisplayNone(el){
-    el.classList.add('displayNone');
+function addDisplayNone(selector){
+    document.querySelector(selector).classList.add('displayNone');
 };
 
-function removeDisplayNone(el){
-    el.classList.remove('displayNone');
+function removeDisplayNone(selector){
+    document.querySelector(selector).classList.remove('displayNone');
 }
-function removeActiveBtn(el){
-    el.classList.remove('activeBtn');
+function removeActiveBtn(selector){
+    document.querySelector(selector).classList.remove('activeBtn');
 }
 
-function toggleDisplayNone(el){
-    el.classList.toggle('displayNone');
+function toggleDisplayNone(selector){
+    document.querySelector(selector).classList.toggle('displayNone');
 };
 
-function toggleActiveBtn(el){
-    el.classList.toggle('activeBtn');
+function toggleActiveBtn(selector){
+    document.querySelector(selector).classList.toggle('activeBtn');
 }
 
-function addGreenBtn(el){
-    el.classList.add('greenBtn');
+function addGreenBtn(selector){
+    document.querySelector(selector).classList.add('greenBtn');
 }
 
-function removeGreenBtn(el){
-    el.classList.remove('greenBtn');
+function removeGreenBtn(selector){
+    document.querySelector(selector).classList.remove('greenBtn');
 }
 
-function addRedBtn(el){
-    el.classList.add('redBtn');
+function addRedBtn(selector){
+    document.querySelector(selector).classList.add('redBtn');
 }
 
-function removeRedBtn(el){
-    el.classList.remove('redBtn');
+function removeRedBtn(selector){
+    document.querySelector(selector).classList.remove('redBtn');
 }
 
 
 function init(){
 
-    removeRedBtn(document.querySelector('#answerBtn'));
-    removeGreenBtn(document.querySelector('#answerBtn'));
-    contents.forEach(el => addDisplayNone(el));
+    removeRedBtn('#answerBtn');
+    removeGreenBtn('#answerBtn');
+    addDisplayNone('#optionBtnWrapper');
+    contents.forEach(el => el.classList.add('displayNone'));
     mainBtns.forEach(el => el.addEventListener('click', function(){
         
         if((el.id ==='btn-2' || el.id === 'btn-3') && quizzes.length === 0 ){
             return;
         }
 
-        toggleActiveBtn(el);
+        el.classList.toggle('activeBtn');
         if(el.id === 'btn-1'){
             activeBtn = 1;
         }else if(el.id === 'btn-2'){
@@ -278,10 +303,10 @@ function init(){
         }
         for(var i=1; i<4; i++){
             if(i===activeBtn){
-                toggleDisplayNone(document.querySelector('#con-'+activeBtn));
+                toggleDisplayNone('#con-'+activeBtn);
             }else{
-                addDisplayNone(document.querySelector('#con-'+i));
-                removeActiveBtn(document.querySelector('#btn-'+i));
+                addDisplayNone('#con-'+i);
+                removeActiveBtn('#btn-'+i);
             }
         }
    }));

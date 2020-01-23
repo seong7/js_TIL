@@ -96,16 +96,38 @@ body {
   margin-top: 10px;
   position: relative;
   left: 190px;
+  color: black;
 }
 
 #allWrapper .content .greenBtn {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#bce0b4), to(#32a852)) !important;
-  background-image: linear-gradient(to bottom, #bce0b4, #32a852) !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#bce0b4), to(#5cf585)) !important;
+  background-image: linear-gradient(to bottom, #bce0b4, #5cf585) !important;
 }
 
 #allWrapper .content .redBtn {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f7706e), to(#ff2123)) !important;
   background-image: linear-gradient(to bottom, #f7706e, #ff2123) !important;
+}
+
+#allWrapper .content #optionBtnWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#allWrapper .content #optionBtnWrapper input {
+  width: 95px !important;
+}
+
+#allWrapper .content #optionBtnWrapper #continueBtn {
+  margin-right: 10px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#9db4ff), to(#5d7bff)) !important;
+  background-image: linear-gradient(to bottom, #9db4ff, #5d7bff) !important;
+}
+
+#allWrapper .content #optionBtnWrapper #stopBtn {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff9c9a), to(#ff7679)) !important;
+  background-image: linear-gradient(to bottom, #ff9c9a, #ff7679) !important;
 }
 
 #allWrapper .content ul li {
@@ -153,7 +175,7 @@ body {
 }
 
 #allWrapper .displayNone {
-  display: none;
+  display: none !important;
 }
 
 #allWrapper .activeBtn {
