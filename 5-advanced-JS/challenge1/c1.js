@@ -33,6 +33,7 @@
 
 // closure 사용하기 !
 
+
 var contents = document.querySelectorAll('.content');
 var mainBtns = document.querySelectorAll('.mainBtn');
 var backArrow = document.querySelector('#backArrow');
@@ -51,7 +52,7 @@ function Question(question, answers, correctAnswer){  // describe a question ( f
     this.correctAnswer = correctAnswer;
 };
 var questions = [];
-Question.prototype.showQuiz = function(){
+Question.prototype.displayQuiz = function(){
     currentQuiz = this;
     setTextContext('.quizNumShow', ' '+this.quizNum);
     setTextContext('.questionShow', ''+this.question);
@@ -84,11 +85,11 @@ function getAQuiz(sequence){
                 || quizNum === 'nextQuiz')
                 && quizzes.length != 0){
                 var randomNum = Math.floor(Math.random()*quizzes.length)+1;
-                quizzes[randomNum-1].showQuiz();
+                quizzes[randomNum-1].displayQuiz();
             }
         }else if(sequence === 'inOrder'){
             if(quizzes.length != 0){
-                quizzes[quizNum-1].showQuiz();
+                quizzes[quizNum-1].displayQuiz();
                 checkArrows();
             }
         }
