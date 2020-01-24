@@ -209,4 +209,10 @@ javascript Today I Learned
             JavaScript Event Reference (MDN)
         </a> 
     </li>
+    <li>
+        생성자의 Property 내 method의 장점 :
+        <a href="https://velog.io/@gtobio11/Javascript-Prototype-methods-vs-Object-methods">
+         참조 블로그
+        </a>
+    </li>
 </ul>
