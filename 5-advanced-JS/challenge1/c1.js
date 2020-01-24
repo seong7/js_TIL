@@ -60,20 +60,31 @@ Question.prototype.displayQuiz = function(){
     setTextContext('.answer2Show', this.answers[1]);
     setTextContext('.correctAnswerShow', this.correctAnswer);
 }
-Question.prototype.checkTheAnswer = function(userAnswer){
+
+// callback 사용
+Question.prototype.checkTheAnswer = function(userAnswer, callback){
+    var score;
     if(this.correctAnswer === userAnswer){
         addGreenBtn('#answerBtn');
         removeRedBtn('#answerBtn');
         removeDisplayNone('#optionBtnWrapper');
         setAnswerBtn('green')();
         setValue('#answerBtn', '정답');
+        score = callback(true);
     }else{
         addRedBtn('#answerBtn');
         removeGreenBtn('#answerBtn');
         addDisplayNone('#optionBtnWrapper');
         setAnswerBtn('red')();
         setValue('#answerBtn', '오답');
+        score = callback(false);
     }
+
+    this.displayScore(score);
+}
+
+Question.prototype.displayScore = function(score){
+    console.log('Your current score is : ' + score);
 }
 
 // closure 사용
@@ -95,10 +106,27 @@ function getAQuiz(sequence){
         }
     }
 }
-
-
 var getARandomQuiz = getAQuiz('random');
 var getTheNumOfQuiz = getAQuiz('inOrder');
+
+
+// closure 의 내부 function 은 outer function 의 변수의 value 를 기억한다. 
+function updateScore(){
+    var score = 0;
+    return function(correct){
+        if(correct){
+            score++;
+        }
+        return score;
+    }
+}
+var keepScore = updateScore(); 
+        // 외부 function 을 변수에 담아줘야 내부 function 만 호출할 수 있다.
+        // 외부 function 을 새로 호출하지 않으면 외부 function 의 변수인 score 를
+        // score 가 browser memory 에 유지되고 내부 function 이 접근할 수 있으므로
+        // score 를 안전하게 보호할 수 있다.  (__ 외부 function 새로 호출하면 )
+        // (Java 에서 private 변수에 대한 getter/ setter 느낌)
+
 
 function setAnswerBtn(flag){
     var answerBtn = document.querySelector('#answerBtn');
@@ -193,7 +221,7 @@ function openPrompt(){
     var userAnswer = (prompt('정답을 입력하세요', ''));
     if(userAnswer){
         if(checkAnswerPattern(userAnswer)){
-            currentQuiz.checkTheAnswer(userAnswer);
+            currentQuiz.checkTheAnswer(userAnswer, keepScore);
         }
     }
 }
