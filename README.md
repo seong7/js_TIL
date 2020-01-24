@@ -196,7 +196,7 @@ javascript Today I Learned
 
 <h2>Advanced JavaScript</h2>
 정리 파일로 이동
-<a href="5-advanced-JS/readme2.md">
+<a href="5-advanced-JS/summary.md">
     >>>
 </a>
 <hr/>
