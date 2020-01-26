@@ -222,8 +222,8 @@ javascript Today I Learned
         </a>
     </li>
     <li>
-        keyboard 의 'keycode', 'unicode', 'url encoded' 참조 :
-        <a herf="http://keycodes.atjayjo.com/">
+        keyboard 의 'keycode, unicode, url encoded' 참조 :
+        <a href="http://keycodes.atjayjo.com/">
             참조 사이트
         </a>
     </li>
