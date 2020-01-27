@@ -56,7 +56,7 @@ javascript Today I Learned
     </li><br/>
     <li>
         Truthy and Falsy Values
-        <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L167">
+        <a href="https://github.com/seong7/js_TIL/blob/edbbf94c925b71d0f4aac18648dba082b1fd1630/2-JS-basics/script.js#L167">
             >>>
         </a>
         <ol>
