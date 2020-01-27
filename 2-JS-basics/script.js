@@ -173,9 +173,9 @@ if (civilStatus === 'married'){
    var height;
 
    if(height){
-       console.log('Variable is defined');   // height 가 undefined || null || '' || 0 || NaN  일 때 출력됨
+       console.log('Variable is defined');
    } else {
-       console.log('Variable is NOT defined  :  falsy value');
+       console.log('Variable is NOT defined  :  falsy value');   // height 가 undefined || null || '' || 0 || NaN  일 때 출력됨
     }
 
     // 0 또는 '' 을 구분하는 방법 :

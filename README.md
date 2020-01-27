@@ -56,7 +56,7 @@ javascript Today I Learned
     </li><br/>
     <li>
         Truthy and Falsy Values
-        <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L167">
+        <a href="https://github.com/seong7/js_TIL/blob/edbbf94c925b71d0f4aac18648dba082b1fd1630/2-JS-basics/script.js#L167">
             >>>
         </a>
         <ol>
@@ -129,6 +129,17 @@ javascript Today I Learned
         </a>
         <ol>
             <li>object 는 value 에 index 대신 이름(key) 을 주어 사용할 수 있음</li>
+            <li>
+                object 내 property 호출 방법
+                <ol>
+                    <li>object.key</li>
+                    <li>object[variable for Key]  : 키 값을 동적으로 표현
+                        <a href="">
+                            >>>
+                        </a>
+                    </li>
+                </ol>
+            </li>
         </ol>
     </li><br/>
     <li>
