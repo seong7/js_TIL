@@ -1,5 +1,5 @@
 /*
-  
+
  App-Structure 설계 
  
   1. To-Do List 나열
@@ -10,7 +10,7 @@
     Calculate Budget
     Update the UI
   
-  2. Module 로 세분화
+  2. Module 3개로 To-Do List 분류
     - UI Module
         Get input values
         Add the new item to the UI
@@ -28,7 +28,7 @@
         - data encapsulation
             -> module 내 private variable, function 선언하여 안전한 scope 생성
             -> 원하는 경우 public method 또한 선언 (public interface 또는 API 라고 불림)
-        - 원할 경우 각각의 Module 만 다른 코드에 사용가능함 (separation of concerns)
+        - 원할 경우 각각의 Module 만 추출하여 다른 앱에 사용가능함 (separation of concerns)
             -> 각각의 Module 은 서로의 존재를 모르는 상태로 동작함 (분리됨)
 
 
@@ -149,16 +149,41 @@ var UIController = (function(){
             }
 
             
-            // Replace the placeholder text with some actual data
-            newHtml = html.replace('%id%', obj.id);
+            // Replace the placeholder text with some actual data (String data 다루기)
+            newHtml = html.replace('%id%', obj.id);     
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', obj.value);
 
             
             // Insert the HTML into the DOM
-            document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+            document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);  
+                // String 으로 적힌 HTML 요소를 지정한 요소의 'beforeend' _ 닫는 위치 앞에 삽입
         },
         
+        clearFields: function(){
+            var fields, fieldsArr;
+
+            fields = document.querySelectorAll(DOMStrings.inputDescription + ', ' + DOMStrings.inputValue);
+                        // Html 요소를 LIST 형태로 return               // , 사용할 수 있음 !
+
+            // LIST -> Array 로 변환 
+            fieldsArr = Array.prototype.slice.call(fields);
+            // slice method 의 원래 사용법 :  (Array _function constructor_ 의 prototype 내 메소드임)
+                //  fieldsArr.slice();   (fieldsArr 가 Array type 이라면) 
+                //  ==>  array 의 복사본 array 를 return 함 (param : 복사 시작과 끝 index)
+                
+                //  하지만 여기서 fieldsArr 은 List type 이므로 call method 를 통해 method borrowing 함
+                                                                                // 5장에서 배움
+                //  fields List 를 call method 의 (this) 매개변수로 지정
+            // Array.slice(fields);  ??  
+            
+            fieldsArr.forEach(function(current, i, arr){  // callback function (current element, index, entire array)
+                current.value = "";
+            });
+
+            fieldsArr[0].focus();  // add__description input 에 focus 줌
+        },
+
         getDOMstrings: function(){
             return DOMStrings;
         }
@@ -206,9 +231,12 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         // 3. Add the item to the UI controller
         UICtrl.addListItem(newItem, input.type);
 
-        // 4. Calculate the budget
+        // 4. Clear the fields
+        UICtrl.clearFields();
 
-        // 5. Display the budget on the UI
+        // 5. Calculate the budget
+
+        // 6. Display the budget on the UI
 
         
     };
