@@ -41,6 +41,9 @@
  */
 
 
+
+
+ 
  ///////////////////////////
  // BUDGET CONTROLLER Module
  ///////////////////////////
@@ -105,12 +108,16 @@
             return newItem;
         },
 
-        testing: function(){
+        testing: function(){  // 개발하는 동안 interner data 를 유용하게 확인 할 수 있도록 하는 method
             console.log(data);
         }
     }
      
 })();
+
+
+
+
 
 ///////////////////////////
 // UI CONTROLLER Module
@@ -131,7 +138,8 @@ var UIController = (function(){
             return {
                 type: document.querySelector(DOMStrings.inputType).value, // will be either 'inc' or 'exp'
                 description: document.querySelector(DOMStrings.inputDescription).value,
-                value: document.querySelector(DOMStrings.inputValue).value
+                // value: document.querySelector(DOMStrings.inputValue).value
+                value: parseFloat(document.querySelector(DOMStrings.inputValue).value)  // float 으로 변환
             };
         },
 
@@ -194,6 +202,9 @@ var UIController = (function(){
 })();
 
 
+
+
+
 ///////////////////////////
 // GLOBAL APP CONTROLLER
 ///////////////////////////
@@ -218,6 +229,17 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         });
     };
 
+    var updateBudget = function(){
+        
+        // 1. Calculate the budget
+
+        // 2. return the budget
+
+        // 3. Display the budget on the UI
+
+        
+    }
+
 
     var ctrlAddItem = function(){
         var input, newItem;
@@ -226,22 +248,27 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         input = UICtrl.getInput();
          // console.log(input);
 
-        // 2. Add the item to the budget controller
-        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-        //console.log(newItem);
+        if(input.description && !isNaN(input.value) && input.value > 0){      // input 예외 처리
+                                // isNaN 중요 !!
 
-        // 3. Add the item to the UI controller
-        UICtrl.addListItem(newItem, input.type);
-
-        // 4. Clear the fields
-        UICtrl.clearFields();
-
-        // 5. Calculate the budget
-
-        // 6. Display the budget on the UI
-
-        
+            
+            // 2. Add the item to the budget controller
+            newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+            //console.log(newItem);
+            
+            // 3. Add the item to the UI controller
+            UICtrl.addListItem(newItem, input.type);
+            
+            // 4. Clear the fields
+            UICtrl.clearFields();
+            
+            // 5. Calculate and update the budget
+            updateBudget();
+            
+        }
     };
+
+
 
     return{
         init: function(){
