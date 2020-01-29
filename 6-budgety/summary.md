@@ -55,13 +55,37 @@
     </li>
     <li>
       <p>
-        parseFloat 사용 방법
+        parseFloat 사용법
         <a href=""> >>> </a><br/>
       </p>   
     </li>
     <li>
       <p>
         String 에서 ' 와 " 의 사용법
+        <a href=""> >>> </a><br/>
+      </p>   
+    </li>
+    <li>
+      <p>
+        String replace 및 insertAdjecentHTML 사용법 
+        <a href=""> >>> </a><br/>
+      </p>   
+    </li>
+    <li>
+      <p>
+        List -> Array 변환 (.querySelectAll 의 요소에 사용)
+        <a href=""> >>> </a><br/>
+      </p>   
+    </li>
+    <li>
+      <p>
+        keypress 이벤트 사용법
+        <a href=""> >>> </a><br/>
+      </p>   
+    </li>
+    <li>
+      <p>
+        isNan 사용법
         <a href=""> >>> </a><br/>
       </p>   
     </li>

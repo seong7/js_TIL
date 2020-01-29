@@ -162,7 +162,6 @@ var UIController = (function(){
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', obj.value);
 
-            
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);  
                 // String 으로 적힌 HTML 요소를 지정한 요소의 'beforeend' _ 닫는 위치 앞에 삽입
@@ -249,7 +248,7 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
          // console.log(input);
 
         if(input.description && !isNaN(input.value) && input.value > 0){      // input 예외 처리
-                                // isNaN 중요 !!
+                            // isNaN => (number O => false / number X => true)
 
             
             // 2. Add the item to the budget controller
