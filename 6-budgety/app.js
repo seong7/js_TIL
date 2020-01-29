@@ -1,4 +1,5 @@
 /*
+    STEP 1 !!!!
 
  App-Structure 설계 
  
@@ -40,6 +41,22 @@
 
  */
 
+
+ /*
+ -------------------------------------
+
+    STEP 2 !!!!
+
+    App-Structure 설계 
+
+    1. To-Do List 나열
+      Add Event Handler : delete 버튼
+      Delete the item from our data structre
+      Delete the item to the UI
+      Re-calculate budget
+      Update the UI
+
+ */
 
 
 
