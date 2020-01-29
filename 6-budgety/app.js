@@ -64,6 +64,14 @@
     // var allExpenses = [];
     // var allIncomes = [];
     // var totalExpences = 0;
+
+    var calculateTotal = function(type){    // data.totals 의 값을 계산
+        var sum = 0;
+        data.allItems[type].forEach(function(cur){
+            sum += cur.value;  // =  (sum = sum + cur.value;)
+        });
+        data.totals[type] = sum;
+    };
     
     var data = {
         allItems: {
@@ -73,14 +81,14 @@
         totals:{
             exp: 0,
             inc: 0
-        }
-        // allExpenses: [],
-        // allIncomes: []
+        },
+        budget: 0, 
+        percentage: -1  // -1 : 값이 없는 경우
     };
 
     return {  // public methods 선언부 
 
-        addItem: function(type, des, value){
+        addItem: function(type, des, value){    // 새로운 data 생성 
             var newItem, ID;
 
             //Create new ID
@@ -108,6 +116,36 @@
             return newItem;
         },
 
+        calculateBudget: function(){        // 지출, 수익 변화에 따른 총 Budget 계산
+            
+            // calculate total income and expenses
+            calculateTotal('exp');
+            calculateTotal('inc');  // __ total 객체의 exp 와 inc 값 결정됨
+
+            // calculate the budget : income - expenses
+            data.budget = data.totals.inc - data.totals.exp;
+
+
+            // calculate the percentage of income that we spent
+
+            if(data.totals.inc > 0){    // 0으로 나누는 것을 방지 (0으로 나누면 Infinty return 함)
+                data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+                // Expences = 100 / Income = 300, spent 33.333% = 100/300 = 0.333 * 100
+            } else{
+                data.percentage = -1;   // -1 : 값이 없는 것을 의미함
+            }
+
+        },
+
+        getBudget: function(){      // return Budget 
+            return {
+                budget: data.budget,
+                totalInc: data.totals.inc,
+                totalExp: data.totals.exp,
+                percentage: data.percentage
+            }
+        },
+
         testing: function(){  // 개발하는 동안 interner data 를 유용하게 확인 할 수 있도록 하는 method
             console.log(data);
         }
@@ -124,17 +162,23 @@
 ///////////////////////////
 var UIController = (function(){
     
-    var DOMStrings = {
+    // class 명들을 미리 저장해두어 혼란 방지 /  html 수정 시 해당 객체만 수정하면 됨
+    var DOMStrings = {  
         inputType: '.add__type',
         inputDescription: '.add__description',
         inputValue: '.add__value',
         inputBtn: '.add__btn',
         incomeContainer: '.income__list',
-        expensesContainer: '.expenses__list'
+        expensesContainer: '.expenses__list',
+        budgetLabel: '.budget__value',
+        incomeLabel: '.budget__income--value',
+        expenseLabel: '.budget__expenses--value',
+        percentageLabel: '.budget__expenses--percentage'
     }
     
+    
     return {
-        getInput: function(){
+        getInput: function(){       // new Item 의 입력값 UI에서 가져오기
             return {
                 type: document.querySelector(DOMStrings.inputType).value, // will be either 'inc' or 'exp'
                 description: document.querySelector(DOMStrings.inputDescription).value,
@@ -143,7 +187,7 @@ var UIController = (function(){
             };
         },
 
-        addListItem: function(obj, type){
+        addListItem: function(obj, type){       // 새 Item 을 UI에 추가
             var html, newHtml, element;
 
             // Create HTML Sring with placeholder text
@@ -167,7 +211,7 @@ var UIController = (function(){
                 // String 으로 적힌 HTML 요소를 지정한 요소의 'beforeend' _ 닫는 위치 앞에 삽입
         },
         
-        clearFields: function(){
+        clearFields: function(){        // Item 입력창 비워주기
             var fields, fieldsArr;
 
             fields = document.querySelectorAll(DOMStrings.inputDescription + ', ' + DOMStrings.inputValue);
@@ -191,7 +235,20 @@ var UIController = (function(){
             fieldsArr[0].focus();  // add__description input 에 focus 줌
         },
 
-        getDOMstrings: function(){
+        displayBudget: function(obj){       // 총 Budget UI 업데이트
+
+            document.querySelector(DOMStrings.budgetLabel).textContent = obj.budget;
+            document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalInc;
+            document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExp;
+            
+            if(obj.percentage >0){
+                document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage;
+            }else{
+                document.querySelector(DOMStrings.percentageLabel).textContent = '---';
+            }
+        },
+
+        getDOMstrings: function(){         // 다른 Module 에서 사용하기 위해 DOMStrings return
             return DOMStrings;
         }
         
@@ -228,19 +285,7 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         });
     };
 
-    var updateBudget = function(){
-        
-        // 1. Calculate the budget
-
-        // 2. return the budget
-
-        // 3. Display the budget on the UI
-
-        
-    }
-
-
-    var ctrlAddItem = function(){
+    var ctrlAddItem = function(){       //  budgetCtrl 에서 새로운 data 생성 후 UI 에 새 item 추가하는 method
         var input, newItem;
 
         // 1. Get the filled input data
@@ -268,10 +313,30 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
     };
 
 
+    var updateBudget = function(){      // 총 Budget 업데이트 후 UI 에 반영
+        
+        // 1. Calculate the budget
+        budgetCtrl.calculateBudget();
+        
+        // 2. return the budget
+        var budget = budgetController.getBudget();
+
+        // 3. Display the budget on the UI
+        UICtrl.displayBudget(budget);
+        
+    };
+
+
 
     return{
-        init: function(){
+        init: function(){       // initiate 하기 위한 public method 선언
             console.log('Application has started.');
+            UICtrl.displayBudget({         // variable 없이 객체를 매개변수로 넣어줄 수 있음
+                budget: 0,
+                totalInc: 0,
+                totalExp: 0,
+                percentage: -1
+            });
             setupEventListeners();
         }
     };

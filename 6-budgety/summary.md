@@ -89,5 +89,19 @@
         <a href=""> >>> </a><br/>
       </p>   
     </li>
+    <li>
+      <p>
+        forEach 사용법
+        <a href=""> >>> </a><br/>
+        Array 객체의 method 임
+      </p>   
+    </li>
+    <li>
+      <p>
+        Percentage 구현 (반올림)
+        <a href=""> >>> </a><br/>
+        Math.round() : 가장 가까운 integer 값 return
+      </p>   
+    </li>
   </ul>
 
