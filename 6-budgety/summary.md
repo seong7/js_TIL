@@ -12,7 +12,8 @@
         Module 로 todo list 분류
         <ul>
           <li>
-            샘플 <a href=""> >>> </a>
+            Structure Sample (예시)
+            <a href=""> >>> </a>
           </li>
           <li>
             프로젝트 Module 
@@ -41,7 +42,7 @@
   <ul>
     <li>
       <p>
-        객체 내부에 객체 선언
+        객체 내부에 객체 선언 방법
         <a href=""> >>> </a>
       </p>   
     </li>
@@ -50,6 +51,18 @@
         객체 내 property 동적인 호출 방법
         <a href=""> >>> </a><br/>
         object[key]
+      </p>   
+    </li>
+    <li>
+      <p>
+        parseFloat 사용 방법
+        <a href=""> >>> </a><br/>
+      </p>   
+    </li>
+    <li>
+      <p>
+        String 에서 ' 와 " 의 사용법
+        <a href=""> >>> </a><br/>
       </p>   
     </li>
   </ul>

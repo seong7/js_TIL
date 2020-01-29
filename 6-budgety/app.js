@@ -100,9 +100,9 @@
 
             // Push item into data struture;
             data.allItems[type].push(newItem);
-            // console.log(data.allItems.exp);
-            // console.log(data.allItems.inc);
-            // console.log(data.allItems);
+                // console.log(data.allItems.exp);
+                // console.log(data.allItems.inc);
+                // console.log(data.allItems);
 
             // Return the new element
             return newItem;
