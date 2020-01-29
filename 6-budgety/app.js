@@ -293,7 +293,7 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         document.addEventListener('keypress', function(event){
                                         // addEventListener 의 익명 function 은 event 각각 event 별로 다름
 
-            //console.log(event);  // keypress event 객체에서 눌려진 key 의 keycode property 값 확인 가능 
+            console.log(event);  // keypress event 객체에서 눌려진 key 의 keycode property 값 확인 가능 
             if(event.keyCode === 13 || event.which === 13){  // 오래된 browser 는 event.which 를 사용함
                 // console.log('Enter pressed'); 
                 
