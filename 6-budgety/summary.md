@@ -38,7 +38,7 @@
     </ol>
 
   
-  <h3>각종 메모</h3>
+  <h3>Memo</h3>
   <ul>
     <li>
       <p>
@@ -61,7 +61,7 @@
     </li>
     <li>
       <p>
-        String 에서 ' 와 " 의 사용법
+        String 에서 '' 와 "" 의 사용법
         <a href=""> >>> </a><br/>
       </p>   
     </li>
@@ -73,7 +73,7 @@
     </li>
     <li>
       <p>
-        List -> Array 변환 (.querySelectAll 의 요소에 사용)
+        List -> Array 변환 (.querySelectAll 의 return 값에 사용)
         <a href=""> >>> </a><br/>
       </p>   
     </li>
@@ -93,7 +93,7 @@
       <p>
         forEach 사용법
         <a href=""> >>> </a><br/>
-        Array 객체의 method 임
+        Array 객체의 method
       </p>   
     </li>
     <li>
@@ -101,6 +101,22 @@
         Percentage 구현 (반올림)
         <a href=""> >>> </a><br/>
         Math.round() : 가장 가까운 integer 값 return
+      </p>   
+    </li>
+    <li>
+      <p>
+        Event Bubbling / Delegation
+        <a href=""> >>> </a><br/>
+        Traversing (event target -> 부모 node)
+        <a href=""> >>> </a><br/>
+      </p>   
+    </li>
+    <li>
+      <p>
+        String, Number : primitive
+        JS에서 자동 wrapper -> Object 로 변환
+        ==> 해당 Object의 method 사용 가능
+        <a href=""> String.split 예시 </a><br/>
       </p>   
     </li>
   </ul>

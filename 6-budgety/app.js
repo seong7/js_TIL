@@ -109,7 +109,7 @@
             var newItem, ID;
 
             //Create new ID
-            if(data.allItems[type].valueOf.length > 0){  // Array.length === 0 일 때 방지
+            if(data.allItems[type].length > 0){  // Array.length === 0 일 때 방지
             // 객체명[key명] : 해당 property 의 value 에 접근하는 방법
                 ID = data.allItems[type][data.allItems[type].length -1].id +1; // ID = last ID + 1
             } else{
@@ -190,7 +190,8 @@ var UIController = (function(){
         budgetLabel: '.budget__value',
         incomeLabel: '.budget__income--value',
         expenseLabel: '.budget__expenses--value',
-        percentageLabel: '.budget__expenses--percentage'
+        percentageLabel: '.budget__expenses--percentage',
+        container: '.container'
     }
     
     
@@ -210,11 +211,11 @@ var UIController = (function(){
             // Create HTML Sring with placeholder text
             if(type === 'inc'){
                 element = DOMStrings.incomeContainer;
-                html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
                 // single quote 로 시작했으므로 " 를 끝으로 인식하지 않는다.
             }else if (type === 'exp'){
                 element = DOMStrings.expensesContainer;
-                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
 
             
@@ -300,7 +301,13 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
                 ctrlAddItem();
             }
         });
+
+        // EVENT DELEGATION  -> 해당 container 내의 모든 target 에서 click event 동작함
+        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem); 
+                                                        // callback 된 function에서 자동으로 매개변수로 event 받을 수 있다.
+        
     };
+
 
     var ctrlAddItem = function(){       //  budgetCtrl 에서 새로운 data 생성 후 UI 에 새 item 추가하는 method
         var input, newItem;
@@ -329,6 +336,36 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         }
     };
 
+    var ctrlDeleteItem = function(event){      // callback 된 function에서 매개변수로 event 받을 수 있다.
+        var itemID, splitID, type, ID;
+
+        //console.log(event.target.parentNode.parentNode.parentNode.parentNode.id);
+            // 해당 target 의 4단계 상위의 부모 Node (요소) 의 html id 값 출력 
+            // ==> traversing (가로지르다/ target -> 부모 node 로 traversing 일어남)
+
+        itemID = event.target.parentNode.parentNode.parentNode.parentNode.id; // (hard coded DOM structure)
+        //console.log(itemID);
+
+        if(itemID){
+
+            // itemID 예 :  inc-1  / exp-1
+            splitID = itemID.split('-'); // 매개변수 : separator 
+                                         // separator 기준으로 나누어 array return 함
+            // ['inc', '1']  / ['exp', '1']
+            type = splitID[0];  
+            ID = splitID[1];   
+            
+            // 1. Delete the item from the data structure
+
+
+            // 2. Delete the item from the UI
+
+
+            // 3. Update and show the new budget 
+
+        }
+
+    };
 
     var updateBudget = function(){      // 총 Budget 업데이트 후 UI 에 반영
         
