@@ -31,7 +31,7 @@
 
 <h2>
     Language Basics
-    <a href="2-JS-basics/README.md">
+    <a href="2-JS-basics">
         >>>
     </a>
 </h2>
