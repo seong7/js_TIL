@@ -34,7 +34,7 @@
   </li>
   <li>
     <h3>
-      IIFE (Imediately Invoked Function Expression)<br/>
+      IIFE (Imediately Invoked Function Expression)
       <a href="https://github.com/seong7/js_TIL/blob/00154b17ac9591ea9cb0bdeafe97c5ff15239744/5-advanced-JS/script.js#L292">
         >>>
       </a>
