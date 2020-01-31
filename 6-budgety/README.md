@@ -46,6 +46,41 @@
 <ul>
   <li>
     <p>
+      Array 관련 method
+    </p>
+    <ol>
+      <li>
+        <p>
+          List -> Array 변환 (.querySelectAll 의 return 값에 사용)
+          <a href=""> >>> </a><br/>
+          array.slice() method 사용
+        </p>   
+      </li>
+      <li>
+        <p>
+          Array 에서 요소 삭제
+          <a href=""> >>> </a><br/>
+          array.splice((삭제 시작 index), (삭제할 요소 수)) method 사용
+        </p>   
+      </li>
+      <li>
+        <p>
+          Array 를 사용해 또 다른 Array 생성
+          <a href=""> >>> </a><br/>
+          array.map(callback fn) method 사용
+        </p>   
+      </li>
+      <li>
+        <p>
+          Array 내 value 값으로 index 찾기
+          <a href=""> >>> </a><br/>
+          array.indexOf( value ) method 사용
+        </p>   
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>
       객체 내부에 객체 선언 방법
       <a href=""> >>> </a>
     </p>   
@@ -72,12 +107,6 @@
   <li>
     <p>
       String replace 및 insertAdjecentHTML 사용법 
-      <a href=""> >>> </a><br/>
-    </p>   
-  </li>
-  <li>
-    <p>
-      List -> Array 변환 (.querySelectAll 의 return 값에 사용)
       <a href=""> >>> </a><br/>
     </p>   
   </li>
@@ -111,7 +140,7 @@
     <p>
       Event Bubbling / Delegation
       <a href=""> >>> </a><br/>
-      Traversing (event target -> 부모 node)
+      DOM Traversing (event target -> 부모 node)
       <a href=""> >>> </a><br/>
     </p>   
   </li>

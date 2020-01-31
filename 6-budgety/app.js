@@ -109,9 +109,9 @@
             var newItem, ID;
 
             //Create new ID
-            if(data.allItems[type].length > 0){  // Array.length === 0 일 때 방지
+            if(data.allItems[type].length > 0){  // Array.length > 0 일 때 
             // 객체명[key명] : 해당 property 의 value 에 접근하는 방법
-                ID = data.allItems[type][data.allItems[type].length -1].id +1; // ID = last ID + 1
+                ID = data.allItems[type][data.allItems[type].length -1].id +1; // ID = 마지막 요소의 ID + 1
             } else{
                 ID = 0;
             }
@@ -131,6 +131,26 @@
 
             // Return the new element
             return newItem;
+        },
+
+        deleteItem : function(type, id){
+            var ids, index;
+
+            // id = 3
+            // data.allItems[type][id];     // -> 사용 불가 ( inc: [] 의 요소는 id 가 아닌 Income 객체임 )
+            // [1, 2, 4, 6, 8]  중간 요소 삭제 가능
+            
+            ids = data.allItems[type].map(function(current){  // map() : callback function 의 리턴값들로
+                return current.id;                            // 새로운 배열 생성하여 return 함
+            });                                                 // 배열 객체를 forEach 처럼 돌린다.
+            console.log(ids);                                   // callback function 의 매개변수는 현재 요소
+
+            index = ids.indexOf(id); // ids 배열에서 id 값의 index return
+                                     // 배열에 id 값이 없는 겨웅 -1 return
+
+            if(index !== -1){
+                data.allItems[type].splice(index, 1); // 매개변수 : ( (삭제 시작 index), (삭제 요소 수) )
+            }
         },
 
         calculateBudget: function(){        // 지출, 수익 변화에 따른 총 Budget 계산
@@ -226,7 +246,7 @@ var UIController = (function(){
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);  
-                // String 으로 적힌 HTML 요소를 지정한 요소의 'beforeend' _ 닫는 위치 앞에 삽입
+                // String 으로 적힌 HTML 요소를 지정한 요소의 'beforeend' _ 닫는 태그 앞에 삽입
         },
         
         clearFields: function(){        // Item 입력창 비워주기
@@ -353,10 +373,13 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
                                          // separator 기준으로 나누어 array return 함
             // ['inc', '1']  / ['exp', '1']
             type = splitID[0];  
-            ID = splitID[1];   
-            
-            // 1. Delete the item from the data structure
+            // ID = splitID[1];   
+            // console.log(type);
+            // console.log(parseInt(ID));   // __ String 임
+            ID = parseInt(splitID[1]);
 
+            // 1. Delete the item from the data structure
+            budgetCtrl.deleteItem(type, ID);
 
             // 2. Delete the item from the UI
 
