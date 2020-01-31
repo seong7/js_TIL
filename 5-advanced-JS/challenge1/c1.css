@@ -1,10 +1,10 @@
 body {
-  color: #fa561a;
+  color: white;
   width: 100%;
   height: 100%;
   font-family: 'Nanum Gothic', sans-serif;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(62, 20, 20, 0.4)), to(rgba(62, 20, 20, 0.4))), url(back.jpg);
-  background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+  background: -webkit-gradient(linear, left top, right top, from(#8a2387), color-stop(#e94057), to(#f27121));
+  background: linear-gradient(to right, #8a2387, #e94057, #f27121);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,6 +33,22 @@ body {
   font-size: 20px;
   font-weight: 600;
   border-radius: 10px;
+}
+
+#allWrapper .profile_img {
+  margin-top: -50px;
+}
+
+#allWrapper .profile_img img {
+  width: 130px;
+  height: 130px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  cursor: pointer;
 }
 
 #allWrapper #quizWrapper {
@@ -100,13 +116,26 @@ body {
 }
 
 #allWrapper .content .greenBtn {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#bce0b4), to(#5cf585)) !important;
-  background-image: linear-gradient(to bottom, #bce0b4, #5cf585) !important;
+  background: -webkit-gradient(linear, left top, right top, from(#11998e), to(#38ef7d));
+  background: linear-gradient(to right, #11998e, #38ef7d);
+  color: inherit;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+
+#allWrapper .content .greenBtn:hover {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
 }
 
 #allWrapper .content .redBtn {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff9c9a), to(#ff7679)) !important;
-  background-image: linear-gradient(to bottom, #ff9c9a, #ff7679) !important;
+  background: -webkit-gradient(linear, left top, right top, from(#ff416c), to(#ff4b2b));
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: inherit;
+  background-color: #7f5a83;
+  background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+  font-size: 20px;
+  letter-spacing: 5px;
 }
 
 #allWrapper .content #optionBtnWrapper {
@@ -117,6 +146,7 @@ body {
 
 #allWrapper .content #optionBtnWrapper input {
   width: 95px !important;
+  color: inherit;
 }
 
 #allWrapper .content #optionBtnWrapper #continueBtn {
@@ -179,8 +209,9 @@ body {
 }
 
 #allWrapper .activeBtn {
-  color: #333;
-  background-color: #FFED90;
+  color: white;
+  background: -webkit-gradient(linear, left top, right top, from(#8a2387), color-stop(#e94057), to(#f27121));
+  background: linear-gradient(to right, #8a2387, #e94057, #f27121);
 }
 
 #allWrapper input[type="button"] {
@@ -188,6 +219,7 @@ body {
 }
 
 #allWrapper input:hover {
-  border: 1px solid #FAE960;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
 }
 /*# sourceMappingURL=c1.css.map */
