@@ -9,7 +9,7 @@
         >>>
       </a>
     </h3>
-  </li
+  </li>
   <li>
     <h3>
       Module 로 todo list 분류
