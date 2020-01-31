@@ -35,10 +35,10 @@
   <li>
     <h3>
       IIFE (Imediately Invoked Function Expression)<br/>
-      선언과 동시에 호출 및 실행됨
       <a href="https://github.com/seong7/js_TIL/blob/00154b17ac9591ea9cb0bdeafe97c5ff15239744/5-advanced-JS/script.js#L292">
         >>>
       </a>
+      선언과 동시에 호출 및 실행됨
     </h3>
   </li>
   <li>
