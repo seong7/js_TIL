@@ -1,61 +1,61 @@
 <h1>Language Basics</h1>
 
-<h2>
+<h3>
     Variables and Data Types
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L2">
         >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>
             Variable Naming Tip
         </li>
     </ol>
-<h2>
+<h3>
     Type Coercion (형 변환)
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L38">
         >>>
     </a>
-</h2>
-<h2>
+</h3>
+<h3>
     Basic Operators
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L65">
     >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>Logical</li>
         <li>Type of</li>
         <li>Multiple Assignments</li>
     </ol>
-<h2>
+<h3>
     If / Else Statement
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L101">
         >>>
     </a>
-</h2>
-<h2>
+</h3>
+<h3>
     The Ternary Operator
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L118">
         >>>
     </a>
-</h2>
-<h2>
+</h3>
+<h3>
     Switch Statements
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L130">
         >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>String 이용</li>
         <li>Condition Stetement 이용</li> 
     </ol>
-<h2>
+<h3>
     Truthy and Falsy Values
     <a href="https://github.com/seong7/js_TIL/blob/edbbf94c925b71d0f4aac18648dba082b1fd1630/2-JS-basics/script.js#L167">
         >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>Falsy values :   undefined, null, 0, '', NaN </li>
         <li>Truthy values :  NOT falsy values
@@ -65,12 +65,12 @@
         </li>
         <li>0 또는 '' 을 구분하는 방법</li>
     </ol>
-<h2>
+<h3>
     Equality Operators
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L190">
         >>>
     </a>
-</h2>
+</h3>
     <ul>
         <li>
             중요 !<br/>
@@ -78,12 +78,12 @@
             === operater : type coercion X
         </li>
     </ul>
-<h2>
+<h3>
     Functions
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L204">
         >>>
     </a>
-</h2>
+</h3>
     <ul>
         <li>
             Function Browing 사용법
@@ -92,12 +92,12 @@
             </a>
         </li> 
     </ul>
-<h2>
+<h3>
     Function Statements, Declaration and Expressions
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L233">
         >>>
     </a>
-</h2>
+</h3>
     <ul>
         <li>Declaration : HOISTING O</li>
         <li>
@@ -107,23 +107,23 @@
             </a>
         </li>    
     </ul>
-<h2>
+<h3>
     Arrays
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L265">
         >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>Initialize new array</li>
         <li>Mutate array data</li>
         <li>Different data types</li>
     </ol>
-<h2>
+<h3>
     Objects and properties
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L296">
         >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>object 는 value 에 index 대신 이름(key) 을 주어 사용할 수 있음</li>
         <li>
@@ -138,22 +138,22 @@
             </ol>
         </li>
     </ol>
-<h2>
+<h3>
     Objects and Methods
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L330">
         >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>this variable 의 사용</li>
         <li>method를 통해 object에 property : value 추가</li>
     </ol>
-<h2>
+<h3>
     Loops and iteration
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L351">
         >>>
     </a>
-</h2>
+</h3>
     <ol>
         <li>for</li>
         <li>while</li>
