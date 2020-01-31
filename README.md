@@ -1,7 +1,7 @@
 <h3><b>Go to COMPLETE REPO</b> <a href="https://github.com/jonasschmedtmann/complete-javascript-course">>>></a></h3>
 <hr/>
 
-<h2>Reference Link List</h2>
+<h3>Reference Link List</h3>
 <ul>
     <li>
         js 연산 처리 순서표 : 
@@ -30,20 +30,20 @@
 </ul>
 <hr/>
 
-<h2>
+<h3>
     Language Basics
     <a href="2-JS-basics/README.md">
         >>>
     </a>
-</h2>
+</h3>
 <hr/>
 
-<h2>
+<h3>
     How JavaScript Works
     <a href="3-how-JS-works/README.md">
         >>>
     </a>
-</h2>
+</h3>
 <ol>
     <li>
         Hoisting
@@ -57,12 +57,12 @@
 </ol>
 <hr/>    
 
-<h2>
+<h3>
     Advanced JavaScript
     <a href="5-advanced-JS/README.md">
         >>>
     </a>
-</h2>
+</h3>
 <ol>
     <li>
         function constructor
