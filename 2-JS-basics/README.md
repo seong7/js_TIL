@@ -1,83 +1,101 @@
 <h1>Language Basics</h1>
 
-<h3>
-    Variables and Data Types
-    <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L2">
-        >>>
-    </a>
-</h3>
-    <ol>
-        <li>
-            Variable Naming Tip
-        </li>
-    </ol>
-<h3>
-    Type Coercion (형 변환)
-    <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L38">
-        >>>
-    </a>
-</h3>
-<h3>
-    Basic Operators
-    <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L65">
-    >>>
-    </a>
-</h3>
-    <ol>
-        <li>Logical</li>
-        <li>Type of</li>
-        <li>Multiple Assignments</li>
-    </ol>
-<h3>
-    If / Else Statement
-    <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L101">
-        >>>
-    </a>
-</h3>
-<h3>
-    The Ternary Operator
-    <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L118">
-        >>>
-    </a>
-</h3>
-<h3>
-    Switch Statements
-    <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L130">
-        >>>
-    </a>
-</h3>
-    <ol>
-        <li>String 이용</li>
-        <li>Condition Stetement 이용</li> 
-    </ol>
-<h3>
-    Truthy and Falsy Values
-    <a href="https://github.com/seong7/js_TIL/blob/edbbf94c925b71d0f4aac18648dba082b1fd1630/2-JS-basics/script.js#L167">
-        >>>
-    </a>
-</h3>
-    <ol>
-        <li>Falsy values :   undefined, null, 0, '', NaN </li>
-        <li>Truthy values :  NOT falsy values
-            <ul>
-                <li>예) if(height){  } </li>
-            </ul>
-        </li>
-        <li>0 또는 '' 을 구분하는 방법</li>
-    </ol>
-<h3>
-    Equality Operators
-    <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L190">
-        >>>
-    </a>
-</h3>
-    <ul>
-        <li>
-            중요 !<br/>
-            == operater : type coercion O<br/>
-            === operater : type coercion X
-        </li>
-    </ul>
+<ul>
+    <li>
+        <h3>
+            Variables and Data Types
+            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L2">
+                >>>
+            </a>
+        </h3>
+        <ol>
+            <li>
+                Variable Naming Tip
+            </li>
+        </ol>
+    </li>
+    <li>
+        <h3>
+            Type Coercion (형 변환)
+            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L38">
+                >>>
+            </a>
+        </h3>
+    </li>
+    <li>
+        <h3>
+            Basic Operators
+            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L65">
+            >>>
+            </a>
+        </h3>
+        <ol>
+            <li>Logical</li>
+            <li>Type of</li>
+            <li>Multiple Assignments</li>
+        </ol>
+    </li>
+    <li>
+        <h3>
+            If / Else Statement
+            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L101">
+                >>>
+            </a>
+        </h3>
+    </li>
+    <li>
+        <h3>
+            The Ternary Operator
+            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L118">
+                >>>
+            </a>
+        </h3>
+    </li>
+    <li>
+        <h3>
+            Switch Statements
+            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L130">
+                >>>
+            </a>
+        </h3>
+        <ol>
+            <li>String 이용</li>
+            <li>Condition Stetement 이용</li> 
+        </ol>
+    </li>
+    <li>
+        <h3>
+            Truthy and Falsy Values
+            <a href="https://github.com/seong7/js_TIL/blob/edbbf94c925b71d0f4aac18648dba082b1fd1630/2-JS-basics/script.js#L167">
+                >>>
+            </a>
+        </h3>
+        <ol>
+            <li>Falsy values :   undefined, null, 0, '', NaN </li>
+            <li>Truthy values :  NOT falsy values
+                <ul>
+                    <li>예) if(height){  } </li>
+                </ul>
+            </li>
+            <li>0 또는 '' 을 구분하는 방법</li>
+        </ol>
+    </li>
+    <li>
+        <h3>
+            Equality Operators
+            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L190">
+                >>>
+            </a>
+        </h3>
+        <ul>
+            <li>
+                중요 !<br/>
+                == operater : type coercion O<br/>
+                === operater : type coercion X
+            </li>
+        </ul>
+    </li>
+</ol>
 <h3>
     Functions
     <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L204">
