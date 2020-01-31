@@ -3,13 +3,17 @@
 <h2>App-Structure 설계 순서</h2>
 <ol>
   <li>
-    To-do List 나열
-    <a href ="">
-      >>>
-    </a>
+    <h3>
+      To-do List 나열
+      <a href ="">
+        >>>
+      </a>
+    </h3>
   </li><br/>
   <li>
-    Module 로 todo list 분류
+    <h3>
+      Module 로 todo list 분류
+    </h3>
     <ul>
       <li>
         Structure Sample (예시)
@@ -27,7 +31,7 @@
           >>>
         </a>
       </li>
-          <li>
+      <li>
         Module Pattern 특징
         <a href="">
           >>>
