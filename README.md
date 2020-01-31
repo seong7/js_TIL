@@ -2,7 +2,7 @@
 javascript Today I Learned
 <ul>
     <li>
-        complete code repo : <a href="https://github.com/jonasschmedtmann/complete-javascript-course">>>></a>
+        COMPLETE CODE REPO : <a href="https://github.com/jonasschmedtmann/complete-javascript-course">>>></a>
     </li>
 </ul>
 <hr/>
