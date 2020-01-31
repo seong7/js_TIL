@@ -46,7 +46,7 @@
 <ul>
   <li>
     <p>
-      Array 관련 method
+      <h3>Array 관련 method</h3>
     </p>
     <ol>
       <li>
@@ -87,66 +87,66 @@
   </li>
   <li>
     <p>
-      객체 내부에 객체 선언 방법
-      <a href=""> >>> </a>
+      <h4>객체 내부에 객체 선언 방법
+      <a href=""> >>> </a></h4>
     </p>   
   </li>
   <li>
     <p>
-      객체 내 property 동적인 호출 방법
-      <a href=""> >>> </a><br/>
+      <h4>객체 내 property 동적인 호출 방법
+      <a href=""> >>> </a></h4><br/>
       object[key]
     </p>   
   </li>
   <li>
     <p>
-      parseFloat 사용법
-      <a href=""> >>> </a><br/>
+      <h4>parseFloat 사용법
+      <a href=""> >>> </a></h4><br/>
     </p>   
   </li>
   <li>
     <p>
-      String 에서 '' 와 "" 의 사용법
-      <a href=""> >>> </a><br/>
+      <h4>String 에서 '' 와 "" 의 사용법
+      <a href=""> >>> </a></h4><br/>
     </p>   
   </li>
   <li>
     <p>
-      String replace 및 insertAdjecentHTML 사용법 
-      <a href=""> >>> </a><br/>
+      <h4>String replace 및 insertAdjecentHTML 사용법 
+      <a href=""> >>> </a></h4><br/>
     </p>   
   </li>
   <li>
     <p>
-      keypress 이벤트 사용법
-      <a href=""> >>> </a><br/>
+      <h4>keypress 이벤트 사용법
+      <a href=""> >>> </a></h4><br/>
     </p>   
   </li>
   <li>
     <p>
-      isNan 사용법
-      <a href=""> >>> </a><br/>
+      <h4>isNan 사용법
+      <a href=""> >>> </a></h4><br/>
     </p>   
   </li>
   <li>
     <p>
-      Percentage 구현 (반올림)
-      <a href=""> >>> </a><br/>
+      <h4>Percentage 구현 (반올림)
+      <a href=""> >>> </a></h4><br/>
       Math.round() : 가장 가까운 integer 값 return
     </p>   
   </li>
   <li>
     <p>
-      Event Bubbling / Delegation
-      <a href=""> >>> </a><br/>
+      <h4>Event Bubbling / Delegation
+      <a href=""> >>> </a></h4><br/>
       DOM Traversing (event target -> 부모 node)
       <a href=""> >>> </a><br/>
     </p>   
   </li>
   <li>
     <p>
-      String, Number : primitive<br/>
-      JS에서 자동 wrapper 활용해 -> Object 로 변환시킴<br/>
+      <h4>String, Number : primitive -> Object 자동 변환</h4>
+      JS에서 wrapper 활용해 Object 로 변환시킴<br/>
       ==> 해당 Object의 method 사용 가능<br/>
       <a href=""> String.split 예시 </a><br/>
     </p>   
