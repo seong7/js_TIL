@@ -38,7 +38,7 @@
 
 <h2>
     How JavaScript Works
-    <a href="3-how-JS-works/README.md">
+    <a href="3-how-JS-works">
         >>>
     </a>
 </h2>
@@ -56,7 +56,7 @@
 
 <h2>
     Advanced JavaScript
-    <a href="5-advanced-JS/README.md">
+    <a href="5-advanced-JS">
         >>>
     </a>
 </h2>
