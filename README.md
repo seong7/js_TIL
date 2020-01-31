@@ -1,6 +1,5 @@
 <h3><b>Go to COMPLETE REPO</b> <a href="https://github.com/jonasschmedtmann/complete-javascript-course">>>></a></h3>
-<hr/>
-<br/>
+<hr/><br/>
 
 <h2>Reference Link List</h2>
 <ul>
@@ -29,18 +28,20 @@
         </a>
     </li>
 </ul>
-<hr/>
 
-<h2>Language Basics</h2>
-<a href="2-JS-basics/summary.md">
-    >>>
-</a>
-<hr/>
+<h2>
+    Language Basics
+    <a href="2-JS-basics/README.md">
+        >>>
+    </a>
+</h2>
 
-<h2>How JavaScript Works</h2>
-<a href="3-how-JS-works/summary.md">
-    >>>
-</a>
+<h2>
+    How JavaScript Works
+    <a href="3-how-JS-works/README.md">
+        >>>
+    </a>
+</h2>
 <ol>
     <li>
         Hoisting
@@ -51,14 +52,14 @@
     <li>
         'This' Keyword
     </li>
-</ol>
-<hr/>    
+</ol>    
 
-<h2>Advanced JavaScript</h2>
-<a href="5-advanced-JS/summary.md">
-    >>>
-</a>
-
+<h2>
+    Advanced JavaScript
+    <a href="5-advanced-JS/README.md">
+        >>>
+    </a>
+</h2>
 <ol>
     <li>
         function constructor
@@ -79,4 +80,3 @@
         Closure
     </li>
 </ol>
-<hr/>
