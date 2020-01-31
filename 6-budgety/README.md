@@ -51,30 +51,36 @@
     <ol>
       <li>
         <p>
-          List -> Array 변환 (.querySelectAll 의 return 값에 사용)
-          <a href=""> >>> </a><br/>
+          <b>List -> Array 변환 (.querySelectAll 의 return 값에 사용)
+          <a href=""> >>> </a></b><br/>
           array.slice() method 사용
         </p>   
       </li>
       <li>
         <p>
-          Array 에서 요소 삭제
-          <a href=""> >>> </a><br/>
+          <b>Array 에서 요소 삭제
+          <a href=""> >>> </a></b><br/>
           array.splice((삭제 시작 index), (삭제할 요소 수)) method 사용
         </p>   
       </li>
       <li>
         <p>
-          Array 를 사용해 또 다른 Array 생성
-          <a href=""> >>> </a><br/>
+          <b>Array 를 사용해 또 다른 Array 생성
+          <a href=""> >>> </a></b><br/>
           array.map(callback fn) method 사용
         </p>   
       </li>
       <li>
         <p>
-          Array 내 value 값으로 index 찾기
-          <a href=""> >>> </a><br/>
+          <b>Array 내 value 값으로 index 찾기
+            <a href=""> >>> </a></b><br/>
           array.indexOf( value ) method 사용
+        </p>   
+      </li>
+      <li>
+        <p>
+          <b>forEach 사용법
+            <a href=""> >>> </a></b><br/>
         </p>   
       </li>
     </ol>
@@ -120,13 +126,6 @@
     <p>
       isNan 사용법
       <a href=""> >>> </a><br/>
-    </p>   
-  </li>
-  <li>
-    <p>
-      forEach 사용법
-      <a href=""> >>> </a><br/>
-      Array 객체의 method
     </p>   
   </li>
   <li>
