@@ -80,10 +80,10 @@
       <li>
         <p>
           <b>forEach 사용법
-            <a href=""> >>> </a></b><br/>
+            <a href=""> >>> </a></b>
         </p>   
       </li>
-    </ol>
+    </ol><br/>
   </li>
   <li>
     <p>
@@ -101,31 +101,31 @@
   <li>
     <p>
       <h4>parseFloat 사용법
-      <a href=""> >>> </a></h4><br/>
+      <a href=""> >>> </a></h4>
     </p>   
   </li>
   <li>
     <p>
       <h4>String 에서 '' 와 "" 의 사용법
-      <a href=""> >>> </a></h4><br/>
+      <a href=""> >>> </a></h4>
     </p>   
   </li>
   <li>
     <p>
       <h4>String replace 및 insertAdjecentHTML 사용법 
-      <a href=""> >>> </a></h4><br/>
+      <a href=""> >>> </a></h4>
     </p>   
   </li>
   <li>
     <p>
       <h4>keypress 이벤트 사용법
-      <a href=""> >>> </a></h4><br/>
+      <a href=""> >>> </a></h4>
     </p>   
   </li>
   <li>
     <p>
       <h4>isNan 사용법
-      <a href=""> >>> </a></h4><br/>
+      <a href=""> >>> </a></h4>
     </p>   
   </li>
   <li>
@@ -140,7 +140,7 @@
       <h4>Event Bubbling / Delegation
       <a href=""> >>> </a></h4>
       DOM Traversing (event target -> 부모 node)
-      <a href=""> >>> </a><br/>
+      <a href=""> >>> </a>
     </p>   
   </li>
   <li>
@@ -148,7 +148,7 @@
       <h4>String, Number : primitive -> Object 자동 변환</h4>
       JS에서 wrapper 활용해 Object 로 변환시킴<br/>
       ==> 해당 Object의 method 사용 가능<br/>
-      <a href=""> String.split 예시 </a><br/>
+      <a href=""> String.split 예시 </a>
     </p>   
   </li>
 </ul>
