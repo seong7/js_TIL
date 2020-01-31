@@ -1,9 +1,10 @@
 body{
-    color: rgb(250, 86, 26);
+    color: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
     font-family: 'Nanum Gothic', sans-serif;
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    //background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    background: linear-gradient(to right, rgb(138, 35, 135), rgb(233, 64, 87), rgb(242, 113, 33));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,6 +25,26 @@ body{
     font-size: 20px;
     font-weight: 600;
     border-radius: 10px;
+
+    ///  프로필 사진 구역  /////////
+    .profile_img{
+        margin-top: -50px;
+        // position: absolute;
+        // right: 50px;
+        img{
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50%;
+            border: 5px solid #ffffff;   
+            // box-shadow: 0 0 0 7px #673ab7;
+            // transform: scale(1.5, 1.5);
+            cursor: pointer;
+        }
+    }
+    /////////////////////////////////////////
+
     #quizWrapper{
         width: 700px;
     }
@@ -74,17 +95,34 @@ body{
             color: black;
         }
         .greenBtn{
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#bce0b4), to(#5cf585)) !important;
-            background-image: linear-gradient(to bottom, #bce0b4, #5cf585) !important;
+            // background-image: -webkit-gradient(linear, left top, left bottom, from(#bce0b4), to(#5cf585)) !important;
+            // background-image: linear-gradient(to bottom, #bce0b4, #5cf585) !important;
+            background: linear-gradient(to right, rgb(17, 153, 142), rgb(56, 239, 125));
+            color: inherit;
+            font-size: 20px;
+            // font-weight: unset;
+            letter-spacing: 5px;
+        }
+        .greenBtn:hover{
+            transform: translateY(0px);
         }
         .redBtn{
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#ff9c9a), to(#ff7679)) !important;
-            background-image: linear-gradient(to bottom, #ff9c9a, #ff7679) !important;
+            // background-image: -webkit-gradient(linear, left top, left bottom, from(#ff9c9a), to(#ff7679)) !important;
+            // background-image: linear-gradient(to bottom, #ff9c9a, #ff7679) !important;
+            background: linear-gradient(to right, rgb(255, 65, 108), rgb(255, 75, 43));
+            color: inherit;
+            background-color: #7f5a83;
+            background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+
+            font-size: 20px;
+            // font-weight: unset;
+            letter-spacing: 5px
         }
         #optionBtnWrapper{
             display: flex;
             input{
                 width: 95px !important;
+                color: inherit;
             }
             #continueBtn{
                 margin-right: 10px;
@@ -133,15 +171,15 @@ body{
         display : none !important;
     }
     .activeBtn{
-        color: #333;
-        background-color: #FFED90;
+        color: white;
+        background: linear-gradient(to right, rgb(138, 35, 135), rgb(233, 64, 87), rgb(242, 113, 33));
         
     }
     input[type="button"]{
         cursor: pointer;
     }
     input:hover{
-        border: 1px solid #FAE960;
+        transform:translateY(2px); 
     }
 
 }
