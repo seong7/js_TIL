@@ -1,5 +1,10 @@
 # js_TIL
 javascript Today I Learned
+<ul>
+    <li>
+        complete code repo : <a href="https://github.com/jonasschmedtmann/complete-javascript-course">>>></a>
+    </li>
+</ul>
 <hr/>
 
 <h2>Language Basics</h2>
