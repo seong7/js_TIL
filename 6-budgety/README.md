@@ -117,9 +117,9 @@
   </li>
   <li>
     <p>
-      String, Number : primitive
-      JS에서 자동 wrapper -> Object 로 변환
-      ==> 해당 Object의 method 사용 가능
+      String, Number : primitive<br/>
+      JS에서 자동 wrapper 활용해 -> Object 로 변환시킴<br/>
+      ==> 해당 Object의 method 사용 가능<br/>
       <a href=""> String.split 예시 </a><br/>
     </p>   
   </li>
