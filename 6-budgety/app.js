@@ -248,6 +248,12 @@ var UIController = (function(){
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);  
                 // String 으로 적힌 HTML 요소를 지정한 요소의 'beforeend' _ 닫는 태그 앞에 삽입
         },
+
+        deleteFunction: function(selectorID){
+
+            var el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
+        },
         
         clearFields: function(){        // Item 입력창 비워주기
             var fields, fieldsArr;
