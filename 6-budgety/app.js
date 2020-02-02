@@ -171,7 +171,9 @@
             } else{
                 data.percentage = -1;   // -1 : 값이 없는 것을 의미함
             }
-
+            console.log(data);
+            //////////////////////////////
+            ////////issue : percentage 가 너무 작아지면 --- 으로 표시됨 (그래도 0보다는 클텐데..)
         },
 
         getBudget: function(){      // return Budget 
@@ -248,6 +250,13 @@ var UIController = (function(){
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);  
                 // String 으로 적힌 HTML 요소를 지정한 요소의 'beforeend' _ 닫는 태그 앞에 삽입
         },
+
+        deleteListItem: function(selectorID){       // 요소를 삭제 (HTML ID 로 지정)
+
+            var el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);      // js 에서 html 요소 삭제하기 : .removechild(el)
+                                                // 부모요소를 먼저 찾은 후 다시 자식요소 삭제 메소드 사용해야함
+        },
         
         clearFields: function(){        // Item 입력창 비워주기
             var fields, fieldsArr;
@@ -280,7 +289,7 @@ var UIController = (function(){
             document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExp;
             
             if(obj.percentage >0){
-                document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage;
+                document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage + '%';
             }else{
                 document.querySelector(DOMStrings.percentageLabel).textContent = '---';
             }
@@ -314,7 +323,7 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         document.addEventListener('keypress', function(event){
                                         // addEventListener 의 익명 function 은 event 각각 event 별로 다름
 
-            console.log(event);  // keypress event 객체에서 눌려진 key 의 keycode property 값 확인 가능 
+            //console.log(event);  // keypress event 객체에서 눌려진 key 의 keycode property 값 확인 가능 
             if(event.keyCode === 13 || event.which === 13){  // 오래된 browser 는 event.which 를 사용함
                 // console.log('Enter pressed'); 
                 
@@ -357,19 +366,19 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
     };
 
     var ctrlDeleteItem = function(event){      // callback 된 function에서 매개변수로 event 받을 수 있다.
-        var itemID, splitID, type, ID;
+        var htmlID, splitID, type, ID;
 
         //console.log(event.target.parentNode.parentNode.parentNode.parentNode.id);
             // 해당 target 의 4단계 상위의 부모 Node (요소) 의 html id 값 출력 
             // ==> traversing (가로지르다/ target -> 부모 node 로 traversing 일어남)
 
-        itemID = event.target.parentNode.parentNode.parentNode.parentNode.id; // (hard coded DOM structure)
+        htmlID = event.target.parentNode.parentNode.parentNode.parentNode.id; // (hard coded DOM structure)
         //console.log(itemID);
 
-        if(itemID){
+        if(htmlID){
 
             // itemID 예 :  inc-1  / exp-1
-            splitID = itemID.split('-'); // 매개변수 : separator 
+            splitID = htmlID.split('-'); // 매개변수 : separator 
                                          // separator 기준으로 나누어 array return 함
             // ['inc', '1']  / ['exp', '1']
             type = splitID[0];  
@@ -382,10 +391,10 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
             budgetCtrl.deleteItem(type, ID);
 
             // 2. Delete the item from the UI
-
+            UICtrl.deleteListItem(htmlID)
 
             // 3. Update and show the new budget 
-
+            updateBudget();
         }
 
     };
@@ -419,6 +428,6 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
     };
 
 
- })(budgetController, UIController);  // parameter 
+ })(budgetController, UIController);  // parameter for IIFE
 
 controller.init();

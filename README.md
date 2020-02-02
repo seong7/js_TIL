@@ -27,6 +27,12 @@
             참조 사이트
         </a>
     </li>
+    <li>
+        DOM Manipulation 정리 참조 :
+        <a href="https://blog.garstasio.com/you-dont-need-jquery/dom-manipulation/">
+            참조 블로그
+        </a>
+    </li>
 </ul>
 
 <h2>
