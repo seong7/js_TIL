@@ -171,7 +171,9 @@
             } else{
                 data.percentage = -1;   // -1 : 값이 없는 것을 의미함
             }
-
+            console.log(data);
+            //////////////////////////////
+            ////////issue : percentage 가 너무 작아지면 --- 으로 표시됨 (그래도 0보다는 클텐데..)
         },
 
         getBudget: function(){      // return Budget 
@@ -287,7 +289,7 @@ var UIController = (function(){
             document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExp;
             
             if(obj.percentage >0){
-                document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage;
+                document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage + '%';
             }else{
                 document.querySelector(DOMStrings.percentageLabel).textContent = '---';
             }
@@ -321,7 +323,7 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         document.addEventListener('keypress', function(event){
                                         // addEventListener 의 익명 function 은 event 각각 event 별로 다름
 
-            console.log(event);  // keypress event 객체에서 눌려진 key 의 keycode property 값 확인 가능 
+            //console.log(event);  // keypress event 객체에서 눌려진 key 의 keycode property 값 확인 가능 
             if(event.keyCode === 13 || event.which === 13){  // 오래된 browser 는 event.which 를 사용함
                 // console.log('Enter pressed'); 
                 
@@ -392,7 +394,7 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
             UICtrl.deleteListItem(htmlID)
 
             // 3. Update and show the new budget 
-
+            updateBudget();
         }
 
     };
@@ -426,6 +428,6 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
     };
 
 
- })(budgetController, UIController);  // parameter 
+ })(budgetController, UIController);  // parameter for IIFE
 
 controller.init();
