@@ -70,6 +70,20 @@
         this.id = id;
         this.description = description;
         this.value = value;
+        this.percentage = -1;  // not defined 일 때 -1 로 지정하기 위해 
+    };
+
+    Expense.prototype.calcPercentage = function(totalIncome){
+
+        if(totalIncome > 0){
+            this.percentage = Math.round((this.value / totalIncome) * 100);
+        }else{
+            this.percentage = -1;
+        }
+    };
+
+    Expense.prototype.getPercentage = function(){
+        return this.percentage;
     };
 
     var Income = function(id, description, value){
@@ -171,9 +185,39 @@
             } else{
                 data.percentage = -1;   // -1 : 값이 없는 것을 의미함
             }
-            console.log(data);
+            //console.log(data);
             //////////////////////////////
             ////////issue : percentage 가 너무 작아지면 --- 으로 표시됨 (그래도 0보다는 클텐데..)
+        },
+
+        calculatePercentages: function(){   // 각각 expense item 의 percentage 계산
+
+            /*
+                expense 
+                a=20
+                b=10
+                c=40
+
+                total income = 100
+
+                a = 20/100 = 20%
+                b = 10/100 = 10%
+                c = 40/100 = 40%
+            */
+
+            data.allItems.exp.forEach(function(current){
+                current.calcPercentage(data.totals.inc);
+            });
+
+        },
+
+        getPercentages: function(){     // 각각 expense item 의 percentage 를 가져와 새로운 Array 생성하여 return 
+            
+            var allPerc = data.allItems.exp.map(function(current){  // 기존 array 의 각 요소들을 매개변수로 callback fn 실행
+                return current.getPercentage();                     // return 값으로 새로운 array 생성
+            });
+            return allPerc;
+
         },
 
         getBudget: function(){      // return Budget 
@@ -213,8 +257,38 @@ var UIController = (function(){
         incomeLabel: '.budget__income--value',
         expenseLabel: '.budget__expenses--value',
         percentageLabel: '.budget__expenses--percentage',
-        container: '.container'
+        container: '.container',
+        expensesPercLabel: '.item__percentage'
     }
+
+    var formatNumber = function(num, type){  // 숫자 형태 변환 + (income, expense 에 따라 + - 붙임)
+        var numSplit;
+        /*
+            + or -  : before number
+            exactly 2 decimal points ( => 200.00 )
+            comma separating the thousands
+
+            2310.4567 -> + 2,310.46
+            2000 -> + 2,000.00
+        */
+        num = Math.abs(num);    // absolute value return 함 ( 절대값 !!  ) 
+                                // 매개변수에서 변수를 받아와 regular 변수처럼 대입 가능
+        
+        num = num.toFixed(2);   // 소수점 아래 자리수 고정 값 지정 (반올림함) ( integer 에도 적용)
+                                // Math 의 method 아님
+                                // number 는 string 과 같이 primative 이지만 js 가 자동으로 객체화 하여 메소드 발동 시킴 
+        numSplit = num.split('.');
+        int = numSplit[0]; // integer (정수부분)
+        if(int.length > 3){  // string.length
+            int = int.substr(0, int.length-3) + ',' + int.substr(int.length-3, 3);  // string.substr(시작 index, 개수)
+        }
+
+        dec = numSplit[1]; // decimal (소수부분)
+        
+        type ==='exp'? sign = '-' : sign = '+';
+
+        return (type ==='exp'? sign = '-' : sign = '+') + ' ' + int + '.' + dec;
+    };
     
     
     return {
@@ -244,7 +318,9 @@ var UIController = (function(){
             // Replace the placeholder text with some actual data (String data 다루기)
             newHtml = html.replace('%id%', obj.id);     
             newHtml = newHtml.replace('%description%', obj.description);
-            newHtml = newHtml.replace('%value%', obj.value);
+            newHtml = newHtml.replace('%value%', formatNumber(obj.value,type));
+
+            // console.log('this:  ' + this); //_ 객체형태를 return 하므로 해당 객체를 가리킴
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);  
@@ -273,7 +349,8 @@ var UIController = (function(){
                 //  하지만 여기서 fieldsArr 은 List type 이므로 call method 를 통해 method borrowing 함
                                                                                 // 5장에서 배움
                 //  fields List 를 call method 의 (this) 매개변수로 지정
-            // Array.slice(fields);  ??  
+            
+                // Array.slice(fields); 이렇게는 안됨? => 안됨    
             
             fieldsArr.forEach(function(current, i, arr){  // callback function (current element, index, entire array)
                 current.value = "";
@@ -283,10 +360,12 @@ var UIController = (function(){
         },
 
         displayBudget: function(obj){       // 총 Budget UI 업데이트
+            var type;
+            obj.budget > 0 ? type = 'inc' : type = 'exp';  // '+' '-' 붙이기 위해
 
-            document.querySelector(DOMStrings.budgetLabel).textContent = obj.budget;
-            document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalInc;
-            document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExp;
+            document.querySelector(DOMStrings.budgetLabel).textContent = formatNumber(obj.budget, type);
+            document.querySelector(DOMStrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
+            document.querySelector(DOMStrings.expenseLabel).textContent = formatNumber(obj.totalExp, 'exp');
             
             if(obj.percentage >0){
                 document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage + '%';
@@ -294,6 +373,29 @@ var UIController = (function(){
                 document.querySelector(DOMStrings.percentageLabel).textContent = '---';
             }
         },
+
+        displayPercentages: function(percentages){      // expense 의 percentage 들 모두 업데이트
+
+            var fields = document.querySelectorAll(DOMStrings.expensesPercLabel);  // return nodeList
+
+                    // First Class Function 의 힘
+            var nodeListForEach = function(list, callback){
+                for(var i = 0; i<list.length; i++){  //nodeList 도 .length 메소드 있음
+                    callback(list[i], i);
+                }
+            };
+
+            nodeListForEach(fields, function(current, index){
+
+                if(percentages[index] > 0 ){
+                    current.textContent = percentages[index] + '%';
+                }else{
+                    current.textContent = '---';
+                }
+            });
+
+        },
+
 
         getDOMstrings: function(){         // 다른 Module 에서 사용하기 위해 DOMStrings return
             return DOMStrings;
@@ -361,6 +463,9 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
             
             // 5. Calculate and update the budget
             updateBudget();
+
+            // 6. Calculate and update percentages
+            updatePercentages();
             
         }
     };
@@ -395,6 +500,9 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
 
             // 3. Update and show the new budget 
             updateBudget();
+
+            // 4. Calculate and update percentages
+            updatePercentages();
         }
 
     };
@@ -410,6 +518,20 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         // 3. Display the budget on the UI
         UICtrl.displayBudget(budget);
         
+    };
+
+    var updatePercentages = function(){
+
+        // 1. Caculate percentages
+        budgetCtrl.calculatePercentages();
+        
+        //2. Read percentages from the budget controller
+        var percentages = budgetCtrl.getPercentages();
+        //console.log(percentages);
+
+        //3. Update the UI with the new percentages
+        UICtrl.displayPercentages(percentages);
+
     };
 
 
