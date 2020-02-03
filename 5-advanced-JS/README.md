@@ -73,4 +73,17 @@
       </li>
     </ol>
   </li>
+  <li>
+    <h3>
+      First Class Function (일급 함수)
+      <a href="https://developer.mozilla.org/ko/docs/Glossary/First-class_Function">
+        >>>
+      </a>
+    </h3>
+    <pre>함수를 다른 변수와 동일하게 다루는 언어는 일급 함수를 가졌다고 표현함.
+    예) 일급 함수를 가진 언어에서는 : 
+    1. 함수를 다른 함수에 매개변수로 제공 가능
+    2. 함수가 함수를 반환(return)할 수 있음
+    3. 변수에 함수를 할당 가능</pre>
+  </li>
 </ol>
