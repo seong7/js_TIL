@@ -258,7 +258,8 @@ var UIController = (function(){
         expenseLabel: '.budget__expenses--value',
         percentageLabel: '.budget__expenses--percentage',
         container: '.container',
-        expensesPercLabel: '.item__percentage'
+        expensesPercLabel: '.item__percentage',
+        dateLabel : '.budget__title--month'
     }
 
     var formatNumber = function(num, type){  // 숫자 형태 변환 + (income, expense 에 따라 + - 붙임)
@@ -288,6 +289,13 @@ var UIController = (function(){
         type ==='exp'? sign = '-' : sign = '+';
 
         return (type ==='exp'? sign = '-' : sign = '+') + ' ' + int + '.' + dec;
+    };
+
+        // First Class Function 의 힘
+    var nodeListForEach = function(list, callback){
+        for(var i = 0; i<list.length; i++){  //nodeList 도 .length 메소드 있음
+            callback(list[i], i);
+        }
     };
     
     
@@ -378,13 +386,6 @@ var UIController = (function(){
 
             var fields = document.querySelectorAll(DOMStrings.expensesPercLabel);  // return nodeList
 
-                    // First Class Function 의 힘
-            var nodeListForEach = function(list, callback){
-                for(var i = 0; i<list.length; i++){  //nodeList 도 .length 메소드 있음
-                    callback(list[i], i);
-                }
-            };
-
             nodeListForEach(fields, function(current, index){
 
                 if(percentages[index] > 0 ){
@@ -393,6 +394,39 @@ var UIController = (function(){
                     current.textContent = '---';
                 }
             });
+
+        },
+
+        displayMonth: function(){    // 날짜 표시
+            var now, months, month, year;
+
+            now = new Date();  //객체가 생성된 시점의 시간, 날짜 (Tue Feb 04 2020 08:52:07 GMT+0900 (Korean Standard Time))
+            // var christmas = new Date(2020, 11, 25); // 특정일 지정할 때는 월 - 1 해줘야함
+
+            months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October','November', 'December'];
+            month = now.getMonth();
+
+            year = now.getFullYear();
+
+            document.querySelector(DOMStrings.dateLabel).textContent = months[month] + '  ' +year;
+        },
+
+        changedType: function(){  // selector change event callback function
+            var fields;
+
+            fields = document.querySelectorAll(
+                DOMStrings.inputType+','+
+                DOMStrings.inputDescription+','+
+                DOMStrings.inputValue
+            );
+
+            nodeListForEach(fields, function(cur){
+                cur.classList.toggle('red-focus');
+            });
+
+            document.querySelector(DOMStrings.inputBtn).classList.toggle('red');
+
+            
 
         },
 
@@ -437,6 +471,8 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
         document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem); 
                                                         // callback 된 function에서 자동으로 매개변수로 event 받을 수 있다.
         
+
+        document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType);
     };
 
 
@@ -539,6 +575,7 @@ var controller = (function(budgetCtrl, UICtrl){  // 83 line 에서 넣은 parame
     return{
         init: function(){       // initiate 하기 위한 public method 선언
             console.log('Application has started.');
+            UICtrl.displayMonth();
             UICtrl.displayBudget({         // variable 없이 객체를 매개변수로 넣어줄 수 있음
                 budget: 0,
                 totalInc: 0,
