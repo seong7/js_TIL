@@ -188,17 +188,25 @@
     </ol>
   </li>
   <li>
-    <p>
-      <h4>객체 내부에 객체 선언 방법
-      <a href=""> >>> </a></h4>
-    </p>   
-  </li>
   <li>
     <p>
-      <h4>객체 내 property 동적인 호출 방법
-      <a href=""> >>> </a></h4>
-      object[key]
-    </p>   
+      <h3>객체 관련 Memo</h3>
+    </p>
+    <ol>
+      <li>
+        <p>
+          <h4>객체 내부에 객체 선언 방법
+          <a href=""> >>> </a></h4>
+        </p>   
+      </li>
+      <li>
+        <p>
+          <h4>객체 내 property 동적인 호출 방법
+          <a href=""> >>> </a></h4>
+          object[key]
+        </p>   
+      </li>
+    </ol>
   </li>
 </ul>
 
