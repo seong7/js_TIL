@@ -178,6 +178,13 @@
           <a href=""> >>> </a>
         </p>   
       </li>
+      <li>
+        <p>
+          <h4>change Event
+          <a href=""> >>> </a></h4>
+         change event 에는 classList.toggle() 이 적절함
+        </p>   
+      </li>
     </ol>
   </li>
   <li>
