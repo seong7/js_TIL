@@ -356,7 +356,9 @@ var UIController = (function(){
                 
                 //  하지만 여기서 fieldsArr 은 List type 이므로 call method 를 통해 method borrowing 함
                                                                                 // 5장에서 배움
-                //  fields List 를 call method 의 (this) 매개변수로 지정
+                //  List 인 fields 를 call method 의 (this) 매개변수로 지정
+
+                //  결과 적으로 List 인 fields 를 Array 로 변환 (복사) 하여 변수 fieldsArr 에 담는다.
             
                 // Array.slice(fields); 이렇게는 안됨? => 안됨    
             
