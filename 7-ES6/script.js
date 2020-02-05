@@ -1,3 +1,5 @@
+// ES 6 ( ES 2015 )
+
 /////////////////////////////////
 // Lectrue : let and const
 /////////////////////////////////
@@ -345,8 +347,10 @@ console.log(ages.find(cur => cur >= 18));   //_ fn true 인 첫번째 value retu
 
 
 /////////////////////////////////
-// Lecture: Spread Operator
+// Lecture: Spread Operator  (...)
 /////////////////////////////////
+    
+    // ...Array 변수  : 해당 Array 를 펼쳐 (spread) 요소들로 분해함
 
 function addFourAges (a, b, c, d){
     return a + b + c + d;
@@ -360,6 +364,7 @@ var ages = [18, 30, 12, 21];
 var sum2 = addFourAges.apply(null, ages); // .apply(this, array) : array 를 분해해서 앞의 fn 에 매개변수로 넣어줌
 console.log(sum2); //_ 81
 
+
 // ES 6
 const sum3 = addFourAges(...ages);  // spread operator ...  : 
 console.log(sum3); //_ 81
@@ -372,7 +377,7 @@ console.log(bigFamily); //_ Array(7) [ "John", "Jane", "Mark", "Lily", "Mary", "
 // nodeList (array-like)에 사용하기
 const h = document.querySelector('h1');
 const boxes6 = document.querySelectorAll('.box');  // - nodeList
-const all = [h, ...boxes6];  // 모든 dom 객체들이 배열로 나열됨
+const all = [h, ...boxes6];  // nodeList 의 요소들이 분해되어 배열에 나열됨
 
 Array.from(all).forEach(cur => cur.style.color = 'purple'); // 한번에 color 속성 값 변경
 
@@ -381,14 +386,145 @@ Array.from(all).forEach(cur => cur.style.color = 'purple'); // 한번에 color �
 
 
 /////////////////////////////////
-// Lecture: Rest Parameters
+// Lecture: Rest Parameters  (...)
 /////////////////////////////////
+
+    // function(...매개변수){}  : ... 부호가 fn 선언문에 매개변수로 쓰일 때 Rest Parameter라고 부름
+        // 들어온 매개변수를 Array 로 묶어서 fn 구현부에 보냄
 
 // ES 5
 function isFullAge5(){
-    //console.log(arguments);
+    console.log(arguments); //_ Arguments (Array-like object)객체 출력 {0: 1990, 1: 1999, 2: 1965}
+            // arguments : 각각의 excution context 가 가지고 있는 keyword
+                         // 매개변수를 가리킴
     var argsArr = Array.prototype.slice.call(arguments);
-    console.log(argsArr);
+    console.log(argsArr);   //_ Array 객체 출력 [1990, 1999, 1965]
+
+    argsArr.forEach(function(cur){
+        console.log((2016 - cur) >= 18);
+    })
 }
 
 isFullAge5(1990, 1999, 1965);
+// isFullAge5(1990, 1999, 1965, 2016, 1987);
+
+
+// ES 6
+function isFullAge6(...years){  // ... 를 fn 선언문의 매개변수에 쓰면
+                                // 들어오는 값들을 자동으로 배열로 합침 (앞에 선언된 매개변수가 없을 경우)
+
+    console.log(years); //_ 매개변수가 자동으로 Array로 변환되어 출력됨 (값이 하나여도 마찬가지)
+
+    years.forEach(cur => console.log((2016 - cur) >= 18));
+}
+
+isFullAge6(1990, 1999, 1965);
+
+
+
+// ES 5
+function isfullAge55(limit){
+    console.log(limit); //_ 첫 매개변수만 받음
+
+    console.log(arguments); //_ 전체 매개변수를 Argument 객체로 받음
+    var argsArr = Array.prototype.slice.call(arguments, 1); // 1번 index 부터 잘라서 Array 복사
+    console.log(argsArr);
+
+    argsArr.forEach(function(cur){      // 새로운 Array 에 대해 forEach method 적용
+        console.log((2020 - cur) >= limit);
+    })
+} 
+
+isfullAge55(21, 1990, 1999, 1965); //_ true, true, true    (세 번)    
+// : ES 5 에서는 매개변수를 추가하여 fn 을 짜는 것이 복잡함
+
+
+// ES 6
+function isFullAge66(limit1, limit2, ...years){ //@@@ ...years 앞에 선언된 매개변수만큼 제외한 후
+                                                    // 나머지 (rest) 를 변수로 저장
+    console.log(limit1);
+    console.log(limit2);
+    console.log(years); //__ Array [1990, 1999, 1965] 
+    years.forEach(cur => console.log((2020 - cur) >= limit1));
+}
+
+isFullAge66(16, 20, 1990, 1999, 1965); //_ true, true, true (세 번)
+
+
+
+
+
+/////////////////////////////////
+// Lecture: Default Parameters
+/////////////////////////////////
+
+// ES 5
+function SmithPerson5(firstName, yearOfBirth, lastName, nationality){
+
+    lastName === undefined? lastName='Smith' : lastName;
+    nationality === undefined? nationality = 'american' : nationality;
+    // ternary operator 를 이용해 매개변수가 undefined 일 경우 default 값을 정해줄 수 있음
+
+    this.firstName = firstName;
+    this.yearOfBirth = yearOfBirth;
+    this.lastName = lastName;
+    this.nationality = nationality;
+};
+
+var john = new SmithPerson5('John', 1990);
+var emily = new SmithPerson5('Emily', 1991, 'Diaz', 'spanish'); // defualt parameter 를 안씀
+
+// ES 6
+function SmithPerson6(firstName, yearOfBirth, lastName = 'Smith', nationality = 'american'){
+                                                // default Parameter 임
+    // 구현부 생략 (위와 동일)
+}
+
+
+
+
+/////////////////////////////////
+// Lecture: Maps        ES 6 에서 완전 새롭게 추가된 data structure
+/////////////////////////////////
+
+    // 기존의 Object 과 다른 점
+        // key 값으로 다양한 type 지정 가능
+        // iteratable   : loop 에서 사용 가능
+        // distructruing 하기 쉬움
+
+
+const question = new Map();
+question.set('question', 'What is the official name of the latest major JavaScript version');
+question.set(1, "ES5");  // key , value
+question.set(2, "ES6");
+question.set(3, "ES2015");
+question.set(4, "ES7");
+question.set('correct', 3);
+question.set(true, 'Correct answer');
+question.set(false, 'Wrong, please try again!');
+
+console.log(question.get('question')); //_ value 출력됨
+console.log(question.size);
+
+if(question.has(4)){    // key  return - boolean
+    // question.delete(4);
+}
+
+// question.delete(4); // key
+// question.delete(4); // 이미 삭제된 경우 nothing happens
+
+// question.clear();
+
+
+/*iteratable 특징 이용해 distructuring*/
+
+// question.forEach((value, key) => console.log(`This is ${key}, and it's set to ${value}.`));
+
+for (let [key, value] of question.entries()){
+    
+    if(typeof(key) === 'number'){
+        console.log(`Answer ${key}: ${value}`)
+    }
+}
+
+const ans = parseInt(prompt('Write the correct answer.'));
