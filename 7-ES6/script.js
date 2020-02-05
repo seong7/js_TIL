@@ -75,16 +75,16 @@ console.log(i); //_ 5 출력
 { // __ block 으로 block scope 생성하는 방법 : const, let 에만 유효함
     const a = 1;
     let b = 2;
-    var c = 3;
+    var c6 = 3;
 } 
 //console.log(a + b);  //__ is not defined error (다른 scope 임)
-console.log(c);
+console.log(c6); //_ 3 출력됨 
 
 // ES5
 (function() {
-    var c = 3;
+    var c5 = 3;
 })();
-console.log(c); //_ is not defined error (var 여도 IIFE 안에 있으므로 다른 function (다른 scope)임)
+//console.log(c5); //_ is not defined error (var 여도 IIFE 안에 있으므로 다른 function (다른 scope) 임)
 
 
 
@@ -483,14 +483,19 @@ function SmithPerson6(firstName, yearOfBirth, lastName = 'Smith', nationality = 
 
 
 
+
+
 /////////////////////////////////
 // Lecture: Maps        ES 6 에서 완전 새롭게 추가된 data structure
 /////////////////////////////////
 
-    // 기존의 Object 과 다른 점
-        // key 값으로 다양한 type 지정 가능
-        // iteratable   : loop 에서 사용 가능
-        // distructruing 하기 쉬움
+    // 기존의 Object 과 다른 점 및 Object 보다 hash map 을 구성하기에 더 편한 이유 :
+        // 1. key 값으로 다양한 type 지정 가능
+        // 2. iteratable : loop 에서 사용 가능
+        // 3. distructuring 하기 쉬움
+        // 4. size property 로 size 쉽게 알 수 있음
+        // 5. add, remove data 가 쉽다.
+        
 
 
 const question = new Map();
@@ -527,4 +532,152 @@ for (let [key, value] of question.entries()){
     }
 }
 
-const ans = parseInt(prompt('Write the correct answer.'));
+// const ans = parseInt(prompt('Write the correct answer.'));
+// console.log(question.get(ans === question.get('correct')));
+
+
+
+
+
+/////////////////////////////////
+// Lecture: Classes
+/////////////////////////////////
+        // 비난 여론 : js 의 객체 지향 상속 특성을 숨기기 때문 (예: prototype 상속을 자동으로 시켜줌)
+
+        /*
+            특징 : 
+            1. class definition 은 hoist 되지 않는다.
+                    -> fn constructor 와는 다르게 class는 선언문 아래에서만 접근할 수 있다.
+            2. class 에 별도로 method 를 추가할 수 있지만 protperty 는 불가능하다.
+                    -> 새로운 property 를 추가하는 것은 중요하지 않으므로 문제 안됨. 
+        */
+
+// ES 5  : function constructor 이용
+var Person5 = function(name, yearOfBirth, job){
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job; 
+};
+Person5.prototype.calculateAge = function(){
+    var age = new Date().getFullYear()-this.yearOfBirth;
+    console.log(age);
+};
+
+var john5 = new Person5('John', 1990, 'teacher');
+
+
+// ES 6   : class 를 이용함
+class Person6 {
+    constructor (name, yearOfBirth, job){   /* property 및 method 영역 */
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+        this.calc2 = function(){
+            console.log(`method test : ${this.name}`);
+        }
+    } /* , 또는 ; 를 쓰지 않는다. */
+
+    /* Prototype 영역 !  */
+    calculateAge(){
+        var age = new Date().getFullYear-this.yearOfBirth;
+        console.log(`prototype의 this : ${this.name}`);
+    }
+
+    /* static 영역 !  (instance에게 상속되지 않음)*/
+    static greeting(){
+        console.log(`Hey there!`);
+    }
+}
+
+const john6 = new Person6('John', 1990, 'teacher');
+
+Person6.greeting();
+
+
+
+/////////////////////////////////
+// Lecture: Classes and subclasses 
+/////////////////////////////////
+
+// ES 5  : function constructor 이용
+var Person55 = function(name, yearOfBirth, job){
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job; 
+};
+Person55.prototype.calculateAge = function(){
+    var age = new Date().getFullYear()-this.yearOfBirth;
+    console.log(age);
+};
+
+
+// /* 상속 */ subclass (super class 와 동일한 매개변수 받아야함)
+var Athlete55 = function(name, yearOfBirth, job, olympicGames, medals){
+    
+    Person5.call(this, name, yearOfBirth, job); // super class 로부터 받은 매개변수 호출
+
+    // this 를 넣어주는 이유 : new operator 로 빈 객체가 생성되면 this는 해당 객체를 가리킴
+    // -> 해당 객체를 가리키는 this를 Person5 에도 적용하여 호출하기 위해 this 넣어줌 
+
+    this.olympicGames = olympicGames;
+    this.medals = medals;
+}
+
+Athlete55.prototype = Object.create(Person55.prototype); 
+// prototype = Person5 의 prototype 을 prototype 으로 가지는 객체로 정함
+// => prototype 상속
+
+// 상속 받은 prototype 외에 자신만의 method 추가해줌 ( *** 상속 먼저 받고 추가해야함)
+Athlete55.prototype.wonMedal = function(){  // Athlete55 만의 prototype 지정
+    this.medals++;
+    console.log(this.medals);
+}
+
+var johnAthlete55 = new Athlete55('John', 1992, 'swimmer', 3, 10);
+
+johnAthlete55.calculateAge();  // prototype 상속된 것 확인
+johnAthlete55.wonMedal();      // 자신만의 prototype 확인
+
+
+
+
+// ES 6
+class Person66 {
+    constructor (name, yearOfBirth, job){   /* property 및 method 영역 */
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+        this.calc2 = function(){
+            console.log(`method test : ${this.name}`);
+        }
+    } /* , 또는 ; 를 쓰지 않는다. */
+
+    /* Prototype 영역 !  */
+    calculateAge(){
+        var age = new Date().getFullYear-this.yearOfBirth;
+        console.log(`prototype의 this : ${this.name}`);
+    }
+}
+
+class Athlete66 extends Person66{
+    constructor(name, yearOfBirth, job, olympicGames, medals){
+        super(name, yearOfBirth, job); 
+        // ES 5 의 Person55.call(this, name, yearOfBirth, job); 를 대신해줌
+
+        this.olympicGames = olympicGames;
+        this.medals = medals;
+    }
+
+    wonMedal(){
+        this.medals++;
+        console.log(this.medals);
+    }
+}
+
+// Athlete55.prototype = Object.create(Person55.prototype);  // prototype 상속 코드 없이도 자동으로 상속됨 !!
+                                                             // 자동으로 prototype tree 구성
+
+const johnAthlete66 = new Athlete66('John', 1992, 'swimmer', 3, 10);
+
+johnAthlete66.wonMedal();
+johnAthlete66.calculateAge();
