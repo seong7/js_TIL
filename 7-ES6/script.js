@@ -675,7 +675,7 @@ class Athlete66 extends Person66{
 }
 
 // Athlete55.prototype = Object.create(Person55.prototype);  // prototype 상속 코드 없이도 자동으로 상속됨 !!
-                                                             // 자동으로 prototype tree 구성
+                                                             // 자동으로 prototype chain 구성
 
 const johnAthlete66 = new Athlete66('John', 1992, 'swimmer', 3, 10);
 
