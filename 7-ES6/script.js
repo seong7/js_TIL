@@ -2,6 +2,7 @@
 // Lectrue : let and const
 /////////////////////////////////
 
+    // 특징 : block scoped
 
 // ES 5
 var name5 = 'Jane Smith';
@@ -148,9 +149,9 @@ console.log(`${firstName} `.repeat(5)); //_John John John John John
 // Lecture: Arrow Function 2
 /////////////////////////////////
 
-// Array functions 은 this 키워드가 없다
-// lexical 'this' keyword 를 쓴다.
-    // 즉 주변의 this key 를 공유하여 쓴다.
+// Arrow functions 은 this 키워드가 없다
+// lexical 'this' keyword 를 쓴다. (자신만의 this 를 생성하지 않음)
+    // 자신을 포함하고 있는 context의 this key 를 이어받는다.
 
 
 // ES 5
@@ -162,8 +163,8 @@ var box5 = {
         document.querySelector('.green').addEventListener('click', function(){
             var str = 'This box number ' + self.position /*this.position*/ + ' and it is ' +
             self.color /*this.color*/;  
-                // call back fn의 this : Window obj
-                // method 의 this 를 self 에 담아주고 사용 가능
+                // call back fn의 this : Window obj  -- > not defined error 발생
+                // method 가 가진 this (box5 obj)를 self 에 담아주고 사용 가능
             alert(str);
         });
     }
@@ -176,7 +177,7 @@ const box6 = {
     position: 1,
     clickMe: function(){
         
-        document.querySelector('.green').addEventListener('click', () => { // 매개변수 0개 또는 2개이상 : () 로 묶어줌
+        document.querySelector('.green').addEventListener('click', () => { // 매개변수 0개 또는 2개이상 일 때: () 로 묶어줌
             var str = 'This box number ' + /*self.position*/ this.position + ' and it is ' +
             /*self.color*/ this.color;  
                 // lexical this keyword 사용 가능함 
@@ -186,25 +187,24 @@ const box6 = {
 }
 // box6.clickMe();
 
-// this 키를 보존해야하는 경우 무조건 => 사용하여 익숙해 지기 !
-
+// this 키를 보존해야하는 경우에 해당 방법 자주 사용하여 익숙해 지기 !
 
 const box66 = {
     color: 'green',
     position: 1,
-    clickMe:() => {     // arrow 사용할 경우 this 를 lexical 로 쓰기 때문에
-                        // 해당 fn 내의 this 는 Window 를 가리키게 된다. 
+    clickMe:() => {     ////// 중요 //////
+                        // method 에도 arrow fn 을 사용할 경우 this 를 한번 더 lexical 로 쓰기 때문에
+                        // 아래의 callback fn 내의 this 는 Window 를 가리키게 된다. 
         
         document.querySelector('.green').addEventListener('click', () => { // 매개변수 0개 또는 2개이상 : () 로 묶어줌
             var str = 'This box number ' + /*self.position*/ this.position + ' and it is ' +
             /*self.color*/ this.color;  
-                // lexical this keyword 사용 가능함 
+                // lexical this keyword 사용 가능함
             alert(str);
         });
     }
 }
-//box66.clickMe(); // undefined
-
+//box66.clickMe(); //__ undefined
 
 
 
@@ -339,3 +339,56 @@ console.log(ages[full.indexOf(true)]);
 // ES 6
 console.log(ages.findIndex(cur => cur >= 18));  //_ fn true 인 첫번째 index return
 console.log(ages.find(cur => cur >= 18));   //_ fn true 인 첫번째 value return
+
+
+
+
+
+/////////////////////////////////
+// Lecture: Spread Operator
+/////////////////////////////////
+
+function addFourAges (a, b, c, d){
+    return a + b + c + d;
+}
+
+var sum1 = addFourAges(18, 30, 12, 21);
+console.log(sum1); //_ 81
+
+// ES 5
+var ages = [18, 30, 12, 21];
+var sum2 = addFourAges.apply(null, ages); // .apply(this, array) : array 를 분해해서 앞의 fn 에 매개변수로 넣어줌
+console.log(sum2); //_ 81
+
+// ES 6
+const sum3 = addFourAges(...ages);  // spread operator ...  : 
+console.log(sum3); //_ 81
+
+const familySmith = ['John', 'Jane', 'Mark'];
+const familyMiller = ['Mary', 'Bob', 'Ann'];
+const bigFamily = [...familySmith, 'Lily', ...familyMiller];
+console.log(bigFamily); //_ Array(7) [ "John", "Jane", "Mark", "Lily", "Mary", "Bob", "Ann" ]
+
+// nodeList (array-like)에 사용하기
+const h = document.querySelector('h1');
+const boxes6 = document.querySelectorAll('.box');  // - nodeList
+const all = [h, ...boxes6];  // 모든 dom 객체들이 배열로 나열됨
+
+Array.from(all).forEach(cur => cur.style.color = 'purple'); // 한번에 color 속성 값 변경
+
+
+
+
+
+/////////////////////////////////
+// Lecture: Rest Parameters
+/////////////////////////////////
+
+// ES 5
+function isFullAge5(){
+    //console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments);
+    console.log(argsArr);
+}
+
+isFullAge5(1990, 1999, 1965);
