@@ -89,7 +89,7 @@
         First Class Function (일급 함수)
     </li>
 </ol>
-<h4>Bugety App repo : <a href="6-budgety">>></a></h4>
+&bsnp<h4>Bugety App : <a href="6-budgety">>></a></h4>
 
 <h2>
     ES 6
