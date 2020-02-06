@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script> 
+
+        /* 
+            Sychronous Code :
+            동기적
+
+            1줄(execute > return) -> 1줄(execute > return)
+            순차적으로 실행되는 코드
+
+            
+            const second = () =>{
+                console.log('Second');
+            }
+
+            const first = () =>{
+                console.log('Hey there');
+                second();
+                console.log('The end');
+            }
+
+            first();        //_ Hey there -> Second -> The end
+        */
+
+        /* Asynchronous Code */
+            //비동기적
+        {
+        const second = () =>{   // callback fn  : 코드의 non-blocking 을 위해 callback fn 을 이용해서
+                                                /// action을 미래로 지연시킬 수 있다.
+            setTimeout(() => {
+                console.log('Async Hey there');
+            
+            }, 2000); /* = 2s 후 실행됨 */
+            console.log('Second');
+        }
+
+        const first = () =>{
+            console.log('Hey there');
+            second();
+            console.log('The end');
+        }
+
+        first();
+        }
+
+
+
+
+    </script>
+</body>
+</html>
