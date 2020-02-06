@@ -76,7 +76,7 @@
             </li>
             <li>Array.findIndex(callbackFn) : Fn 이 참인 첫번째 index</li>
             <li>Array.find(callbackFn) : Fn 이 참인 첫번째 요소</li>
-            <li>참고 - Array.reduce()  __원래 있던 syntax</li>
+            <li>참고 - Array.reduce()  (기존에 있던 syntax임)</li>
         </ul>
     </li>
     <li>
