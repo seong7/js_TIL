@@ -296,7 +296,7 @@ console.log(retirement);
 const boxes = document.querySelectorAll('.box');
 
 // ES 5
-// var boxesArr5 = Array.prototype.slice.call(boxes);
+// var boxesArr5 = Array.prototype.slice.call(boxes);  // : nodeList -> Array 변환
 // boxesArr5.forEach(function(el){
 //     el.style.backgroundColor = 'dodgerblue';
 // });
@@ -322,7 +322,7 @@ boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 
 // ES 6
 for(const cur of boxesArr6){
-    if(cur.className.includes('blue')){  // el.className -> string 
+    if(cur.className.includes('blue')){  // .includes() 는 string method 임 
         continue;
     }
     cur.textContent = 'I changed to blue!';
@@ -441,7 +441,7 @@ isfullAge55(21, 1990, 1999, 1965); //_ true, true, true    (세 번)
 
 // ES 6
 function isFullAge66(limit1, limit2, ...years){ //@@@ ...years 앞에 선언된 매개변수만큼 제외한 후
-                                                    // 나머지 (rest) 를 변수로 저장
+                                                    // 나머지 (rest) 를 배열로 묶어 변수에 저장
     console.log(limit1);
     console.log(limit2);
     console.log(years); //__ Array [1990, 1999, 1965] 
