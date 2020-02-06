@@ -89,3 +89,10 @@
         First Class Function (일급 함수)
     </li>
 </ol>
+
+<h2>
+    ES 6
+    <a href="7-ES6">
+        >>>
+    </a>
+</h2>

@@ -3,7 +3,7 @@
 <ol>
     <li>
         <h3>
-            Variable Declarations with 'let' and 'const'
+            'let' and 'const'
             <a href ="">
                 >>>
             </a>
@@ -29,10 +29,10 @@
         </h3>
         <ul>
             <li> `` (back tick) + ${ } (template literal) 사용</li>
-            <li> .startsWith() </li>
-            <li> .endsWith() </li>
-            <li> .includes() </li>
-            <li> .repeat() </li>
+            <li> .startsWith() : booean </li>
+            <li> .endsWith() : booean</li>
+            <li> .includes() : booean</li>
+            <li> .repeat(num) : String (해당 문자열을 num 만큼 반복시킨 문자열)</li>
         </ul>
     </li>
     <li>
@@ -71,11 +71,12 @@
             <li>
                 for..of
                 <ul>
-                    <li>Object : for..in <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in">>></a></li>
+                    <li>참조 - Object : for..in (기존에 있던 syntax임)<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in">>></a></li>
                 </ul>
             </li>
-            <li>Array.findIndex()</li>
-            <li>Array.find()</li>
+            <li>Array.findIndex(callbackFn) : Fn 이 참인 첫번째 index</li>
+            <li>Array.find(callbackFn) : Fn 이 참인 첫번째 요소</li>
+            <li>참고 - Array.reduce()  (기존에 있던 syntax임)</li>
         </ul>
     </li>
     <li>
@@ -104,8 +105,8 @@
             </li>
             <ol>
                 <li>
-                    ES 5 : 입력된 모든 매개변수는 arguments 키워드 변수에 저장됨,<br/>
-                    -> Arguments 객체로 변환시킴 (Array-like 객체) -> slice.call 이용해 Array로 변환시켜 사용<br/>
+                    ES 5 : 입력된 모든 매개변수는 Arguments 객체(Array-like) 로 변환되어 arguments 키워드 변수에 저장됨,<br/>
+                    -> slice.call 이용해 Array로 변환시켜 사용<br/>
                     <a href="">>></a>
                 </li>
                 <li>
@@ -149,7 +150,7 @@
         </h3>
         <ul>
             <li>constructor 영역 (property/ method 기입)</li>
-            <li>prototype 영역</li>
+            <li>prototype 영역 (prototype method 기입)</li>
             <li>상속 시 prototype chain 형성</li>
         </ul>
     </li>
