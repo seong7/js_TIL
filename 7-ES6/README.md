@@ -141,7 +141,7 @@
             <li> .size __(property 임)</li>
             <li> 
                 for ... of Map.entries()  __(array-like Object return)
-                <a href="href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L524">>></a>
+                <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L524">>></a>
             </li>
         </ul>
     </li>
