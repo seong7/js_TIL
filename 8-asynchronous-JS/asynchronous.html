@@ -33,27 +33,73 @@
 
         /* Asynchronous Code */
             //비동기적
-        {
-        const second = () =>{   // callback fn  : 코드의 non-blocking 을 위해 callback fn 을 이용해서
-                                                /// action을 미래로 지연시킬 수 있다.
-            setTimeout(() => {
-                console.log('Async Hey there');
+        // {
+        // const second = () =>{   
+
+        //     setTimeout(() => {   // callback fn  : 코드의 non-blocking(멈추지 않음) 을 위해 callback fn 을 이용해서
+        //                          /// action을 미래로 지연시킬 수 있다.
+        //         console.log('Async Hey there');
             
-            }, 2000); /* = 2s 후 실행됨 */
-            console.log('Second');
-        }
+        //     }, 2000); /* = 2s 후 실행됨 */
+        //     console.log('Second');
+        // }
 
-        const first = () =>{
-            console.log('Hey there');
-            second();
-            console.log('The end');
-        }
+        // const first = () =>{
+        //     console.log('Hey there');
+        //     second();
+        //     console.log('The end');
+        // }
 
-        first();
-        }
+        // first();
+        // }
 
 
+        /*
+            setTimeout(callback fn, 지연시간, callback fn 의 매개변수);
+        */
 
+        ////////////////////////////
+        ////  Asynchronous Practice 
+        ////////////////////////////
+
+        // recipe 앱을 통해 이해해보기
+
+        
+        // 아래와 같은 코드 :  Callback Hell (콜백 지옥)
+            // 서버에서 데이터를 받아와 화면에 출력하기까지 인코딩, 사용자 인증 등 다양한 처리를 하게되는데
+            // 이 모든 과정을 위해 비동기로 처리하려면 아래와 같이 callback fn 을 수 없이 엮게된다.
+            // 가독성 떨어지고, 로직 변경이 힘들다.
+
+        // function getRecipe(){
+        //     setTimeout(() =>{   // data 가 server 로부터 돌아오기 위한 시간을 위해 지연을 준다고 보면 됨.
+        //         const recipeID = [523, 883, 432, 974];
+        //         console.log(recipeID);
+
+        //         setTimeout((id)=>{    // 위에서 data 를 받고 나면(실행 후) recipe를 가져오기 위한 지연을 준다.
+        //             const recipe = {
+        //                 title: 'Fresh tomato pasta',
+        //                 publisher: 'Jonas'};
+        //             console.log(`${id}: ${recipe.title}`);
+
+        //             setTimeout((publisher)=>{
+        //                 const recipe2 = {
+        //                     title: 'Italian Pizza',
+        //                     publisher: 'Jonas'};
+        //                     console.log(recipe2);
+                    
+        //             }, 1500, recipe.publisher);
+
+        //         }, 1000, recipeID[2] /* : callback fn 의 매개변수 입력*/);
+
+        //     }, 1500);
+        // }
+        // getRecipe();
+        //___ Callback Hell 예시
+
+
+        ////////////////////////////////
+        ////// Promise (ES 6 syntax)
+        ///////////////////////////////
 
     </script>
 </body>
