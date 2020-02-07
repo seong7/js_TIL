@@ -15,7 +15,7 @@
             - localStorage
             등등..
         </pre>
-        <img src="WEB_API_ref.PNG" height="350" width="auto"/>
+        <img src="image/WEB_API_ref.gif" height="350" width="auto"/>
         <br/><span>
             WEB API 에서 timer 가 끝이나면 해당 callback fn 은 Message Queue 로 이동하여<br/>
             Execution stack 이 비워질 때까지 기다린다. (DOM event 도 마찬 가지)<br/>
