@@ -82,6 +82,6 @@
     </li>
     <li>
         <h2>AJAX / API<a href=""> >>></a></h2>
-        <img src="ajax_api.JPG" height="350" width="auto"/>
+        <img src="image/ajax_api.PNG" height="350" width="auto"/>
     </li>
 </ul>
