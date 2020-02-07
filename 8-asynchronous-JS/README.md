@@ -2,7 +2,7 @@
 
 <ul>
     <li>
-        <h2>WEB API<a href="">>>></a></h2>
+        <h2>WEB API<a href=""> >>></a></h2>
         <span> : Execution stack , Message Queue 와 함께 JS runtime 을 구성하는 외부 요소<br/></span>
         <span> : <strong>ASYNCH code(비동기적 코드)</strong> 가 대기하는 (<strong>timer</strong>가 실행되는) background 임</span>
         <pre>
@@ -37,7 +37,7 @@
         </br>
     </li>
     <li>
-        <h2>Promises<a href="">>>></a></h2>
+        <h2>Promises<a href=""> >>></a></h2>
         <span><a href="">Callback Hell</a>(콜백 지옥) 에 대한 해결책<span><br/>
         <span><strong>Asynchronous JS</strong>를 위해 만들어진 ES 6 의 기능</span>
         <BlockQuote>
@@ -79,5 +79,9 @@
         <span><strong>Produce</strong> : Promise 를 생성하고 <strong>Promise</strong>를 이용해 결과를 보내는 단계</span><br/>
         <span><strong>Consume</strong> : Promise 의 <strong>Fulfillment</strong> 와 <strong>Rejection</strong> 각각의 상태에 해당하는 <strong>Callback function</strong> 을 사용하는 단계<br/></span>
         <blockquote>.then() 과 .catch() => asynch / await (ES8 ES2017)</blockquote>
+    </li>
+    <li>
+        <h2>AJAX / API<a href=""> >>></a></h2>
+        <img src="ajax_api.JPG" height="350" width="auto"/>
     </li>
 </ul>
