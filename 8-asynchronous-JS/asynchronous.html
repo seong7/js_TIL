@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script> 
+
+        /* 
+            Sychronous Code :
+            동기적
+
+            1줄(execute > return) -> 1줄(execute > return)
+            순차적으로 실행되는 코드
+
+            
+            const second = () =>{
+                console.log('Second');
+            }
+
+            const first = () =>{
+                console.log('Hey there');
+                second();
+                console.log('The end');
+            }
+
+            first();        //_ Hey there -> Second -> The end
+        */
+
+        /* Asynchronous Code */
+            //비동기적
+        // {
+        // const second = () =>{   
+
+        //     setTimeout(() => {   // callback fn  : 코드의 non-blocking(멈추지 않음) 을 위해 callback fn 을 이용해서
+        //                          /// action을 미래로 지연시킬 수 있다.
+        //         console.log('Async Hey there');
+            
+        //     }, 2000); /* = 2s 후 실행됨 */
+        //     console.log('Second');
+        // }
+
+        // const first = () =>{
+        //     console.log('Hey there');
+        //     second();
+        //     console.log('The end');
+        // }
+
+        // first();
+        // }
+
+
+        /*
+            setTimeout(callback fn, 지연시간, callback fn 의 매개변수);
+        */
+
+        ////////////////////////////
+        ////  Asynchronous Practice 
+        ////////////////////////////
+
+        // recipe 앱을 통해 이해해보기
+
+        
+        // 아래와 같은 코드 :  Callback Hell (콜백 지옥)
+            // 서버에서 데이터를 받아와 화면에 출력하기까지 인코딩, 사용자 인증 등 다양한 처리를 하게되는데
+            // 이 모든 과정을 위해 비동기로 처리하려면 아래와 같이 callback fn 을 수 없이 엮게된다.
+            // 가독성 떨어지고, 로직 변경이 힘들다.
+
+        // function getRecipe(){
+        //     setTimeout(() =>{   // data 가 server 로부터 돌아오기 위한 시간을 위해 지연을 준다고 보면 됨.
+        //         const recipeID = [523, 883, 432, 974];   // ajax call 로부터 받은 데이터라고 가정.
+        //         console.log(recipeID);
+
+        //         setTimeout((id)=>{    // 위에서 data 를 받고 나면(실행 후) recipe를 가져오기 위한 지연을 준다.
+        //             const recipe = {
+        //                 title: 'Fresh tomato pasta',
+        //                 publisher: 'Jonas'};
+        //             console.log(`${id}: ${recipe.title}`);
+
+        //             setTimeout((publisher)=>{
+        //                 const recipe2 = {
+        //                     title: 'Italian Pizza',
+        //                     publisher: 'Jonas'};
+        //                     console.log(recipe2);
+                    
+        //             }, 1500, recipe.publisher);
+
+        //         }, 1000, recipeID[2] /* : callback fn 의 매개변수 입력*/);
+
+        //     }, 1500);
+        // }
+        // getRecipe();
+        //___ Callback Hell 예시
+
+
+
+
+        ////////////////////////////////
+        ////// Promise (ES6  ES2015 syntax)
+        ///////////////////////////////
+
+
+        // Produce 생성
+
+        // 첫번째 promise 는 brower load 시 바로 생성되고 즉시 executor 실행됨 !!
+
+        const getIDs = new Promise((resolve, reject)=>{  // callback fn : executor 라고 불림 (Promise 가 생성되는 즉시 실행됨)
+                // promise 의 성공 여부를 다룰 각각의 매개변수 (resolve_성공, reject_실패 또는 결과 없을 시)
+            
+            // Promise의 executor 에는 주로 Asynch code 가 들어간다. 
+               //(ex Ajax call / setTimeout) 
+
+            setTimeout(()=>{ // Ajax call 대신 setTimeout() 으로 연습한다. (실패하지 않음)
+                
+                resolve([523, 883, 432, 974] /* 결과 */);  // resolve 를 call 하는 순간 Promise 의 상태는 Fulfilled 가된다.
+                /* 위의 결과 data 를 Ajax 로 서버에서 받았다고 가정*/
+
+            }, 1500);
+        });
+
+        const getRecipe = recID =>{     // 두번째 Promise 는 function 의 return 에 생성한다.
+                                            // : recID 매개변수를 받기 위해서 !!
+
+            return new Promise((resolve, reject)=>{
+
+                setTimeout(ID => {
+
+                    const recipe = {
+                        title: 'Fresh tomato pasta',
+                        publisher: 'Jonas'};
+                    resolve(`${ID}: ${recipe.title}`);
+
+                }, 1500, recID);
+            });
+        };
+
+        const getRelated = publisher => {      // 세번째 Promise 또한 publisher 매개변수 받기 위해 function 에 return 시킨다.
+
+            return new Promise((resolve, reject) => {
+
+
+                setTimeout(pub => {
+
+                    const recipe = {
+                        title: 'Italian Pizza',
+                        publisher: 'Jonas'
+                    };
+                    resolve(`${pub} : ${recipe.title}`);
+
+                }, 1500, publisher)
+
+            });
+        };
+
+
+
+        // Consume 사용
+        // getIDs
+        // .then(IDs=>{  // .then() : Fulfilled Promise (성공) 의 handler 
+        //                     // callback fn 의 매개변수 = successful Promise 의 result 값
+        //     console.log(IDs);
+
+        //     return getRecipe(IDs[2]); // 두 번재 promise 호출
+        // })
+        // .then(recipe => { // 두번째 Fulfilled promise 의 result 를 받는 두 번째 handler
+        //     console.log(recipe);
+
+        //     return getRelated('Seongjin Kim');
+        // }) 
+        // .then(recipe =>{
+        //     console.log(recipe);
+        // })
+
+        // .catch(error =>{ // .catch() : Rejected Promise (실패) 의 handler 
+        //                     // callback fn 의 매개변수 = Rejected Promise 의 result 값
+        //     // error 를 catch 하여 error 대신 callback fn 을 실행시킨다고 생각하면 됨
+        //         // (catch 하지 않을 경우 uncaught exception 발생함)
+        //     console.log("error");
+        // });
+
+        // // console.log(getIDs);  // sync (동기적) 코드로 Promise를 출력하면 비동기적으로 작동하는 promise 는 아직 pending 이다.
+        //                     //__ Promise {<state>: "pending"}   출력됨
+
+        // setTimeout(()=>{           
+        //     console.log(getIDs);  // 시간을 주고 출력하면 결과 :
+        // },5000);                  // Promise { <state>: "fulfilled", <value>: (4) [523, 883, 432, 974] }
+        //                           // 이미 Promise 가 resove 된 후
+                                     // Promise 의 resolve 값을 출력할 수는 없다. (출력 방법은 아래에서 설명) 
+
+
+
+        //////////////////////////////////////////////
+        ////// Asynch / Await (ES8 ES2017 syntax)
+        /////////////////////////////////////////////
+
+        // Promise consume 을 위해 만들어짐
+                // 보통 Promise 는 API 에 생성되어 있는 경우가 많음
+                // 즉 Produce 보다 Consume 단계가 개발자에겐 더 중요
+                
+        // await 문은 async function 안에서만 사용 가능하다 !!
+        
+        async function getRecipesAW(){  // 해당 fn 이 asynchronous 라는 선언 ( background 에서 실행됨 __ main code 를 멈추는 것은 불가능하므로 해당 부분만 background에서 실행되도록 분리하는 것임)
+                                        // Promise 를 return 한다.
+            
+            const IDs = await getIDs;   // getIDs (promise) 가 fulfilled 될 때까지 지연시킨다.
+                                        // resolve(success) 되면 await 문은 getIDs 의 resoved value 를 return 한다.
+                                        // __ 여기서는 [523, 883, 432, 974]
+            console.log(IDs);
+            const recipe = await getRecipe(IDs[2]);
+            console.log(recipe);
+            const related = await getRelated('Seongjin Kim');
+            console.log(related);
+            // .then() 을 나열해주는 것보다 훨씬 간단히 consume 가능
+
+            return recipe;  // async fn 은 Promise 를 return 하므로 
+                            // recipe 에 부여된 두번째 promise 를 return 함
+        }
+        
+        /* Promise 자체를 출력 : */
+        // const rec = getRecipesAW();         // async fn 이 return 한 두번째 promise assign 함
+        // setTimeout(()=>{
+        //     console.log(rec);    // 5초후에는 두 번째 Promise 도 resolve 된 후 이므로
+        //                     //__  Promise { <state>: "fulfilled", <value>: "432: Fresh tomato pasta" } 출력됨  
+        // }, 5000);
+
+        /* Promise 의 resolve 값을 출력하는 법 : */
+        getRecipesAW().then(result => console.log(`${result} is the best ever !`)); // async fn 을 실행한 후 (출력문 모두 출력 후) return 된 두번째 Promise 의 result 값 출력
+        getRecipesAW().catch(result => console.log(`${result} is the best ever !`)); // async fn 실행 -> Promise 에 reject 결과가 없으므로 결과는 출력되지 않음
+
+
+
+
+
+        //////////////////////////////////////////////
+        ////// AJAX (Asynchronous Javascript And XML)
+        /////////////////////////////////////////////
+    </script>
+</body>
+</html> 
