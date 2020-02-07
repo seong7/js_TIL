@@ -38,17 +38,23 @@
     </li>
     <li>
         <h2>Promises<a href="">>>></a></h2>
-        <span><a href="">Callback Hell</a> 에 대한 해결책<span><br/>
+        <span><a href="">Callback Hell</a>(콜백 지옥) 에 대한 해결책<span><br/>
         <span><strong>Asynchronous JS</strong>를 위해 만들어진 ES 6 의 기능</span>
-        <pre>
-    - 특정한 비동기적 Event ('timer의 종료' 또는 'ajax call 로 data 불러오기' 등) 의 발생 여부를
-      계속해서 추적하는 객체이다.
-    <br/>
-    - Event 가 발생하면 그 다음 무엇을 할지 결정한다.
-    <br/>
-    - 어떤 결과(값)가 실행(전달)될 것인지 우리에게 약속해준다.
-      (우리는 그것을 통해 값을 미리 사용 가능)
-        </pre>
+        <BlockQuote>
+            <ul><br/>
+                <li>
+                    특정한 비동기적 Event ('timer의 종료' 또는 'ajax call 로 data 불러오기' 등) 의 발생 여부를<br/>
+                      계속해서 추적하는 객체이다.
+                </li><br/>
+                <li>
+                    Event 가 발생하면 그 다음 무엇을 할지 결정한다.
+                </li><br/>
+                <li>
+                    어떤 결과(값)가 실행(전달)될 것인지 우리에게 약속해준다.</br>
+                    (우리는 그것을 통해 값을 미리 사용 가능)
+                </li><br/>
+            </ul>
+        </BlockQuote>
         <h3>- Promise 의 States (상태)</h3>
         <ol>
             <li>
@@ -70,7 +76,8 @@
             </li>
         </ol>
         <h3>- Produce , Consume</h3>
-        <span><strong>Produce</strong> : Promise 를 생성하고 <strong>Promise</strong>를 이용해 결과를 보낼 수 있다.</span><br/>
-        <span><strong>Consume</strong> : Promise> 의 <strong>fulfillment</strong> 와 <strong>rejection</strong> 시에 <strong>Callback function</strong> 을 사용할 수 있다.</span>
+        <span><strong>Produce</strong> : Promise 를 생성하고 <strong>Promise</strong>를 이용해 결과를 보내는 단계</span><br/>
+        <span><strong>Consume</strong> : Promise 의 <strong>Fulfillment</strong> 와 <strong>Rejection</strong> 각각의 상태에 해당하는 <strong>Callback function</strong> 을 사용하는 단계<br/></span>
+        <blockquote>.then() 과 .catch() => asynch / await (ES8 ES2017)</blockquote>
     </li>
 </ul>
