@@ -111,7 +111,7 @@
         const getIDs = new Promise((resolve, reject)=>{  // callback fn : executor 라고 불림 (Promise 가 생성되는 즉시 실행됨)
                 // promise 의 성공 여부를 다룰 각각의 매개변수 (resolve_성공, reject_실패 또는 결과 없을 시)
             
-            // Promise의 executor 에는 주로 Asynch code 가 들어간다. 
+            // Promise의 executor 에는 주로 Async code 가 들어간다. 
                //(ex Ajax call / setTimeout) 
 
             setTimeout(()=>{ // Ajax call 대신 setTimeout() 으로 연습한다. (실패하지 않음)
@@ -194,7 +194,7 @@
 
 
         //////////////////////////////////////////////
-        ////// Asynch / Await (ES8 ES2017 syntax)
+        ////// Async / Await (ES8 ES2017 syntax)
         /////////////////////////////////////////////
 
         // Promise consume 을 위해 만들어짐
@@ -233,8 +233,12 @@
 
 
 
-
-
+        const test2 = ()=>{
+            for(let i=0; i<2000; i++){
+                console.log(i);
+            }
+        };
+        
         //////////////////////////////////////////////
         ////// AJAX (Asynchronous Javascript And XML)
         /////////////////////////////////////////////

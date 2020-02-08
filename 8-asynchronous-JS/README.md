@@ -4,7 +4,7 @@
     <li>
         <h2>WEB API<a href=""> >>></a></h2>
         <span> : Execution stack , Message Queue 와 함께 JS runtime 을 구성하는 외부 요소<br/></span>
-        <span> : <strong>ASYNCH code(비동기적 코드)</strong> 가 대기하는 (<strong>timer</strong>가 실행되는) background 임</span>
+        <span> : <strong>ASYNC code(비동기적 코드)</strong> 가 대기하는 (<strong>timer</strong>가 실행되는) background 임</span>
         <pre>
     Web API 의 종류 :</br>
     - setTimeout()
@@ -17,16 +17,18 @@
         </pre>
         <span>
             WEB API 에서 timer 가 끝이나면 해당 callback fn 은 Message Queue 로 이동하여<br/>
-            Execution stack 이 비워질 때까지 기다린다. (DOM event 도 마찬 가지)
-        </span>
-        <br/>
+            <strong>Execution stack 이 비워질 때까지 기다린다.</strong> (DOM event 도 마찬 가지)
+        </span></br>
+        </br><BlockQuote>
+            JS runtime 은 background 를 가지고 있어 비동기적 작업이 가능하지만,<br/>Execution stack 은 말그대로 Stack 이므로 한가지 operation 만 수행 가능</br>=> Execution stack 이 비어져야 비동기 fn도 수행 가능.
+        </BlockQuote>
     </li>
     <li>
         <h2>EVENT LOOP</h2>
         <img src="image/WEB_API_ref.gif" height="350" width="auto"/>
         <span>
-            ** 위의 예시는 setTimeout() 가 실행되는 경우이지만 DOM event, Ajax 모두 같은 방법으로 작동한다.**
-        </span><br/><br/>
+            <h6>** 위의 예시는 setTimeout() 가 실행되는 경우이지만 DOM event, Ajax 모두 같은 방법으로 작동한다.**</h6>
+        </span>
         <h3>Event Loop 동작 순서 :</h3>
         <ol>
             <li><strong>DOM Event</strong> 는 <strong>WEB API</strong> 에 존재</li>
@@ -78,7 +80,7 @@
         <h3>- Produce , Consume</h3>
         <span><strong>Produce</strong> : Promise 를 생성하고 <strong>Promise</strong>를 이용해 결과를 보내는 단계</span><br/>
         <span><strong>Consume</strong> : Promise 의 <strong>Fulfillment</strong> 와 <strong>Rejection</strong> 각각의 상태에 해당하는 <strong>Callback function</strong> 을 사용하는 단계<br/></span>
-        <blockquote>.then() 과 .catch() => asynch / await (ES8 ES2017)</blockquote>
+        <blockquote>.then() 과 .catch() => async / await (ES8 ES2017)</blockquote>
     </li>
     <li>
         <h2>AJAX / API<a href=""> >>></a></h2>
