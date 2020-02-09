@@ -20,7 +20,7 @@
             <strong>Execution stack 이 비워질 때까지 기다린다.</strong> (DOM event 도 마찬 가지)
         </span></br>
         </br><BlockQuote>
-            JS runtime 은 background 를 가지고 있어 비동기적 작업이 가능하지만,<br/>Execution stack 은 말그대로 Stack 이므로 한가지 operation 만 수행 가능</br>=> Execution stack 이 비어져야 비동기 fn도 수행 가능.
+            JS runtime 은 background 를 가지고 있어 비동기적 작업이 가능하지만,<br/>Execution stack 은 말그대로 Stack 구조이므로 한가지 operation 만 수행 가능</br>=> Execution stack 이 비어져야 비동기 fn도 수행 가능.
         </BlockQuote>
     </li>
     <li>
