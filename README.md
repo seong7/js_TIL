@@ -88,8 +88,17 @@
     <li>
         First Class Function (일급 함수)
     </li>
+    <li>
+        <strong>Bugety App <a href="6-budgety">>></a></strong>
+        <BlockQuote>
+            - Array<br/>
+            - String<br/>
+            - Number<br/>
+            - Event<br/>
+            - Object<br/>
+        </BlockQuote>
+    </li>
 </ol>
-&bsnp<h4>Bugety App : <a href="6-budgety">>></a></h4>
 
 <h2>
     ES 6
