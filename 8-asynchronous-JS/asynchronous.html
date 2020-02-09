@@ -204,7 +204,7 @@
         // await 문은 async function 안에서만 사용 가능하다 !!
         
         // async function getRecipesAW(){  // 해당 fn 이 asynchronous 라는 선언 ( background 에서 실행됨 __ main code 를 멈추는 것은 불가능하므로 해당 부분만 background에서 실행되도록 분리하는 것임)
-        //                                 // Promise 를 return 한다.
+        //                                 // async fn 은 무조건 Promise 를 return 한다.
             
         //     const IDs = await getIDs;   // getIDs (promise) 가 fulfilled 될 때까지 지연시킨다.
         //                                 // resolve(success) 되면 await 문은 getIDs 의 resoved value 를 return 한다.
@@ -216,7 +216,7 @@
         //     console.log(related);
         //     // .then() 을 나열해주는 것보다 훨씬 간단히 consume 가능
 
-        //     return recipe;  // async fn 은 Promise 를 return 하므로 
+        //     return recipe;  // async fn 은 무조건 Promise 를 return 하므로 
         //                     // recipe 에 부여된 두번째 promise 를 return 함
         // }
         
@@ -224,7 +224,8 @@
         // // const rec = getRecipesAW();         // async fn 이 return 한 두번째 promise assign 함
         // // setTimeout(()=>{
         // //     console.log(rec);    // 5초후에는 두 번째 Promise 도 resolve 된 후 이므로
-        // //                     //__  Promise { <state>: "fulfilled", <value>: "432: Fresh tomato pasta" } 출력됨  
+        // //                     //__  Promise { <state>: "fulfilled", <value>: "432: Fresh tomato pasta" } 출력됨 
+        // //                           // 결국 async fn 에서 return 된 data (recipe) 를 다룰 수 없음 
         // // }, 5000);
 
         // /* Promise 의 resolve 값을 출력하는 법 : */
@@ -233,11 +234,11 @@
 
 
 
-        // const test2 = ()=>{     // execution stack 이 비워져야 비동기적 코드가 실행되는지 확인.. ==> 맞음
-        //     for(let i=0; i<2000; i++){
-        //         console.log(i);
-        //     }
-        // };
+        // // const test2 = ()=>{     // execution stack 이 비워져야 비동기적 코드가 실행되는지 확인.. ==> 맞음
+        // //     for(let i=0; i<2000; i++){
+        // //         console.log(i);
+        // //     }
+        // // };
 
 
 
@@ -264,7 +265,7 @@
         /***********  www.metaweather.com 에서 제공하는 API 사용해 날씨 정보 받아오기  */
 
         // fetch('https://www.metaweather.com/api/location/2487956/')
-            // JS 의 same origin policy 에 의해 error 발생 
+            // web표준 same origin policy(동일 출처 정책) 에 의해 error 발생 
             // __ 자신의 domain 이 아닌 곳에서 AJAX request 를 할 수 없도록 방지하는 web의 정책
             // __ 보완책 : CORS(Cross Origin Resource Sharing) 가 개발됨 
                     // CORS : 개발자들에게 다른 domain 에서도 AJAX request 를 허용함
@@ -278,13 +279,13 @@
                 // 'https://cors-anywhere.herokuapp.com/' 사용 
         
         const getWeather = (woeid)=>{   // woeid : Where On Earth ID 
-                                        // (www.metaweather.com 에서 제공하는 API의 변수)
+                                        // (Yahoo 에서 제공하는 API의 변수)
 
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
             const url = `https://www.metaweather.com/api/location/${woeid}/`;
             fetch(proxyUrl + url)    // proxyUrl + API url 로 사용
             .then(result => {
-                console.log(result);    //__ Response Object 출력
+                // console.log(result);    //__ Response Object 출력
                 // body property 의 value 가 result 값이 저장된 곳
                 // result 자체를 출력하면 " body : ReaddableStream " 출력됨
                 return result.json();           // -> JSON 으로 convert 필요
@@ -294,19 +295,65 @@
                 // (첫번째 promise 는 fetch() 가 return 했음)
             })
             .then(data =>{
-                console.log(data); //__ API 가 제공하는 JSON 정상적으로 출력
+                // console.log(data); //__ API 가 제공하는 JSON 정상적으로 출력
                 
                 const today = data.consolidated_weather[0];
-                console.log(`Temperatures in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`);
+                console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`);
             })
             .catch(error => console.log(error));
         };
 
-        getWeather(2487956);  // woeid = 2487956 : San Francisco   __ 해당 지역 날씨 정보 출력
+        // getWeather(2487956);  // woeid = 2487956 : San Francisco   __ 해당 지역 날씨 정보 출력
+        // getWeather(44418);    // : London
+        // getWeather(1132599);    // : Seoul
         
-            
-            
 
+        //
+        async function getWeatherAW(woeid){
+
+            try{  // async fn 에서 rejected Promise 의 결과 받는법
+                  // 즉 , error 를 방지 하는 법임
+                  // (기능은 java 랑 똑같음)
+
+
+                const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+                const url = `https://www.metaweather.com/api/location/${woeid}/`;
+                
+                const result = await fetch(proxyUrl + url);    // proxyUrl + API url 로 사용
+
+                const data = await result.json();  // Resoponse Object -> Object 변환
+                // console.log(result);
+                // console.log(data);
+                const tomorrow = data.consolidated_weather[1];
+                console.log(`Temperatures tomorrow in ${data.title} stay between ${tomorrow.min_temp} and ${tomorrow.max_temp}.`);
+                
+                return data;    // async fn 은  Promise return 함
+
+            } catch(error){
+
+                console.log(error);
+                // alert(error);
+            }
+
+        }
+
+        getWeatherAW(2487956);  // woeid = 2487956 : San Francisco   __ 해당 지역 날씨 정보 출력
+        getWeatherAW(44418);    // : London
+        const dataSeoul1 = getWeatherAW(1132599);  // : Seoul
+        console.log(dataSeoul1);
+
+        let dataSeoul2;
+        getWeatherAW(1132599).then(data => { // async fn 의 return 값을 받기 위해서는 .then() 써야함
+            dataSeoul2 = data
+            console.log(dataSeoul2);  //__ Object { consolidated_weather: (6) […], time: "2020-02-10T00 … }
+                                            // 출력됨
+        });
+        console.log(dataSeoul2);  //__undefined 출력됨
+                                  // synchronous code 이므로 asynchronous code 인 
+                                  // getWeatherAW (_async fn) 이 background 에서 
+                                  // 아직 실행중인 타이밍에 출력하므로 
+                                  // -> dataSeoul2 선언 전임
+        
 
         </script>
     </body>
