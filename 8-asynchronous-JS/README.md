@@ -80,10 +80,32 @@
         <h3>- Produce , Consume</h3>
         <span><strong>Produce</strong> : Promise 를 생성하고 <strong>Promise</strong>를 이용해 결과를 보내는 단계</span><br/>
         <span><strong>Consume</strong> : Promise 의 <strong>Fulfillment</strong> 와 <strong>Rejection</strong> 각각의 상태에 해당하는 <strong>Callback function</strong> 을 사용하는 단계<br/></span>
-        <blockquote>.then() 과 .catch() => async / await (ES8 ES2017) 과 try...catch<a href="">>></a></blockquote>
+        <blockquote>.then() 과 .catch() => <b>Async / Await</b> (ES8 ES2017) 과 try...catch<a href="">>></a></blockquote>
     </li>
     <li>
         <h2>AJAX / API<a href=""> >>></a></h2>
         <img src="image/ajax_api.PNG" height="350" width="auto"/>
+        <h3>- Fetch</h3>
+        <span>외부 API 서버로부터 data를 받고 <strong>Promise 를 return</strong> 한다.<br/>
+        즉, <strong>Promise 의 produce</strong> 단계에 해당한다고 볼 수 있음</span><br/>
+        <BlockQuote>
+        <p>
+            <span>** <strong>proxy, channel <a href="">>></a></strong>
+        </p>
+        <p>
+            <span>** <strong>json </strong>
+        </p>
+        <p>
+            <span>** return 된 Promise 의 <strong>CONSUME</strong> 단계 : </span>
+            <BlockQuote>
+            <span>
+                1 <strong>.then .catch</strong> 사용법<a href="">>></a>
+            </span><br/>
+            <span>
+                2. <strong>async, await</strong> 사용법<a href="">>></a>
+            </span>
+            </BlockQuote>
+        </p>
+        </BlockQuote>
     </li>
 </ul>
