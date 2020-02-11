@@ -106,3 +106,27 @@
         >>>
     </a>
 </h2>
+<ol>
+    <li>'let', 'const</li>
+    <li>Blocks and IIFEs</li>
+    <li>Arrow Function</li>
+    <li>Destructuring</li>
+    <li>Arrays</li>
+    <li>The Spread Operator</li>
+    <li>Rest and Default Parameters</li>
+    <li>Maps</li>
+    <li>Classes and Subclasses(inheritance)</li>
+</ol>
+
+<h2>
+    Asynchronous JavaScript
+    <a href="8-asynchronous-JS">
+        >>>
+    </a>
+</h2>
+<ol>
+    <li>WEB API</li>
+    <li>Event Loop</li>
+    <li>Promises</li>
+    <li>AJAX / API</li>
+</ol>
