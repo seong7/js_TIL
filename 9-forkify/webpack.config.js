@@ -26,8 +26,8 @@ module.exports = { // node js 문법 , 해당 Object 를 export 함
 
         filename: 'bundle.js'  // bundle 파일의 이름
 
-    }, 
-    mode: 'development'     // Development mode
+    } 
+    //mode: 'development'     // Development mode  ( 지우고 package.json 에 script 에 기입했음 __dev / prod 모드 변경 용이하도록)
 };
 
 /* 
