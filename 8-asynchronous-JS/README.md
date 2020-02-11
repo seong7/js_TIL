@@ -25,7 +25,7 @@
     </li>
     <li>
         <h2>EVENT LOOP</h2>
-        <img src="image/WEB_API_ref.gif" height="350" width="auto"/>
+        <img src="image/WEB_API_ref.gif" height="350" width="auto" alt="Event Loop"/>
         <span>
             <h6>** 위의 예시는 setTimeout() 가 실행되는 경우이지만 DOM event, Ajax 모두 같은 방법으로 작동한다.**</h6>
         </span>
@@ -84,7 +84,7 @@
     </li>
     <li>
         <h2>AJAX / API<a href=""> >>></a></h2>
-        <img src="image/ajax_api.PNG" height="350" width="auto"/>
+        <img src="image/ajax_api.PNG" height="350" width="auto" alt="AJAX / API"/>
         <h3>- Fetch</h3>
         <span>외부 API 서버로부터 data를 받고 <strong>Promise 를 return</strong> 한다.<br/>
         즉, <strong>Promise 의 produce</strong> 단계에 해당한다고 볼 수 있음</span><br/>
