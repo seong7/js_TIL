@@ -9,7 +9,7 @@
     > __Development Tools__ :   
     tast automation, automatic browser reloading, compile to ES5
 
-    ![npmEcosystem](ref/npmEcosystem.jpg)
+    ![npmEcosystem](ref/npmEcosystem.JPG)
 
     - ### npm (Node Package Manager) 이란?
         : __node.js 의 package__ (라이브러리, 프레임워크, dev tool) 들을 __설치, 공유, 관리__ 해주는 command 기반의 tool   
