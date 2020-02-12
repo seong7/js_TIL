@@ -14,6 +14,7 @@
     ![npmEcosystem](ref/npmEcosystem.JPG)
 
     - ### npm (Node Package Manager) 이란?
+        [https://www.npmjs.com/](https://www.npmjs.com/)
         > __node.js 의 package__ (라이브러리, 프레임워크, dev tool = __DEPENDENCY__) 들을 __설치, 공유, 관리__ 해주는 command 기반의 tool   
     
     - ### npm package 대표적인 종류 :
@@ -38,6 +39,9 @@
     - ### npm package 설치방법 :
 
         1. #### package.json 생성
+                ** cmd line 관리자 권한으로실행하기 **
+                ** package version 은 최신이 제일 나은 것으로 보임 **
+                
                 command line 명령어 (프로젝트 폴더에서 입력)
                  $ npm init
                   
@@ -57,8 +61,13 @@
                     "description": "forkify project",
                     "main": "index.js",
                     "scripts": {                         // npm scripts : local dev dependency 들을 실행하는 곳
-                        "dev": "webpack"                 // "dev" : npm 실행 문에서 지시어
-                                                         // default 값 "test": "~~" 지워야함
+
+                        "dev": "webpack --mode development",
+                        "build": "webpack --mode production",
+                        "start": "webpack-dev-server --mode development --open"                          
+
+                                                        // property 값 : npm 실행 문에서 지시어
+                                                        // value 값 : 실제 실행되는 지시어
                     },
                     "author": "Seongjin Kim",
                     "license": "ISC",

@@ -18,16 +18,21 @@ module.exports = { // node js 문법 , 해당 Object 를 export 함
 
     output: {                    // output 지정 : bundle file 이 저장될 path 와 name 을 지정
 
-        path: path.resolve(__dirname, 'dist/js'),   // absolute path(절대 경로) 가 들어가야함
+        path: path.resolve(__dirname, 'dist'),   // absolute path(절대 경로) 가 들어가야함
                           // __dirname : 'path' package 에서 접근하게 해주는 current absolute path 값 가진 변수
-                          // 'dist/js/' : bundle 파일이 저장될 곳
+                          // 'dist' : bundle 파일이 저장될 폴더 위치
 
                           //path.resolve() 를 통해 두 경로를 join 시킨다. (합침)
 
-        filename: 'bundle.js'  // bundle 파일의 이름
+        filename: 'js/bundle.js'  // bundle 파일이 저장될 세부 위치 + 이름
 
-    } 
-    //mode: 'development'     // Development mode  ( 지우고 package.json 에 script 에 기입했음 __dev / prod 모드 변경 용이하도록)
+    }, 
+   // mode: 'development',     // Development mode  ( 지우고 package.json 에 script 에 기입했음 __dev / prod 모드 변경 용이하도록)
+    //mode: 'production',     
+
+    devServer: {               // webpack-dev-server 설정 영역
+      contentBase: path.join(__dirname, 'dist')       // webpack 이 file 을 serve 할 폴더 지정 __ dis (distribution) : 배포 폴더 / src : 개발용 폴더
+    }
 };
 
 /* 
