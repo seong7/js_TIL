@@ -22,19 +22,20 @@
         - __- BABEL__   
         : ES6 / ESNext(7, 8) 를 ES5 로 compile 해주는 tool
 
-        - __- Webpack__   
+        - __- [Webpack](https://webpack.js.org)__   
         : _ES6 Modules_ 로 인해 JS의 모듈화가 가능해짐   
         (각 part 별로 파일을 나눌 수 있음)   
-        >
-        > 하지만, 아직 이 기능을 지원하지 않는 browser 가 많음   
-        > __=> _Module Bundler_ 사용하여 해결 (대표적: __Webpack__)__
-        >
-        >__- Webpack 의 기능__
-        >- _Bundle Modules_
-        >- _Decrease JS bundle size_ (tree shaking 알고리즘 사용)
-        >- _Code Splitting_
-        >- _Load Assets_ (sass, images 등)
+            >
+            > 하지만, 아직 이 기능을 지원하지 않는 browser 가 많음   
+            > __=> _Module Bundler_ 사용하여 해결 (대표적: __Webpack__)__
+            >
+            >__- Webpack 의 기능__
+            >- _Bundle Modules_
+            >- _Decrease JS bundle size_ (tree shaking 알고리즘 사용)
+            >- _Code Splitting_
+            >- _Load Assets_ (sass, images 등)   
     
+            >__webpack.config.js 설명 [>>]()__
 
     - ### npm package 설치방법 :
 
@@ -72,9 +73,12 @@
                     "author": "Seongjin Kim",
                     "license": "ISC",
                     "devDependencies": {                 // locally installed  dev dependency
-                        "webpack": "^4.41.5",
-                        "webpack-cli": "^2.1.5",
-                        "webpack-dev-server": "^3.10.3"
+                                                         // 다음단계에서 package 들을 설치하면 자동으로 채워짐
+                    
+                        "html-webpack-plugin": "^3.2.0",        // html 파일을 dev server 또는 dist 폴더에 주입(inject) 시키는 plugin
+                        "webpack": "^4.41.6",                   
+                        "webpack-cli": "^3.3.11",               // cli : Commandline Interface
+                        "webpack-dev-server": "^3.10.3"         // 주입된 파일을 가상의 server 에 stream 하여 실시간 업데이트 해줌
                     },
                     "dependencies": {}                   // dependency
                 }
@@ -83,9 +87,9 @@
 
         2. #### Package 설치
             1. #### Local 설치   
-                >해당 프로젝트에서만 접근 가능
+                >해당 프로젝트에서만 package 에 접근 가능함
 
-                - ##### [Webpack](https://webpack.js.org) 설치 (devDependency)
+                - ##### Webpack 설치 (devDependency)
                              $ npm install webpack --save-dev
                              $ npm install webpack-cli --save-dev
                         
@@ -95,7 +99,7 @@
 
                             - webpack-cli : command line 에서 webpack 접속하게 해주는 tool  
 
-                            - version 선택하여 설치 (강의 사용 버전):
+                            - version 선택하여 설치 (강의 사용 버전):   __ 비권장XX
                              $ npm install --save-dev webpack@4 webpack-cli@2 webpack-dev-server@3                  
                                 @ : version 나타냄                       
 
@@ -105,7 +109,7 @@
                 - ##### Babel 설치 (devDependency)
                              $ npm install babel --save-dev
 
-                            - version 선택하여 설치 (강의 사용 버전):
+                            - version 선택하여 설치하는 법 (강의 사용 버전):  __ 비권장XX
                              $ npm install --save-dev babel-core@6 babel-preset-env@1 babel-loader@7
                              $ npm install --save babel-polyfill@6       
                     ** babel, webpack 버전 관련 설명 : [udemy 강의](https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/13621430#overview)
@@ -137,7 +141,7 @@
 
                             종료 : 
                              $ ctrl + c
-
+    
     - ### npm package 실행방법 :
         > package.json 에서 설정한 __npm scripts__ 부분을 사용한다.  
          모든 package를 cmd line 에서 자동으로 실행할 수 있다.
