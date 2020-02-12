@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n// Global app controller\r\n\r\n// webpack 의 entry point 임\r\n\r\n // import 할 module 의 path 와 이름\r\nconsole.log(`I imported ${_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]} from another module`);\r\n\r\n// browser 에서 export / import 는 작동하지 않는다. => webpack 사용함\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n// Global app controller\r\n\r\n// webpack 의 entry point 임\r\n\r\n // import 할 module 의 path 와 이름\r\nconsole.log(`I imported ${_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]} from another module called test.js`);\r\n\r\n// browser 에서 export / import 는 작동하지 않는다. => webpack 사용함\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tes
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('Imported module');\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (23);  // official ES 6 module syntax\r\n    // 또는 named  \r\n// : module 로부터 무엇인가 export 하기 위한 가장 쉽고 standard 한 방법임\n\n//# sourceURL=webpack:///./src/js/test.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('Imported module');\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (99);  // official ES 6 module syntax\r\n    // 또는 named  \r\n// : module 로부터 무엇인가 export 하기 위한 가장 쉽고 standard 한 방법임\n\n//# sourceURL=webpack:///./src/js/test.js?");
 
 /***/ })
 
