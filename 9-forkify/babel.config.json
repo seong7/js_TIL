@@ -1,0 +1,36 @@
+{
+    "presets" : [
+        ["@babel/env", {
+            "targets": {
+                "browsers":[             
+                    "last 5 versions",  
+                    "ie>=8"
+                ]
+            } 
+        }]    
+    ]
+}
+
+
+// babel 관련 설정 파일
+{
+    "presets" : [               // code transform(convert) plug-in 들의 collection (실제 transform 을 하는 code 들)
+        ["@babel/env", {                    // env = environment    :  어떤 환경에서 코드가 동작하길 원하는지 설정
+                                            //npm 에서 @babel/preset-env 패키지 다운 받았음
+
+            "targets": {             // env 세부 설정
+                "browsers":[             
+                    "last 5 versions",      // "last 5 versions" of all the "browsers" 에 모두 동작하도록
+                                           // 어떤 ES 6+ features 를 transform 해야하는지 babel 이 자동으로 파악한다. 
+                                           // "env" 외에 다른 preset 을 사용할 경우 수동으로 feature 를 명시해줘야하는 경우가 많다.
+                                           // "last 2 (또는 10) version 등등 다 가능
+                    "ie>=8"                //  Internet Explorer 최소 8 이상에서 동작하도록 설정
+                ]
+            } 
+        }]    
+    ]
+}
+
+// 단, es5 에서 포함되지 않았던 기능들 (promise object / Array from ... )은
+// babel-loader 에서 transform 할 수 없음
+// -> polyfill 사용으로 해결  

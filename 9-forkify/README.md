@@ -19,8 +19,9 @@
     
     - ### npm package 대표적인 종류 :
 
-        - __- BABEL__   
+        - __- [BABEL](https://babeljs.io)__   
         : ES6 / ESNext(7, 8) 를 ES5 로 compile 해주는 tool
+            > [.babelrc (_babel 설정 파일)]()
 
         - __- [Webpack](https://webpack.js.org)__   
         : _ES6 Modules_ 로 인해 JS의 모듈화가 가능해짐   
@@ -35,7 +36,7 @@
             >- _Code Splitting_
             >- _Load Assets_ (sass, images 등)   
     
-            >__webpack.config.js 설명 [>>]()__
+            >[webpack.config.js (_webpack 설정 파일)]()
 
     - ### npm package 설치방법 :
 
@@ -74,13 +75,26 @@
                     "license": "ISC",
                     "devDependencies": {                 // locally installed  dev dependency
                                                          // 다음단계에서 package 들을 설치하면 자동으로 채워짐
-                    
-                        "html-webpack-plugin": "^3.2.0",        // html 파일을 dev server 또는 dist 폴더에 주입(inject) 시키는 plugin
+                                                         
+                        "@babel/core": "^7.8.4",                
+                        "@babel/preset-env": "^7.8.4",          // babel 의 code convert target 환경을 지정
+                        "babel-loader": "^8.0.6",               // 실제 code convert 함
+
+                        "html-webpack-plugin": "^3.2.0",        // html 파일을 dev server 또는 dist 폴더에 
+                                                                    // 주입(inject) 시키는 plugin
                         "webpack": "^4.41.6",                   
                         "webpack-cli": "^3.3.11",               // cli : Commandline Interface
-                        "webpack-dev-server": "^3.10.3"         // 주입된 파일을 가상의 server 에 stream 하여 실시간 업데이트 해줌
+                        "webpack-dev-server": "^3.10.3"         // 주입된 파일을 가상의 server 에 stream 하여 
+                                                                    // 실시간 업데이트 해줌
                     },
-                    "dependencies": {}                   // dependency
+                    "dependencies": {                    // dependency
+                        "@babel/polyfill": "^7.8.3"             // polyfill 역할:
+                                                                    // es5 에 없는 es6 feature (_promise object,
+                                                                    // Array...from 등) 은 convert 가 불가능하므로
+                                                                    // es5 로 동일한 기능 구현한 code 주입
+                                                                    //
+                                                                    // => 직접 code 에 관여하므로 dependency 
+                    }
                 }
 
 
@@ -92,6 +106,7 @@
                 - ##### Webpack 설치 (devDependency)
                              $ npm install webpack --save-dev
                              $ npm install webpack-cli --save-dev
+                             $ npm install webpack-dev-server --save-dev
                         
                             - --save-dev : webpack 을 프로젝트의 devDependency (only tool) 로   
                                            지정한다는 의미
@@ -107,11 +122,15 @@
                              $ npm uninstall webpack --save-dev
 
                 - ##### Babel 설치 (devDependency)
-                             $ npm install babel --save-dev
+                            - 한번에 여러 패키지 설치 
+                             $ npm install @babel/core @babel/preset-env babel-loader --save-dev
+                            - babel-polyfill 설치 (real dependency 에 속함_ 실제 코드를 생성하는 plugin이므로)
+                             $ npm install @babel/polyfill --save   
 
                             - version 선택하여 설치하는 법 (강의 사용 버전):  __ 비권장XX
                              $ npm install --save-dev babel-core@6 babel-preset-env@1 babel-loader@7
-                             $ npm install --save babel-polyfill@6       
+                             $ npm install --save babel-polyfill@6
+
                     ** babel, webpack 버전 관련 설명 : [udemy 강의](https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/13621430#overview)
 
                 - ##### Jquery 설치 (dependency)

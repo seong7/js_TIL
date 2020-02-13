@@ -1,10 +1,18 @@
-/* 
-    webpack 의 네 가지 주요 개념
+// webpack 사용을 위한 설정 파일 
 
-    1. entry point
-    2. output
-    3. loaders       : webpack-dev-server 사용 
-    4. plugins       : html-webpack-plugin 사용
+/* 
+    webpack 의 네 가지 주요 개념 (설정 사항)
+
+    1. entry point   : bundling 시작점 (하나 또는 다수의 파일)
+    2. output        : bundle 파일이 저장될 path 및 name 지정
+    3. loaders       : module 속성에 loaders 지정
+                      * loader 의 역할
+                        - 여러 파일들을 import, load 할 수 있게 해줌
+                        - converting (sass -> css || es6+ -> es5) 
+    4. plugins       : 사용할 plugins 지정
+    
+    (추가 설정)
+    - server
 */
 
 
@@ -13,12 +21,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');  // 설치한 plugin �
 
 module.exports = { // node js 문법 , 해당 Object 를 export 함
 
-    entry: './src/js/index.js', // entry point 지정 : webpack 이 bundling 을 시작하는 지점
-                                    // 하나 또는 다수의 파일 지정 가능 
-                                    //   ./  : 현재 폴더 
+    entry: ['@babel/polyfill', './src/js/index.js'], 
+                                  // entry point 지정 : webpack 이 bundling 을 시작하는 지점
+                                    // 하나 또는 다수의 파일 지정 가능 (다수로 지정할 때는 [] 로 입력)
+                                    //   ./  : 현재 폴더 나타냄
+                                    // '@babel/polyfill' : polyfill 된 코드들은 dependency 이므로 따로 webpack bundling 의 entry 로 설정해줘야함
 
     output: {                    // output 지정 : bundle file 이 저장될 path 와 name 을 지정
-
+ 
         path: path.resolve(__dirname, 'dist'),   // absolute path(절대 경로) 가 들어가야함
                           // __dirname : 'path' package 에서 접근하게 해주는 current absolute path 값 가진 변수
                           // 'dist' : bundle 파일이 저장될 폴더 위치
@@ -42,9 +52,21 @@ module.exports = { // node js 문법 , 해당 Object 를 export 함
         filename: 'index.html',
         template: './src/index.html'              // 지정된 html 파일을 복사하여 devServer 영역에의 contentBase 영역에서 stream 해준다.
       })   
-    ]
+    ],
     // webpack-dev-server  :  bundle.js 나 index.js 등 처리된 파일들을 disk 상 (/dist 폴더)에 저장하지 않고도 가상의 공간 띄워 server 에 stream 해준다.
     // disk 상에서 처리된 파일을 실제로 확인하려면 'dev' 나 'build' 명령어를 실행해야한다. 
+
+    module: {                   // Loader 설정 영역 (babel-loader)
+      rules: [            // 각각의 loader 별 객체를 담은 배열 설정해줌
+        {           
+          test: /\.js$/,  // regular expression(regex)  모든 .js 파일을 test 한다는 의미  ($ : 끝)
+          exclude:/node_modules/,   // (regex) node_modules 폴더 안의 .js 파일은 제외시킴 (own project 에만 적용하는 것이 목적)
+          use: {
+            loader: 'babel-loader'
+          }
+        }
+      ]
+    }
 };
 
 /* 
@@ -53,7 +75,7 @@ module.exports = { // node js 문법 , 해당 Object 를 export 함
     - Development mode
       : build the bundle without minifying the code (코드 압축 없이 bundling)
         -> 속도 증가
-        -- 개발 단계에서는 코드 압축까지 할 필요 없기 때문에 개발됨
+        -- 개발 단계에서는 코드 압축까지 할 필요 없기 때문에 기능 개발됨
 
     - Production mode
       : automatically enable all kinds of optimization
