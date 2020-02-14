@@ -1,7 +1,7 @@
 # NPM Cheat Sheet
 
 - ## Webpack, Babel
-    - ### package 다운로드 [>>]()
+    - ### package 다운로드 [>>](https://github.com/seong7/js_TIL/tree/master/9-modern-JS#package-%EC%84%A4%EC%B9%98)
         > webpack   
         > webpack-cli   
         > webpack-dev-server   
@@ -9,7 +9,7 @@
         > @babel/core   
         > @babel/preset-env   
         > babel-loader   
-        > @babel/polyfill
+        > @babel/polyfill  (dependency 임)
 
     - ### package 설정
         #### 1. __[webpack.config.js](../webpack.config.js)__ 설정   
