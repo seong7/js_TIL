@@ -89,7 +89,7 @@
         First Class Function (일급 함수)
     </li>
     <li>
-        <strong>Bugety App <a href="6-budgety">>></a></strong>
+        <strong>Bugety App <a href="6-budgety-app">>></a></strong>
         <BlockQuote>
             - Array<br/>
             - String<br/>
