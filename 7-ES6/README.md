@@ -158,4 +158,12 @@
             <li>상속 시 prototype chain 형성</li>
         </ul>
     </li>
+    <li>
+        <h3>
+            Export and Import ( Module )
+        </h3>
+        <a href ="../10-Forkify-app">
+            _10-forkify-app 에서 다룸
+        </a>
+    </li>
 </ol>

@@ -12,5 +12,9 @@
 // console.log(`Using imported functions! ${searchView.add(searchView.ID, 2)} and ${searchView.multiply(3, 5)}. ${str}}`);
 
 
-async 
-// https://forkify-api.herokuapp.com/api/search
+
+import Search from './models/Search';
+
+const search = new Search('pizza');
+console.log(search);
+search.getResults();

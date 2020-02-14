@@ -291,7 +291,7 @@ var UIController = (function(){
         return (type ==='exp'? sign = '-' : sign = '+') + ' ' + int + '.' + dec;
     };
 
-        // First Class Function 의 힘
+        // First Class Function 의 특징 (function 을 매개변수로 받을 수 있음.)
     var nodeListForEach = function(list, callback){
         for(var i = 0; i<list.length; i++){  //nodeList 도 .length 메소드 있음
             callback(list[i], i);
@@ -388,7 +388,7 @@ var UIController = (function(){
 
             var fields = document.querySelectorAll(DOMStrings.expensesPercLabel);  // return nodeList
 
-            nodeListForEach(fields, function(current, index){
+            nodeListForEach(fields, function(current, index){   // node List를 넣어도 동작 가능
 
                 if(percentages[index] > 0 ){
                     current.textContent = percentages[index] + '%';
@@ -422,7 +422,7 @@ var UIController = (function(){
                 DOMStrings.inputValue
             );
 
-            nodeListForEach(fields, function(cur){
+            nodeListForEach(fields, function(cur){      // node List 넣어줌
                 cur.classList.toggle('red-focus');
             });
 

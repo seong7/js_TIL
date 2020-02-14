@@ -4,9 +4,9 @@
   "description": "forkify project",
   "main": "index.js",
   "scripts": {
-    "dev" : "webpack --mode development",
-    "build" : "webpack --mode production",
-    "start" : "webpack-dev-server --mode development --open"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "author": "Seongjin Kim",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.8.3"
+    "@babel/polyfill": "^7.8.3",
+    "axios": "^0.19.2"
   }
 }
