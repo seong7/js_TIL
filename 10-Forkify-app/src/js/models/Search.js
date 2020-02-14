@@ -16,8 +16,12 @@ export default class Search{
             // axios 의 장점 ( fetch 와 비교 ) :
                     // 1. resolved result 를 한번에 json 으로 변환함 (fetch 는 .json() 사용해야함)
                     // 2. error handling 에 더 용이함 (error catching logic 에 차이 있음)
+
+        const proxy = '';
+        const key = '';
+
         try{
-            const res = await axios(`https://forkify-api.herokuapp.com/api/search?q=${this.query}`);
+            const res = await axios(`${proxy}https://forkify-api.herokuapp.com/api/search?q=${this.query}`);
                     // axios 도 Promise return 하므로 await 사용 !
             // console.log(res);
             this.result = res.data.recipes;
