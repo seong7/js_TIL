@@ -11,6 +11,9 @@
         <ul>
             <li>block-scoped 적용됨 (var : fn-scoped)</li>
         </ul>
+        <BlockQuote>
+            Array, Object 를 const 로 선언해도 안의 element, property 는 추가, 제거 될 수 있다. (주소값은 그대로)
+        </BlockQuote>    
     </li>
     <li>
         <h3>
