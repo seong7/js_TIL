@@ -166,7 +166,7 @@
     <li>
         <h3>
             Objects and Methods
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L330">
+            <a href="https://github.com/seong7/js_TIL/blob/master/2-JS-basics/script.js#L330">
                 >>>
             </a>
         </h3>
@@ -178,7 +178,7 @@
     <li>
         <h3>
             Loops and iteration
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/2-JS-basics/script.js#L351">
+            <a href="https://github.com/seong7/js_TIL/blob/master/2-JS-basics/script.js#L351">
                 >>>
             </a>
         </h3>
