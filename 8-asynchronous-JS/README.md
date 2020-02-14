@@ -2,7 +2,7 @@
 
 <ul>
     <li>
-        <h2>WEB API<a href=""> >>></a></h2>
+        <h2>WEB API</h2>
         <span> : Execution stack , Message Queue 와 함께 JS runtime 을 구성하는 외부 요소<br/></span>
         <span> : <strong>ASYNC code(비동기적 코드)</strong> 가 대기하는 (<strong>timer</strong>가 실행되는) background 임</span>
         <pre>
@@ -39,8 +39,8 @@
         </br>
     </li>
     <li>
-        <h2>Promises<a href=""> >>></a></h2>
-        <span><a href="">Callback Hell</a>(콜백 지옥) 에 대한 해결책<span><br/>
+        <h2>Promises (ES6)<a href="https://github.com/seong7/js_TIL/blob/4d7e72847ac78424ddf57ef088fed90dab57406b/8-asynchronous-JS/asynchronous.html#L103"> >>></a></h2>
+        <span><a href="https://github.com/seong7/js_TIL/blob/4d7e72847ac78424ddf57ef088fed90dab57406b/8-asynchronous-JS/asynchronous.html#L68">Callback Hell</a>(콜백 지옥) 에 대한 해결책<span><br/>
         <span><strong>Asynchronous JS</strong>를 위해 만들어진 ES 6 의 기능</span>
         <BlockQuote>
             <ul><br/>
@@ -83,14 +83,14 @@
         <blockquote>.then() 과 .catch() => <b>Async / Await</b> (ES8 ES2017) 과 try...catch<a href="">>></a></blockquote>
     </li>
     <li>
-        <h2>AJAX / API<a href=""> >>></a></h2>
+        <h2>AJAX / API<a href="https://github.com/seong7/js_TIL/blob/4d7e72847ac78424ddf57ef088fed90dab57406b/8-asynchronous-JS/asynchronous.html#L252"> >>></a></h2>
         <img src="image/ajax_api.PNG" height="350" width="auto" alt="AJAX / API"/>
         <h3>- Fetch</h3>
         <span>외부 API 서버로부터 data를 받고 <strong>Promise 를 return</strong> 한다.<br/>
         즉, <strong>Promise 의 produce</strong> 단계에 해당한다고 볼 수 있음</span><br/>
         <BlockQuote>
         <p>
-            <span>** <strong>proxy, channel <a href="">>></a></strong>
+            <span>** <strong>proxy, channel <a href="https://github.com/seong7/js_TIL/blob/4d7e72847ac78424ddf57ef088fed90dab57406b/8-asynchronous-JS/asynchronous.html#L275">>></a></strong>
         </p>
         <p>
             <span>** <strong>json </strong>
@@ -99,10 +99,10 @@
             <span>** return 된 Promise 의 <strong>CONSUME</strong> 단계 : </span>
             <BlockQuote>
             <span>
-                1 <strong>.then .catch</strong> 사용법<a href="">>></a>
+                1 <strong>.then .catch</strong> 사용법<a href="https://github.com/seong7/js_TIL/blob/4d7e72847ac78424ddf57ef088fed90dab57406b/8-asynchronous-JS/asynchronous.html#L161">>></a>
             </span><br/>
             <span>
-                2. <strong>async, await</strong> 사용법<a href="">>></a>
+                2. <strong>async, await</strong> 사용법<a href="https://github.com/seong7/js_TIL/blob/4d7e72847ac78424ddf57ef088fed90dab57406b/8-asynchronous-JS/asynchronous.html#L196">>></a>
             </span>
             </BlockQuote>
         </p>
