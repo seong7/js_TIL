@@ -4,7 +4,7 @@
     <li>
         <h3>
             Hoisting
-            <a href="https://github.com/seong7/js_TIL/blob/505baf69936f2271968baea58437f1a93ca7989b/3-how-JS-works/script.js#L2">
+            <a href="https://github.com/seong7/js_TIL/blob/master/3-how-JS-works/script.js#L2">
                 >>>
             </a>
         </h3>
@@ -16,7 +16,7 @@
     <li>
         <h3>
             Scoping Chain
-            <a href="https://github.com/seong7/js_TIL/blob/505baf69936f2271968baea58437f1a93ca7989b/3-how-JS-works/script.js#L72">
+            <a href="https://github.com/seong7/js_TIL/blob/master/3-how-JS-works/script.js#L72">
                 >>>
             </a>
         </h3>
@@ -27,7 +27,7 @@
     <li>
         <h3>
             'This' Keyword
-            <a href="https://github.com/seong7/js_TIL/blob/505baf69936f2271968baea58437f1a93ca7989b/3-how-JS-works/script.js#L118">
+            <a href="https://github.com/seong7/js_TIL/blob/master/3-how-JS-works/script.js#L118">
                 >>>
             </a>
         </h3>
@@ -35,7 +35,7 @@
             <li>
                 Method 가 아닌 모든 Function 내 'this'는 항상 Window object return 함<br/>
                     (Method 내에 선언된 Function declaration 또한 마찬가지)
-                <a href="https://github.com/seong7/js_TIL/blob/505baf69936f2271968baea58437f1a93ca7989b/3-how-JS-works/script.js#L147">
+                <a href="https://github.com/seong7/js_TIL/blob/master/3-how-JS-works/script.js#L147">
                     >>
                 </a><br/>
                     (이름 없이 구현부만 작성된 call back function 또한 마찬가지) 
