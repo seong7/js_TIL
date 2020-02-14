@@ -1,0 +1,1 @@
+// export default 'I am an exported string.';  // default export 는 하나의 data 만 export 가능

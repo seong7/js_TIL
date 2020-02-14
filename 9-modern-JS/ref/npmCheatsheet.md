@@ -18,7 +18,7 @@
         3. __loaders__  : module 속성에 loaders (babel-loader)   
         4. __plugins__  : 사용할 plugins (html-webpack-plugin)
 
-        #### 2. __[package.json _ scripts]()__ 설정
+        #### 2. __[package.json _ scripts](https://github.com/seong7/js_TIL/blob/bc57b4dfe2dcdd32417937b609c05a7a9a2102b4/9-modern-JS/package.json#L6)__ 설정
             $ npm run (script 지시어)
         1. __webpack__ 지시어 설정 후 bundling test (dev, build)  
         2. __webpack-dev-server__ 지시어 설정 후 serving test (start)   
