@@ -135,4 +135,6 @@
 1. node.js
 2. npm (Node Package Manager)
     - webpack
-    - babel 
+    - babel
+    
+    
