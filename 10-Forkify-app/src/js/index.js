@@ -14,7 +14,7 @@
 
 import Search from './models/Search';
 import * as searchView from './views/searchView';
-import {elements} from './views/base';
+import {elements, renderLoader, clearLoader} from './views/base';
 
 /*
  *** Global state of the app
@@ -28,7 +28,7 @@ const state = {};
 const controlSearch = async () =>{      // async fn 선언 _ getResults() 가 Promise 이므로 (Search.js 참조)
     // 1) Get query from view
     const query = searchView.getInput() // TODO
-    console.log(query);
+    //console.log(query);
 
     if(query){
         // 2) New search object and add to state
@@ -37,17 +37,35 @@ const controlSearch = async () =>{      // async fn 선언 _ getResults() 가 Pr
         // 3) Prepare UI for results
         searchView.clearInput();
         searchView.clearResults();
-        
+        renderLoader(elements.searchRes);
         
         // 4) Search for recipes
         await state.search.getResults();  // state 객체에서 사용 (await 이므로 결과가 resolve 또는 reject 될 때까지 기다림)
         
         // 5) Render results on UI
+        clearLoader();
         searchView.renderResults(state.search.result);
     }
 }
 
+// 검색 버튼 submit event
 elements.searchForm.addEventListener('submit', e=>{
     e.preventDefault();     // default event delegation 을 막음
     controlSearch();
+});
+
+// 검색결과 페이지 버튼 click event
+        // event delegation 이용해야함 (늦게 rendering 되는 버튼임)
+        // e.target.closest('.class')  : target 에서 가장 가까운 '.class' 가진 요소를 가리킴 
+elements.searchRes.addEventListener('click', e =>{ 
+    const btn = e.target.closest('.btn-inline');
+    // console.log(btn);
+    if(btn){
+        const goToPage = parseInt(btn.dataset.goto, 10);  
+        // html 에서 data-goto 속성으로 정한 값 string return
+        // console.log(goToPage);
+        searchView.clearResults();
+        
+        searchView.renderResults(state.search.result, goToPage);    // 페이지 이동
+    }
 });

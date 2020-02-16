@@ -10,10 +10,13 @@ export const clearInput =()=> {
     elements.searchInput.value = ''; // return 값을 만들지 않기 위해 function 한줄이지만 감싸줌
 };
 
+// 결과 지우기
 export const clearResults = ()=>{
     elements.searchResList.innerHTML = '';
+    elements.searchResPages.innerHTML = '';
 };
 
+// 결과 목록의 제목 길이 제한 후 '...' 추가
 const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if(title.length > limit){
@@ -40,6 +43,7 @@ const limitRecipeTitle = (title, limit = 17) => {
     return title;
 };
 
+// recipe 결과 출력
 const renderRecipe = recipe => {
     const markup = `
     <li>
@@ -57,7 +61,50 @@ const renderRecipe = recipe => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderResults = recipes => {
-    console.log(recipes);
-    recipes.forEach(renderRecipe); // foreach - callback fn 간단히 사용하는 법
+// 페이지 버튼 생성
+// type : 'prev' or 'next'
+const createButton = (page, type)=>                  /* data-goto : (html 5 문법)*/
+`
+    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page -1 : page +1}>
+        <span>Page ${type === 'prev' ? page -1 : page +1}</span>
+        <svg class="search__icon">
+            <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
+        </svg>
+    </button>
+`;
+
+// 페이지 버튼 출력
+const renderButtons = (page, numResults, resPerPage) => {
+    const pages = Math.ceil(numResults / resPerPage);  // 전체 페이지 수 측정
+                    // ceil : 올림
+    let button;
+
+    if(page === 1 && pages > 1){
+        // to next Button 만 출력
+        button = createButton(page, 'next');
+    } else if(page < pages){
+        // 양쪽 버튼 모두 출력
+        button = `
+            ${createButton(page, 'prev')}
+            ${createButton(page, 'next')}
+        `;  
+    } else if(page === pages && pages > 1){
+        // to previous Button 만 출력
+        button = createButton(page, 'prev');
+    }
+    elements.searchResPages.insertAdjacentHTML('afterbegin', button);
+};
+
+// 검색 결과 출력
+export const renderResults = (recipes, page = 1, resPerPage = 10) => {
+    const start = (page-1) * resPerPage;
+    const end = page * resPerPage;
+
+
+    // console.log(recipes);
+    // console.log(`${start}, ${end}` );
+    recipes.slice(start, end).forEach(renderRecipe); // foreach - callback fn 간단히 사용하는 법
+    
+    // render page 버튼
+    renderButtons(page, recipes.length, resPerPage);
 };
