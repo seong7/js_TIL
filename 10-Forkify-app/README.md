@@ -18,3 +18,5 @@
         > js: btn1.dataset.xx   // = 2
 
     - Element.closest() 사용법
+    - hash change event [>>]()
+        > url 에서 # 부분 값의 변화를 감지함   
