@@ -19,4 +19,7 @@
 
     - Element.closest() 사용법
     - hash change event [>>]()
-        > url 에서 # 부분 값의 변화를 감지함   
+        > url 에서 # 부분 값의 변화를 감지함
+    - Object property 에 변수로 선언하기
+        > ~~{ 변수명 }  : key = 변수명 , value = 변수의 값으로 자동 저장됨
+    - Array.slice(시작idx, 끝idx(_생략가능))  : 배열 쪼개기
