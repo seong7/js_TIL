@@ -4,10 +4,16 @@
 <img src="./ref/architecture.JPG" alt="App-architecture"></img>
 
 - ### Memo
-    - event.preventDefault();
-    - Array.reduce()
-        > [MDN 참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-    - Array.join()
+    - #### Array 관련
+        > - Array.reduce() : [searchView.js]()
+            > [[MDN >>]](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+        > - Array.join() : [searchView.js]()
+        > - Array.findIndex(callback fn)  *중요 : [Recipe.js]()
+        > - Array.include() : [Recipe.js]()
+        > - Array.map()
+        > - Array.slice() : [Recipe.js]()
+
+    - event.preventDefault() : [index.js]()
     - Global State Object 사용법
     - DOM 제거하는 법
         > loader.parentElement.removeChild(loader)
@@ -16,7 +22,10 @@
     - html5 'data-*' 속성   
         > html: \<button class="btn1" data-xx=2>   
         > js: btn1.dataset.xx   // = 2
-
     - Element.closest() 사용법
     - hash change event [>>]()
-        > url 에서 # 부분 값의 변화를 감지함   
+        > url 에서 # 부분 값의 변화를 감지함
+        > window.addEventListener('hashchange', callback fn)
+    - load event [>>]()
+        > page 가 load 되는 것을 감지함
+        > window.addEventListener('load', callback fn)
