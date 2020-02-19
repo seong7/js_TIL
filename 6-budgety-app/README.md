@@ -41,7 +41,7 @@
     <ol>
       <li>
         <p>
-          <b>List -> Array 변환 (.querySelectAll 의 return 값에 사용)
+          <b>array like Object -> Array 변환 (.querySelectAll 의 return 값에 사용)
           <a href="https://github.com/seong7/js_TIL/blob/master/6-budgety-app/app.js#L351"> >>> </a></b><br/>
           <BlockQuote>array.slice() method 사용</BlockQuote>
         </p>   

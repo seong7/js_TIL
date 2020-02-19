@@ -346,21 +346,21 @@ var UIController = (function(){
             var fields, fieldsArr;
 
             fields = document.querySelectorAll(DOMStrings.inputDescription + ', ' + DOMStrings.inputValue);
-                        // Html 요소를 LIST 형태로 return               // , 사용할 수 있음 !
+                        // Html 요소를 nodeList (array-like Object) 형태로 return               // , 사용할 수 있음 !
 
-            // LIST -> Array 로 변환 
+            // nodeList -> Array 로 변환 
             fieldsArr = Array.prototype.slice.call(fields);
             // slice method 의 원래 사용법 :  (Array _function constructor_ 의 prototype 내 메소드임)
                 //  fieldsArr.slice();   (fieldsArr 가 Array type 이라면) 
                 //  ==>  array 의 복사본 array 를 return 함 (param : 복사 시작과 끝 index)
                 
-                //  하지만 여기서 fieldsArr 은 List type 이므로 call method 를 통해 method borrowing 함
+                //  하지만 여기서 fieldsArr 은 array-like Object (nodeList) type 이므로 call method 를 통해 method borrowing 함
                                                                                 // 5장에서 배움
-                //  List 인 fields 를 call method 의 (this) 매개변수로 지정
+                //  nodeList 인 fields 를 call method 의 (this) 매개변수로 지정
 
-                //  결과 적으로 List 인 fields 를 Array 로 변환 (복사) 하여 변수 fieldsArr 에 담는다.
+                //  결과 적으로 nodeList 인 fields 를 Array 로 변환 (복사) 하여 변수 fieldsArr 에 담는다.
             
-                // Array.slice(fields); 이렇게는 안됨? => 안됨    
+                // Array.slice(fields); 이렇게는 안됨? => 안됨 (fields 가 array 가 아니므로 .call() 없이 사용 불가)
             
             fieldsArr.forEach(function(current, i, arr){  // callback function (current element, index, entire array)
                 current.value = "";
