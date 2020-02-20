@@ -119,6 +119,7 @@
 
                             - 삭제 :
                              $ npm uninstall webpack --save-dev
+                             (uninstall 대신 un 가능)
 
                 - ##### Babel 설치 (devDependency)
                             - 한번에 여러 패키지 설치
