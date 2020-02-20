@@ -16,6 +16,7 @@
     > - Array.include() : [Recipe.js]()
     > - Array.map()
     > - Array.slice(시작 idx, 끝 idx) : 배열 분리하여 새 배열 생성 [Recipe.js]()
+    > - Array.from(array-like object) : [searchView.js]()
 
   - #### Object 관련
 
@@ -40,8 +41,6 @@
     > - ##### html5 'data-\*' 속성 사용법 [searchView.js]()
     >   - html: \<button class="btn1" data-xx=2>
     >   - js: btn1.dataset.xx // = 2
-    > - ##### event.target.closest('selector') 사용법 [index.js]()
-    >   : event target 에서 가장 가까운 'selector' 요소를 가리킴 (부모 자식 간에만 서치함)
 
   - #### Event 관련
 
@@ -52,3 +51,10 @@
     > - ##### load event [>>]()
     >   > page 가 load 되는 것을 감지함  
     >   > window.addEventListener('load', callback fn)
+    > - ##### event.target.closest('selector') 사용법 [index.js]()
+    >   : event target 에서 가장 가까운 'selector' 요소를 가리킴 (부모 자식 간에만 서치함)
+    > - ##### event.target.matches('selector') 사용법 [index.js]()
+
+  - #### Package 관련
+
+    > - ##### fractional 사용법 [>>]()
