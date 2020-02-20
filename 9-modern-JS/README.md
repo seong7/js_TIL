@@ -105,6 +105,7 @@
                              $ npm install webpack --save-dev
                              $ npm install webpack-cli --save-dev
                              $ npm install webpack-dev-server --save-dev
+                             (install 대신  써도 됨)
 
                             - --save-dev : webpack 을 프로젝트의 devDependency (only tool) 로
                                            지정한다는 의미
