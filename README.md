@@ -136,5 +136,7 @@
 2. npm (Node Package Manager)
     - webpack
     - babel
+    - eslint
+    - prettier
     
     
