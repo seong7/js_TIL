@@ -5,11 +5,12 @@
   : 3 party open source tool, **libraries, frameworks** 사용 가능하게 해줌
 
   - ### node.js package 두 종류:
-    > **Dependency (Library, Framework**_개발, 배포 단계에서 모두 필요 **)** :  
-    > React, Vue, Angular, Lodash, Jquery 등  
 
-    > **devDependency (Development Tools**_개발 단계에서만 필요 **)** :    
-    >  test automation, automatic browser reloading, compile to ES5 등의 역할을 하는 tool 들  
+    > **Dependency (Library, Framework**\_개발, 배포 단계에서 모두 필요 **)** :  
+    > React, Vue, Angular, Lodash, Jquery 등
+
+    > **devDependency (Development Tools**\_개발 단계에서만 필요 **)** :  
+    >  test automation, automatic browser reloading, compile to ES5 등의 역할을 하는 tool 들
 
   ![npmEcosystem](ref/npmEcosystem.JPG)
 
@@ -158,9 +159,10 @@
 
                             종료 :
                              $ ctrl + c
-    - ### npm package 설정 
+    - ### npm package 설정
       - webpack / babel [>>>](ref/webpack_babel.md)
-      - eslint / prettier [>>>](ref/eslint_prettier.md)
+      - eslint [>>>](ref/eslint.md)
+      - prettier [>>>](ref/prettier.md)
 
     - ### npm package 실행방법 :
         > package.json 에서 설정한 __npm scripts__ 부분을 사용한다.
