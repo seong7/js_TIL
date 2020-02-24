@@ -5,13 +5,11 @@
   : 3 party open source tool, **libraries, frameworks** 사용 가능하게 해줌
 
   - ### node.js package 두 종류:
-    > **Library, Framework** :  
+    > **Dependency (Library, Framework**_개발, 배포 단계에서 모두 필요 **)** :  
     > React, Vue, Angular, Lodash, Jquery 등  
-    > **=> Dependency** : **개발, 배포 단계에서 모두 필요**
 
-  > **Development Tools** :  
-  >  test automation, automatic browser reloading, compile to ES5 등의 역할을 하는 tool 들  
-  >  **=> devDependency** : **개발 단계에서만 필요**
+    > **devDependency (Development Tools**_개발 단계에서만 필요 **)** :    
+    >  test automation, automatic browser reloading, compile to ES5 등의 역할을 하는 tool 들  
 
   ![npmEcosystem](ref/npmEcosystem.JPG)
 
@@ -21,7 +19,7 @@
 
     > **node.js 의 package** (라이브러리, 프레임워크, dev tool = **DEPENDENCY**) 들을 **설치, 공유, 관리** 해주는 command 기반의 tool
 
-  - ### npm package 대표적인 종류 :
+  - ### npm package 의 대표적인 종류 :
 
     - **- [Webpack](https://webpack.js.org)**  
       : _ES6 Modules_ 로 인해 JS의 모듈화가 가능해짐  
@@ -160,7 +158,9 @@
 
                             종료 :
                              $ ctrl + c
-    - ### npm package 설정 [>>>](ref/npmCheatsheet.md)
+    - ### npm package 설정 
+      - webpack / babel [>>>](ref/webpack_babel.md)
+      - eslint / prettier [>>>](ref/eslint_prettier.md)
 
     - ### npm package 실행방법 :
         > package.json 에서 설정한 __npm scripts__ 부분을 사용한다.
@@ -168,3 +168,9 @@
 
                 - webpack 실행
                  $ npm run (scripts 의 property)
+
+    - ### error 대처
+        1. Command Line 관리자 권한으로 실행되었는지 확인
+        2. package.json 의 scripts 에 지시어 작성 여부 확인
+        3. script 값 - document 비교
+        4. webpack / babel . config 파일 - document 비교
