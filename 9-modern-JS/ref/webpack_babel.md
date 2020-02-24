@@ -1,4 +1,4 @@
-# NPM Cheat Sheet
+# Package 설정
 
 - ## Webpack, Babel
     - ### package 다운로드 [>>](https://github.com/seong7/js_TIL/tree/master/9-modern-JS#package-%EC%84%A4%EC%B9%98)
@@ -57,9 +57,3 @@
         #### 4. 최종 Set Up Test
         - bundle.js 의 code 길이가 babel 사용 전 보다 훨씬 길어짐
         - bundle.js 에서 polyfill 검색하여 이행 여부 확인 
-
-    - ### error 대처
-        1. Command Line 관리자 권한으로 실행되었는지 확인
-        2. package.json 의 scripts 에 지시어 작성 여부 확인
-        3. script 값 - document 비교
-        4. webpack / babel . config 파일 - document 비교
