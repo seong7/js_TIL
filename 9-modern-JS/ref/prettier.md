@@ -15,4 +15,28 @@
     ![prettier 설정2](./prettier_setting2.JPG)
 
 - ### 설정
+
   - [.prettierrc 파일]() 생성 : custom 설정 가능
+
+- ### Prettier formatting 무시하는 법
+
+  1. VSCode 전체 :
+
+     > - .prettierignore 생성
+     > - setting.json 에 **prettier.ignorePath (default: .prettierignore)** 설정
+
+  2. line 별 무시 :
+
+     > 무시하고자 하는 코드의 윗 라인에 아래 주석 입력
+     >
+     > - html, markdown :
+     >
+     > ```
+     > <!-- prettier-ignore -->
+     > ```
+     >
+     > - js :
+     >
+     > ```
+     > // prettier-ignore
+     > ```

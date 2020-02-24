@@ -17,4 +17,10 @@
     > [[React.js 사용시 참조 >>]](https://velog.io/@velopert/eslint-and-prettier-in-react)
 
 - ### 설정
+
   - [.eslintrc.json]() 또는 package.json 의 "eslintConfig": {} 에 custom 설정
+
+- ### ESLint 검사 무시하는 법
+  <!-- prettier-ignore -->
+  1. 페이지 전체 : 가장 상단에 /* eslint-disable */ 기입 
+  2. line 별 무시 : vscode problem 경고란에서 설정 가능
