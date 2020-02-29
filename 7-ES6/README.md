@@ -137,15 +137,55 @@
                 >>>
             </a>
         </h3>
+        
+> **ES6** 이전에는 key와 value을 연결하려면 객체를 사용해야 했다.   
+>    
+> **Object 사용의 단점**   
+> 1. **Prototype chain** 때문에 의도하지 않은 **연결**이 생길 수 있음   
+> 2. **key 와 value 의 수**를 알아내기 힘듦   
+> 3. key 는 반드시 **심볼이나 문자열**이여야 하므로 <u>다른 Object 를 key 로 사용 불가</u>   
+> 4. 객체는 **Properties 의 순서**를 전혀 보장하지 않음    
+>   
+
+> **Map 객체**는 위의 결함을 모두 해결함   
+>
+> **Key 와 Value 를 연결할 목적이라면 Map 을 사용하는게 옳은 선택**   
+> 
+> 출처 : [네이버 블로그](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort)   
+> 블로그에서 WeakMap 도 확인해보기
+
+<ul>
+    <li> .set(key, value)</li>
+    <li> .get(key)</li>
+    <li> .has(key)</li>
+    <li> .size __(property 임)</li>
+    <li> 
+        for ... of Map.entries()  __(array-like Object return)
+        <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L524">>></a>
+    </li>
+</ul>
+    </li>
+    <li>
+        <h3>Sets [<a href="">mdn</a>]</h3>
         <ul>
-            <li> .set(key, value)</li>
-            <li> .get(key)</li>
-            <li> .has(key)</li>
-            <li> .size __(property 임)</li>
-            <li> 
-                for ... of Map.entries()  __(array-like Object return)
-                <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L524">>></a>
-            </li>
+            <li>중복을 허용하지 않는 데이터 집합</li>
+            <pre>
+const roles = new Set();
+
+roles.add('1ilsang');
+roles.add('sangchul');
+
+roles.size; // 2
+
+roles.add('1ilsang');
+roles.size; // 2. 중복이라면 아무일도 일어나지 않는다.
+
+roles.delete('sangchul');
+roles;      // Set ["1ilsang"]
+roles.size; // 1
+roles.delete('sangchul'); // False
+            </pre>
+            > 출처 : [네이버 블로그](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort)   
         </ul>
     </li>
     <li>
