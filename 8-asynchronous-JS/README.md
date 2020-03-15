@@ -80,7 +80,7 @@
         <h3>- Produce , Consume</h3>
         <span><strong>Produce</strong> : Promise 를 생성하고 <strong>Promise</strong>를 이용해 결과를 보내는 단계</span><br/>
         <span><strong>Consume</strong> : Promise 의 <strong>Fulfillment</strong> 와 <strong>Rejection</strong> 각각의 상태에 해당하는 <strong>Callback function</strong> 을 사용하는 단계<br/></span>
-        <blockquote>.then() 과 .catch() => <b>Async / Await</b> (ES8 ES2017) 과 try...catch<a href="https://github.com/seong7/js_TIL/blob/master/8-asynchronous-JS/asynchronous.html#L103">>></a></blockquote>
+        <blockquote>.then() 과 .catch() => <b>Async / Await</b> (ES8 ES2017) 과 try...catch<a href="https://github.com/seong7/js_TIL/blob/master/8-asynchronous-JS/asynchronous.html#L161">>></a></blockquote>
     </li>
     <li>
         <h2>AJAX / API<a href="https://github.com/seong7/js_TIL/blob/master/8-asynchronous-JS/asynchronous.html#L252"> >>></a></h2>
