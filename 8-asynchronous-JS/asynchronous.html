@@ -108,88 +108,88 @@
 
         // 첫번째 promise 는 brower load 시 바로 생성되고 즉시 executor 실행됨 !!
 
-        // const getIDs = new Promise((resolve, reject)=>{  // callback fn : executor 라고 불림 (Promise 가 생성되는 즉시 실행됨)
-        //         // promise 의 성공 여부를 다룰 각각의 매개변수 (resolve_성공, reject_실패 또는 결과 없을 시)
+        const getIDs = new Promise((resolve, reject)=>{  // callback fn : executor 라고 불림 (Promise 가 생성되는 즉시 실행됨)
+                // promise 의 성공 여부를 다룰 각각의 매개변수 (resolve_성공, reject_실패 또는 결과 없을 시)
             
-        //     // Promise의 executor 에는 주로 Async code 가 들어간다. 
-        //        //(ex Ajax call / setTimeout) 
+            // Promise의 executor 에는 주로 Async code 가 들어간다. 
+               //(ex Ajax call / setTimeout) 
 
-        //     setTimeout(()=>{ // Ajax call 대신 setTimeout() 으로 연습한다. (실패하지 않음)
+            setTimeout(()=>{ // Ajax call 대신 setTimeout() 으로 연습한다. (실패하지 않음)
                 
-        //         resolve([523, 883, 432, 974] /* 결과 */);  // resolve 를 call 하는 순간 Promise 의 상태는 Fulfilled 가된다.
-        //         /* 위의 결과 data 를 Ajax 로 서버에서 받았다고 가정*/
+                resolve([523, 883, 432, 974] /* 결과 */);  // resolve 를 call 하는 순간 Promise 의 상태는 Fulfilled 가된다.
+                /* 위의 결과 data 를 Ajax 로 서버에서 받았다고 가정*/
 
-        //     }, 1500);
-        // });
+            }, 1500);
+        });
 
-        // const getRecipe = recID =>{     // 두번째 Promise 는 function 의 return 에 생성한다.
-        //                                     // : recID 매개변수를 받기 위해서 !!
+        const getRecipe = (recID) =>{     // 두번째 Promise 는 function 의 return 에 생성한다.
+                                            // : recID 매개변수를 받기 위해서 !!
 
-        //     return new Promise((resolve, reject)=>{
+            return new Promise((resolve, reject)=>{
 
-        //         setTimeout(ID => {
+                setTimeout(ID => {
 
-        //             const recipe = {
-        //                 title: 'Fresh tomato pasta',
-        //                 publisher: 'Jonas'};
-        //             resolve(`${ID}: ${recipe.title}`);
+                    const recipe = {
+                        title: 'Fresh tomato pasta',
+                        publisher: 'Jonas'};
+                    resolve(`${ID}: ${recipe.title}`);
 
-        //         }, 1500, recID);
-        //     });
-        // };
+                }, 1500, recID);
+            });
+        };
 
-        // const getRelated = publisher => {      // 세번째 Promise 또한 publisher 매개변수 받기 위해 function 에 return 시킨다.
+        const getRelated = (publisher) => {      // 세번째 Promise 또한 publisher 매개변수 받기 위해 function 에 return 시킨다.
 
-        //     return new Promise((resolve, reject) => {
+            return new Promise((resolve, reject) => {
 
 
-        //         setTimeout(pub => {
+                setTimeout(pub => {
 
-        //             const recipe = {
-        //                 title: 'Italian Pizza',
-        //                 publisher: 'Jonas'
-        //             };
-        //             resolve(`${pub} : ${recipe.title}`);
+                    const recipe = {
+                        title: 'Italian Pizza',
+                        publisher: 'Jonas'
+                    };
+                    resolve(`${pub} : ${recipe.title}`);
 
-        //         }, 1500, publisher)
+                }, 1500, publisher)
 
-        //     });
-        // };
+            });
+        };
 
 
 
         // Consume 사용
-        // getIDs
-        // .then(IDs=>{  // .then() : Fulfilled Promise (성공) 의 handler 
-        //                     // callback fn 의 매개변수 = successful Promise 의 result 값
-        //     console.log(IDs);
+        getIDs
+        .then(IDs=>{  // .then() : Fulfilled Promise (성공) 의 handler 
+                            // callback fn 의 매개변수 = successful Promise 의 result 값
+            console.log(IDs);
 
-        //     return getRecipe(IDs[2]); // 두 번재 promise 호출
-        // })
-        // .then(recipe => { // 두번째 Fulfilled promise 의 result 를 받는 두 번째 handler
-        //     console.log(recipe);
+            return getRecipe(IDs[2]); // 두 번재 promise 호출
+        })
+        .then(recipe => { // 두번째 Fulfilled promise 의 result 를 받는 두 번째 handler
+            console.log(recipe);
 
-        //     return getRelated('Seongjin Kim');
-        // }) 
-        // .then(recipe =>{
-        //     console.log(recipe);
-        // })
+            return getRelated('Seongjin Kim');
+        }) 
+        .then(recipe =>{
+            console.log(recipe);
+        })
 
-        // .catch(error =>{ // .catch() : Rejected Promise (실패) 의 handler 
-        //                     // callback fn 의 매개변수 = Rejected Promise 의 result 값
-        //     // error 를 catch 하여 error 대신 callback fn 을 실행시킨다고 생각하면 됨
-        //         // (catch 하지 않을 경우 uncaught exception 발생함)
-        //     console.log("error");
-        // });
+        .catch(error =>{ // .catch() : Rejected Promise (실패) 의 handler 
+                            // callback fn 의 매개변수 = Rejected Promise 의 result 값
+            // error 를 catch 하여 error 대신 callback fn 을 실행시킨다고 생각하면 됨
+                // (catch 하지 않을 경우 uncaught exception 발생함)
+            console.log("error");
+        });
 
-        // // console.log(getIDs);  // sync (동기적) 코드로 Promise를 출력하면 비동기적으로 작동하는 promise 는 아직 pending 이다.
-        //                     //__ Promise {<state>: "pending"}   출력됨
+        // console.log(getIDs);  // sync (동기적) 코드로 Promise를 출력하면 비동기적으로 작동하는 promise 는 아직 pending 이다.
+                            //__ Promise {<state>: "pending"}   출력됨
 
-        // setTimeout(()=>{           
-        //     console.log(getIDs);  // 시간을 주고 출력하면 결과 :
-        // },5000);                  // Promise { <state>: "fulfilled", <value>: (4) [523, 883, 432, 974] }
-        //                           // 이미 Promise 가 resove 된 후
-                                     // Promise 의 resolve 값을 출력할 수는 없다. (출력 방법은 아래에서 설명) 
+        setTimeout(()=>{           
+            console.log(getIDs);  // 시간을 주고 출력하면 결과 :
+        },5000);                  // Promise { <state>: "fulfilled", <value>: (4) [523, 883, 432, 974] }
+                                  // 이미 Promise 가 resove 된 후
+                                  //  Promise 의 resolve 값을 출력할 수는 없다. (출력 방법은 아래에서 설명) 
 
 
 
@@ -203,22 +203,22 @@
                 
         // await 문은 async function 안에서만 사용 가능하다 !!
         
-        // async function getRecipesAW(){  // 해당 fn 이 asynchronous 라는 선언 ( background 에서 실행됨 __ main code 를 멈추는 것은 불가능하므로 해당 부분만 background에서 실행되도록 분리하는 것임)
-        //                                 // async fn 은 무조건 Promise 를 return 한다.
+        async function getRecipesAW(){  // 해당 fn 이 asynchronous 라는 선언 ( background 에서 실행됨 __ main code 를 멈추는 것은 불가능하므로 해당 부분만 background에서 실행되도록 분리하는 것임)
+                                        // async fn 은 무조건 Promise 를 return 한다.
             
-        //     const IDs = await getIDs;   // getIDs (promise) 가 fulfilled 될 때까지 지연시킨다.
-        //                                 // resolve(success) 되면 await 문은 getIDs 의 resoved value 를 return 한다.
-        //                                 // __ 여기서는 [523, 883, 432, 974]
-        //     console.log(IDs);
-        //     const recipe = await getRecipe(IDs[2]);
-        //     console.log(recipe);
-        //     const related = await getRelated('Seongjin Kim');
-        //     console.log(related);
-        //     // .then() 을 나열해주는 것보다 훨씬 간단히 consume 가능
+            const IDs = await getIDs;   // getIDs (promise) 가 fulfilled 될 때까지 지연시킨다.
+                                        // resolve(success) 되면 await 문은 getIDs 의 resoved value 를 return 한다.
+                                        // __ 여기서는 [523, 883, 432, 974]
+            console.log(IDs);
+            const recipe = await getRecipe(IDs[2]);
+            console.log(recipe);
+            const related = await getRelated('Seongjin Kim');
+            console.log(related);
+            // .then() 을 나열해주는 것보다 훨씬 간단히 consume 가능
 
-        //     return recipe;  // async fn 은 무조건 Promise 를 return 하므로 
-        //                     // recipe 에 부여된 두번째 promise 를 return 함
-        // }
+            return recipe;  // async fn 은 무조건 Promise 를 return 하므로 
+                            // recipe 에 부여된 두번째 promise 를 return 함
+        }
         
         // /* Promise 자체를 출력 : */
         // // const rec = getRecipesAW();         // async fn 이 return 한 두번째 promise assign 함

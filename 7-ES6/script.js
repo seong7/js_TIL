@@ -22,6 +22,11 @@ console.log(name6);
 // var        : function-scoped
 // let, const : block-scoped
 
+// var varTest = 0;
+// var varTest = 1;  __ no error
+// let letTest = 0;
+// let letTest = 2;   __ already been declared error
+
 // ES 5
 function driversLicence5(passedTest){
     if(passedTest){
