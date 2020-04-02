@@ -29,10 +29,11 @@
       > 하지만, 아직 이 기능을 지원하지 않는 browser 가 많음  
       > **=> _Module Bundler_ 사용하여 해결 (대표적: **Webpack**)** > >**- Webpack 의 기능** >- _Bundle Modules_ >- _Decrease JS bundle size_ (tree shaking 알고리즘 사용) >- _Code Splitting_ >- _Load Assets_ (sass, images 등)
 
-          >[webpack.config.js (_webpack 설정 파일)](webpack.config.js)
+      > webpack.config.js (_webpack 설정 파일)[ >>](webpack.config.js)
 
     - **- [BABEL](https://babeljs.io)**  
-      : ES6 / ESNext(7, 8) 를 ES5 로 compile 해주는 tool > [babel.config.json (\_babel 설정 파일)](babel.config.json)
+      : ES6 / ESNext(7, 8) 를 ES5 로 compile 해주는 tool   
+      > babel.config.json (\_babel 설정 파일)[ >>](babel.config.json)
 
   - ### npm package 설치방법 :
 
