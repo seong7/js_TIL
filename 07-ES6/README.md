@@ -72,9 +72,11 @@
         <ul>
             <li>Array.from()</li>
             <li>
-                for..of
+                for..of (Map 또는 Array-like obj 에 사용)<a href ="https://github.com/seong7/js_TIL/blob/master/7-ES6/script.js#L329">
+                >>>
+            </a>
                 <ul>
-                    <li>참조 - Object : for..in (기존에 있던 syntax임)<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in">>></a></li>
+                    <li>참조 - Object : for..in (Object 에 사용)(기존에 있던 syntax임)<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in">>></a></li>
                 </ul>
             </li>
             <li>Array.findIndex(callbackFn) : Fn 이 참인 첫번째 index</li>
