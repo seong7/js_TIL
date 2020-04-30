@@ -17,3 +17,43 @@ let output = fs.readFileSync(__dirname + "/data.txt", "utf8")
 
 
 console.log(JSON.stringify(output, null, 2)); 
+
+/* 
+    결과 :
+{
+  "Mark": [
+    {
+      "name": "Americano",
+      "price": "5000",
+      "quantity": "2"
+    },
+    {
+      "name": "Latte",
+      "price": "6000",
+      "quantity": "1"
+    },
+    {
+      "name": "Tea",
+      "price": "4500",
+      "quantity": "3"
+    }
+  ],
+  "Jason": [
+    {
+      "name": "Americano",
+      "price": "5000",
+      "quantity": "5"
+    },
+    {
+      "name": "Latte",
+      "price": "6000",
+      "quantity": "2"
+    },
+    {
+      "name": "Tea",
+      "price": "4500",
+      "quantity": "3"
+    }
+  ]
+}
+*/

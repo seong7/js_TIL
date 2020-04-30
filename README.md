@@ -37,14 +37,14 @@
 
 <h2>
     Language Basics
-    <a href="2-JS-basics">
+    <a href="02-JS-basics">
         >>>
     </a>
 </h2>
 
 <h2>
     How JavaScript Works
-    <a href="3-how-JS-works">
+    <a href="03-how-JS-works">
         >>>
     </a>
 </h2>
@@ -62,7 +62,7 @@
 
 <h2>
     Advanced JavaScript
-    <a href="5-advanced-JS">
+    <a href="05-advanced-JS">
         >>>
     </a>
 </h2>
@@ -89,7 +89,7 @@
         First Class Function (일급 함수)
     </li>
     <li>
-        <strong>Bugety App <a href="6-budgety-app">>></a></strong>
+        <strong>Bugety App <a href="06-budgety-app">>></a></strong>
         <BlockQuote>
             - Array<br/>
             - String<br/>
@@ -102,7 +102,7 @@
 
 <h2>
     ES 6
-    <a href="7-ES6">
+    <a href="07-ES6">
         >>>
     </a>
 </h2>
@@ -120,7 +120,7 @@
 
 <h2>
     Asynchronous JavaScript
-    <a href="8-asynchronous-JS">
+    <a href="08-asynchronous-JS">
         >>>
     </a>
 </h2>

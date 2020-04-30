@@ -103,3 +103,20 @@ const totalAmount1
     // callback fn 의 return 값이 다음 acc 로 넘어감 
     // 초기 값(객체)이 없으면 배열의 0번 요소로 시작 (빈배열에 초기 값 없으면 에러)
 ```
+
+
+### Closure
+함수의 body 에서 상위 scope 의 변수의 주소에 접근할 수 있는 기능
+
+#### 기초 코드
+```javascript
+let me = "Jason";
+function greetMe () {
+    console.log(`Hello, ${me}!`);
+}
+me = "Seongjin";
+greetMe();
+
+// 출력 : Hello, Seongjin!
+```
+단순히 복사된 값이 아니라, 참조 주소에 접근한다.
