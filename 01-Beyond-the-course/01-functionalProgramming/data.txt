@@ -1,0 +1,6 @@
+Mark    Americano    5000    2
+Mark    Latte    6000    1
+Mark    Tea    4500    3
+Jason    Americano    5000    5
+Jason    Latte    6000    2
+Jason    Tea    4500    3     
