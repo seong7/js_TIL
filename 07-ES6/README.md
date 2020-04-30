@@ -4,7 +4,7 @@
     <li>
         <h3>
             'let' and 'const'
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L4">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L4">
                 >>>
             </a>
         </h3>
@@ -18,7 +18,7 @@
     <li>
         <h3>
             Blocks and IIFEs
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L71">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L71">
                 >>>
             </a>
         </h3>
@@ -26,7 +26,7 @@
     <li>
         <h3>
             Strings
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L95">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L95">
                 >>>
             </a>
         </h3>
@@ -41,38 +41,38 @@
     <li>
         <h3>
             Arrow Functions
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L120">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L120">
                 >>>
             </a>
         </h3>
         <ul>
-            <li>array.map() 에 사용법 <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L131">>></a></li>
+            <li>array.map() 에 사용법 <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L131">>></a></li>
             <li>Lexical 'this' keyword : Arrow fn 의 주요 특징<a href="">>></a></li>
         </ul>
     </li>
     <li>
         <h3>
             Destructuring
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L242">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L242">
                 >>>
             </a>
         </h3>
         <ul>
             <li>Object 또는 Array 에 사용가능</li>
-            <li>Map 은 Map.entries() 에 사용가능<a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L524">>></a></li>
+            <li>Map 은 Map.entries() 에 사용가능<a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L524">>></a></li>
         </ul>
     </li>
     <li>
         <h3>
             Arrays
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L292">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L292">
                 >>>
             </a>
         </h3>
         <ul>
             <li>Array.from()</li>
             <li>
-                for..of (Map 또는 Array-like obj 에 사용)<a href ="https://github.com/seong7/js_TIL/blob/master/7-ES6/script.js#L329">
+                for..of (Map 또는 Array-like obj 에 사용)<a href ="https://github.com/seong7/js_TIL/blob/master/07-ES6/script.js#L329">
                 >>>
             </a>
                 <ul>
@@ -87,7 +87,7 @@
     <li>
         <h3>
             The Spread Operator ( ... )
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L350">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L350">
                 >>>
             </a>
         </h3>
@@ -107,7 +107,7 @@
         <ul>
             <li>
                 function 의 매개변수를 자유롭게 받는 방법 (REST parameter)<br/>
-                <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L389">
+                <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L389">
                 >>>
                 </a>
                 <ol>
@@ -119,7 +119,7 @@
                         ES 6 : 매개변수에 (a, b, ...rest) 선언 (rest parameter)<br/>
                         -> 입력된 매개변수들 중 a, b 를 제외한 나머지 매개변수들은 자동으로 Array로 변환되어 rest 변수에 저장됨<br/>
                         (입력된 매개변수의 수와는 상관없음)<br/>
-                        <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L442">
+                        <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L442">
                             >>
                         </a>
                     </li>
@@ -128,14 +128,14 @@
             <li>
                 매개변수의 Default 값 지정하는 법 (DEFAULT parameter)<br/>
                 function fn(a = 1){}<br/>
-                <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L458">>></a>
+                <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L458">>></a>
             </li>
         </ul>
     </li>
     <li>
         <h3>
             Maps
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L489">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L489">
                 >>>
             </a>
         </h3>
@@ -163,7 +163,7 @@
     <li> .size __(property 임)</li>
     <li> 
         for ... of Map.entries()  __(array-like Object return)
-        <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L524">>></a>
+        <a href="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L524">>></a>
     </li>
 </ul>
     </li>
@@ -193,7 +193,7 @@ roles.delete('sangchul'); // False
     <li>
         <h3>
             Classes and Subclasses ( Inheritance )
-            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/7-ES6/script.js#L543">
+            <a href ="https://github.com/seong7/js_TIL/blob/b32fc9730616a3ea601de25e659b20a05ba779b0/07-ES6/script.js#L543">
                 >>>
             </a>
         </h3>
