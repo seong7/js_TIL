@@ -18,6 +18,12 @@
     </h3>
     <ol>
       <li>
+        Prototype , __proto__ , Prototype chain 이해하기
+        <a href="https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67">
+        [ 블로그 >> ]
+        </a>
+      </li>
+      <li>
         생성자의 Property 내 method의 장점 :
         <a href="https://velog.io/@gtobio11/Javascript-Prototype-methods-vs-Object-methods">
           >>>
