@@ -11,8 +11,8 @@ let output = fs.readFileSync(__dirname + "/data.txt", "utf8")
             name: c[1],
             price: c[2],
             quantity: c[3],
-        })
-        return result
+        });
+        return result;
     }, {})
 
 
