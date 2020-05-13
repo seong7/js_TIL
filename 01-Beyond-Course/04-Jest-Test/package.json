@@ -1,0 +1,16 @@
+{
+  "name": "04-jest-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "watch": "jest --watch --runInBand --no-cache *.js"
+  },
+  "author": "Jason",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
