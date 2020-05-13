@@ -131,7 +131,7 @@
     <li>AJAX / API</li>
 </ol>
 
-## Modern JavaScript [>>>](9-modern-JS)
+## Modern JavaScript [>>>](09-modern-JS)
 1. node.js
 2. npm (Node Package Manager)
     - webpack
