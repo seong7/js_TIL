@@ -12,9 +12,9 @@ Unit Test 는 동료들 또는 미래의 나에게 정말 중요한 의사소통
 
 ### [>> ](./Jest_Basic/order-total.test.js) Jest 기본 사용법
 
-### [>> ](./Jest_Mock/selfMade_Mock/order-total-async.test.js) Jest Mock Function Test - 1 (self Made Mock fn) (비동기 통신 Test)
+### [>> ](./Jest_Mock/selfMade_Mock/order-total-async.test.js) Mock Function Test - 1 (self Made Mock fn) (비동기 통신 Test)
 
-### [>> ](./Jest_Mock/jestMade_Mock/) Jest Mock Function Test - 2 (jest Made Mock fn) (비동기 통신 Test)
+### [>> ](./Jest_Mock/jestMade_Mock/order-total-async-jest.test.js) Jest Mock Function Test - 2 (jest Made Mock fn) (비동기 통신 Test)
 
 <br/>
 
