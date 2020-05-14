@@ -8,17 +8,21 @@ Unit Test 는 동료들 또는 미래의 나에게 정말 중요한 의사소통
   - 그리고 더 귀찮아짐
   - 먼저 작성된 TEST 코드를 하나하나 달성하면서 작성하면 단계적으로 올바른 방향으로 코딩 가능 (인터페이스를 먼저 정하고 툴을 개발했던 것과 같음)
 
-[>> Unit Test 기본 코드 (순수 js 사용)](./UnitTestBasic/example.js)
+### [>> ](./UnitTestBasic/example.js) Unit Test 기본 코드 (순수 js 사용)
 
-[>> Jest 기본 사용법](./Jest_Basic/order-total.test.js)
+### [>> ](./Jest_Basic/order-total.test.js) Jest 기본 사용법
 
-[>> Jest Mock Function Test (가짜 코드_ 비동기 코드 Test)](./Jest_Mock)
+### [>> ](./Jest_Mock/selfMade_Mock/order-total-async.test.js) Jest Mock Function Test - 1 (self Made Mock fn) (비동기 통신 Test)
+
+### [>> ](./Jest_Mock/jestMade_Mock/) Jest Mock Function Test - 2 (jest Made Mock fn) (비동기 통신 Test)
+
+<br/>
 
 ## TDD 접근법 (세 가지)
 
 #### 1. Trangulation
   - 가장 단순함 (초보에게 좋음)
-  - RED, GREEN, REFACTOR (실패, 성공, refactor)
+  - **RED, GREEN, REFACTOR (실패 -> 작성 및 수정 -> 성공 -> refactor)**
 
 #### 2. Fake it untill you make it
 
