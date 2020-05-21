@@ -76,7 +76,7 @@
                 >>>
             </a>
                 <ul>
-                    <li>참조 - Object : for..in (Object 에 사용)(기존에 있던 syntax임)<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in">>></a></li>
+                    <li>참조 - Object : for..in (Object 에 사용__ property 를 iterate 함)(기존에 있던 syntax임)<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in">>></a></li>
                 </ul>
             </li>
             <li>Array.findIndex(callbackFn) : Fn 이 참인 첫번째 index</li>
