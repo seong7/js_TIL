@@ -1,6 +1,3 @@
-<h3><b>Go to COMPLETE REPO</b> <a href="https://github.com/jonasschmedtmann/complete-javascript-course">>>></a></h3>
-<hr/><br/>
-
 <h2>Reference Link List</h2>
 <ul>
     <li>
@@ -64,7 +61,7 @@
     <li>
         'This' Keyword
     </li>
-</ol>    
+</ol>
 
 <h2>
     Advanced JavaScript
@@ -138,11 +135,10 @@
 </ol>
 
 ## Modern JavaScript [>>>](09-modern-JS)
+
 1. node.js
 2. npm (Node Package Manager)
-    - webpack
-    - babel
-    - eslint
-    - prettier
-    
-    
+   - webpack
+   - babel
+   - eslint
+   - prettier

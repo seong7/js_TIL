@@ -4,7 +4,8 @@
     <li>
         <h3>
             Variables and Data Types
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L2">
+            <a href="        
+            https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L2">
                 >>>
             </a>
         </h3>
@@ -17,7 +18,7 @@
     <li>
         <h3>
             Type Coercion (형 변환)
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L38">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L38">
                 >>>
             </a>
         </h3>
@@ -25,7 +26,7 @@
     <li>
         <h3>
             Basic Operators
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L65">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L65">
             >>>
             </a>
         </h3>
@@ -38,7 +39,7 @@
     <li>
         <h3>
             If / Else Statement
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L101">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L101">
                 >>>
             </a>
         </h3>
@@ -46,7 +47,7 @@
     <li>
         <h3>
             The Ternary Operator
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L118">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L118">
                 >>>
             </a>
         </h3>
@@ -54,7 +55,7 @@
     <li>
         <h3>
             Switch Statements
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L130">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L130">
                 >>>
             </a>
         </h3>
@@ -66,7 +67,7 @@
     <li>
         <h3>
             Truthy and Falsy Values
-            <a href="https://github.com/seong7/js_TIL/blob/edbbf94c925b71d0f4aac18648dba082b1fd1630/02-JS-basics/script.js#L167">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L167">
                 >>>
             </a>
         </h3>
@@ -83,7 +84,7 @@
     <li>
         <h3>
             Equality Operators
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L190">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L190">
                 >>>
             </a>
         </h3>
@@ -98,14 +99,14 @@
     <li>
         <h3>
             Functions
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L204">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L204">
                 >>>
             </a>
         </h3>
         <ul>
             <li>
-                Function Browing 사용법
-                <a href="https://github.com/seong7/js_TIL/blob/505baf69936f2271968baea58437f1a93ca7989b/03-how-JS-works/script.js#L168">
+                Function Borowing 사용법
+                <a href="https://github.com/seong7/js_TIL/blob/master/03-how-JS-works/script.js#L168">
                     >>
                 </a>
             </li> 
@@ -114,7 +115,7 @@
     <li>
         <h3>
             Function Statements, Declaration and Expressions
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L233">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L233">
                 >>>
             </a>
         </h3>
@@ -122,7 +123,7 @@
             <li>Declaration : HOISTING O</li>
             <li>
                 Expressions : HOISTING X
-                <a href="https://github.com/seong7/js_TIL/blob/505baf69936f2271968baea58437f1a93ca7989b/03-how-JS-works/script.js#L5">
+                <a href="https://github.com/seong7/js_TIL/blob/master/03-how-JS-works/script.js#L5">
                     [참고_ hoisting]
                 </a>
             </li>    
@@ -131,7 +132,7 @@
     <li>
         <h3>
             Arrays
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L265">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L265">
                 >>>
             </a>
         </h3>
@@ -144,7 +145,7 @@
     <li>
         <h3>
             Objects and properties
-            <a href="https://github.com/seong7/js_TIL/blob/92c296a3643696fc0c8261c1b0107ada48dac6f2/02-JS-basics/script.js#L296">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L296">
                 >>>
             </a>
         </h3>
@@ -154,11 +155,7 @@
                 object 내 property 호출 방법
                 <ol>
                     <li>object.key</li>
-                    <li>object[variable for Key]  : 키 값을 동적으로 표현
-                        <a href="">
-                            >>>
-                        </a>
-                    </li>
+                    <li>object[variable for Key]  : 키 값을 동적으로 표현</li>
                 </ol>
             </li>
         </ol>

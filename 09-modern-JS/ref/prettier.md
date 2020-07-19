@@ -16,7 +16,7 @@
 
 - ### 설정
 
-  - [.prettierrc 파일]() 생성 : custom 설정 가능
+  - .prettierrc 파일 생성 : custom 설정 가능
 
 - ### Prettier formatting 무시하는 법
 

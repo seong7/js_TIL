@@ -18,7 +18,7 @@
 
 - ### 설정
 
-  - [.eslintrc.json]() 또는 package.json 의 "eslintConfig": {} 에 custom 설정
+  - .eslintrc.json 또는 package.json 의 "eslintConfig": {} 에 custom 설정
 
 - ### ESLint 검사 무시하는 법
   <!-- prettier-ignore -->
