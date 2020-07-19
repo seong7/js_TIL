@@ -45,10 +45,10 @@
   - #### Event 관련
 
     > - ##### event.preventDefault() : [index.js]()
-    > - ##### hash change event [>>]()
+    > - ##### hash change event
     >   > url 에서 # 부분 값의 변화를 감지함  
     >   > window.addEventListener('hashchange', callback fn)
-    > - ##### load event [>>]()
+    > - ##### load event
     >   > page 가 load 되는 것을 감지함  
     >   > window.addEventListener('load', callback fn)
     > - ##### event.target.closest('selector') 사용법 [index.js]()
@@ -57,4 +57,4 @@
 
   - #### Package 관련
 
-    > - ##### fractional 사용법 [>>]()
+    > - ##### fractional 사용법
