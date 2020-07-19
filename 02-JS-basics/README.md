@@ -4,8 +4,7 @@
     <li>
         <h3>
             Variables and Data Types
-            <a href="        
-            https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L2">
+            <a href="https://github.com/seong7/js_TIL/blob/master/02-JS-basics/script.js#L2">
                 >>>
             </a>
         </h3>
